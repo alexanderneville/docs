@@ -1,0 +1,10 @@
+# Local Variables:
+# eval: (visual-line-mode -1)
+# eval: (visual-fill-column-mode -1)
+# End:
+
+#+ATTR_LATEX: :center t :placement [H] :align r|c|c|c|c|
+| position | $3$    | $2$    | $1$    | $0$    |
+| power    | $10^3$ | $10^2$ | $10^1$ | $10^0$ |
+| digit    | $1$    | $0$    | $3$    | $7$    |
+| value    | $1000$ | $0$    | $30$   | $7$    |

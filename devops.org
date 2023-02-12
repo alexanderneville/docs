@@ -1,0 +1,87 @@
+#+TITLE: Software Development and IT Operations
+
+* Git
+* Nix
+* Make
+* Containers
+
+The word /"container"/ has found many different, often contradictory, meanings. According to the  *OCI*, which standardises container formats and runtimes, defines a container as /"An environment for executing processes with configurable isolation and resource limitations. ..."/. This is certainly true, but we are still left with some doubt about what a container is due to the various other parties interpreting the term differently.
+
+In practice the widespread adoption of app containerisation in DevOps was brought about by Linux kernel features facilitating process isolation.
+
+** (Very) Simple Implementation
+
+It is possible to create a container environment without a container engine or runtime, using only Linux utilities. The basis of this simple container is a /chroot/, further isolated with kernel namespaces and control groups.
+
+Creating a new empty directory and attempting to invoke bash, or any other binary for that matter, will result in failure; there is no shell inside the chroot environment because its an empty file system (optionally create a file for experimentation purposes later on).
+
+#+begin_src
+mkdir -p ./chroot_demo
+echo "Hello, World!" >> ./chroot_demo/file.txt
+chroot ./chroot_demo bash
+#+end_src
+
+To rectify this, copy the bash, ls and cat binaries from your host system into the new root. This will not be enough to start a shell in the new environment just yet.
+
+#+begin_src
+mkdir -p ./chroot_demo/bin
+cp /bin/{bash,ls,cat} ./chroot_demo/bin
+#+end_src
+
+Finally, copy the libraries required by each of the binaries into the chroot. Do so by creating standard Linux directories under the /chroot/ like so: =mkdir -p ./chroot_demo/{,usr/}lib{,64}=. Use =ldd(1)= to identify the library dependencies of each executable used in the container and copy the necessary shared object files into the container root environment. This is a very simple bootstrapping routine.
+
+With these steps completed, running =chroot ./chroot_demo bash= from before should cause the prompt to change indicating a successful change root operation. Similarly, with ls and cat /installed/, it is possible to list and read =file.txt=.
+
+This bootstrapping process is common behind the scenes of any OS installation or VM/Container initialisation. There are many tools which will automatically bootstrap a directory with a working version of a Linux distribution. =Debootstrap= is a widely used utility for creating a Debian install in a given directory.
+
+#+begin_src
+mkdir -p ./debian_chroot
+debootstrap --variant=minbase stable ./debian_chroot
+#+end_src
+
+Within this new directory there is a standard Linux file system hierarchy, containing a minimal Debian user space. =chroot ./debian_chroot= will start a shell inside the chroot, this time with considerably more libraries, utilities and binaries.
+
+*** Namespaces
+
+A chroot provides some isolation for a container, although there are still (many) security flaws. Access to files is limited to the /jail/ that the new root imposes, although the container remains free to interact with outside processes.
+
+- Having changed into the newly created Debian environment, start a long running process on the host, outside of the chroot (eg. =tail -f some_file=) and send it to the background.
+- Use =ps(1)= to obtain the /PID/ of the target process.
+- Returning to the container, an attempt to kill the specified process via its PID is successful, the process of the host machine is terminated.
+- Verify that the process on the host has been terminated by running =ps= again.
+
+In this sense, process isolation has not been achieved; it is still possible for a container to interact with outside processes of the most machine or a sibling container. Using the =unshare(1)= utility, it is possible to run a process, such as a chroot, in a new /namespace/.
+
+#+begin_src sh
+unshare --mount --uts --ipc --net --pid --fork --user --map-root-user chroot ./debian_chroot bash
+mount -t proc none /proc
+mount -t sysfs none /sys
+mount -t tmpfs none /tmp
+#+end_src
+
+Repeating the same kill command within the new chroot cause an error, as the container does not know of any processes with a PID matching the external process.
+
+*** TODO Cgroups
+
+** Container Image
+** Container Engine
+** Container Runtime
+** Open Container Initiative
+** Docker/Podman
+
+- Docker is a daemon, while podman is not. Docker is run as root and maintains a socket, owned by the docker group. Your user can be added to the docker group to run docker commands without requiring root access.
+
+* Resources
+- Containers vs VMs: https://www.youtube.com/watch?v=cjXI-yxqGTI
+- Container overview: https://www.youtube.com/watch?v=0qotVMX-J5s
+- IBM Cloud DevOps: https://www.youtube.com/playlist?list=PLOspHqNVtKAC-_ZAGresP-i0okHe5FjcJ
+- LXC/docker comparison: https://www.upguard.com/blog/docker-vs-lxc#toc-0 
+- Containers are Linux: https://www.redhat.com/en/blog/containers-are-linux 
+- OCI: https://opencontainers.org/  
+
+- Redhat container terminology: https://developers.redhat.com/blog/2018/02/22/container-terminology-practical-introduction
+- Redhat Containers part 1: https://www.redhat.com/en/blog/architecting-containers-part-1-why-understanding-user-space-vs-kernel-space-matters 
+- Redhat Containers part 2: https://www.redhat.com/en/blog/architecting-containers-part-2-why-user-space-matters 
+
+- Complete intro to containers: https://btholt.github.io/complete-intro-to-containers/ 
+- Debunking Container Myths: https://iximiuz.com/en/series/debunking-container-myths/ 

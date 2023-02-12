@@ -1,0 +1,11 @@
+
+# Local Variables:
+# eval: (visual-line-mode -1)
+# eval: (visual-fill-column-mode -1)
+# End:
+
+#+ATTR_LATEX: :placement [H] :center t :align r|c|c|c|c|l
+|           | comparisons | swaps |
+| bubble    |             |       |
+| selection |             |       |
+| insertion |             |       |
