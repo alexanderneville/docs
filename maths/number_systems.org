@@ -28,7 +28,7 @@ The value of a number written in positional notation is the sum of the digits mu
 
 The /decimal/ system (base 10) is most often used and assumed to be the default base, that is unless another base is explicitly specified. This is often done with a subscript after the representation of a number. $11$ is assumed to be the natural number eleven, written in decimal, rather than three written in binary. $11_2$ is unmistakably binary, but this specificity isn't always necessary.
 
-#+include: "./tables/positional_notation_1.org"
+#+include: "../tables/positional_notation_1.org"
 
 * Algebraic Structures
 
@@ -121,17 +121,17 @@ The positional notation used to write natural numbers needs to be extended to wr
 
 The most simple system  is /Sign-magnitude/ notation. Negative numbers are prefixed with a minus sign, eg $-37$. Natural numbers can also be written with a distinct positive sign, eg $+37$. If the sign is omitted, the number is assumed to be positive. Inversion is very easy using this notation, changing the sign is the only step. In a computer system, an additional bit is required to store the sign, making the range of possible integer values with $n$ bits $(-2^{n-1} \ldotp \ldotp 2^{n-1})$, with both $+0$ and $-0$ being stored.
 
-#+include: "./tables/sign_magnitude_notation.org"
+#+include: "../tables/sign_magnitude_notation.org"
 
 /Complement/ notation makes integer arithmetic more practical at the cost of more complicated inversion. Writing a number in complement notation is effected by subtracting the absolute or positive value from 0. The inversion process is consistent in all bases. For any radix base $b$, the complement of a number can be calculated quickly by taking each digit's complement with $b-1$ and then adding $1$ to the value.
 
-#+include: "./tables/complement_example.org"
+#+include: "../tables/complement_example.org"
 
 In the case of this decimal number, its complement begins with the repeated digit $9$, which can be written $\dot 9$, a positive number in the same system begins with $\dot 0$. For any base $b$, a positive number begins $\dot 0 \ldots$  and a negative number begins $\dot {(b-1)} \ldots$. So $+282$ and $-282$ in sign-magnitude notation can be written $\dot 0 282$ and $\dot 9718$ in complement notation.
 
 Two's complement is used to store negative integers in binary. The most significant bit in a word is signed. Numbers beginning $\dot 1 \ldots$ therefore include a negative value and are negative. Two's complement notation includes the additional value $-2^{n-1}$, instead of $-0$ making the range of integers that can be expressed with $n$ bits $[-2^{n-1} \ldotp \ldotp 2^{n-1})$.
 
-#+include: "./tables/complement_notation.org"
+#+include: "../tables/complement_notation.org"
 
 ** Integer Intervals
 

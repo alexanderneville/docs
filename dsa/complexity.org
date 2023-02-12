@@ -8,7 +8,7 @@ Performance itself is not a useful metric, it does not capture how the number of
 
 Some algorithms may take longer under different input conditions, for example linear search is much faster if the element to find is first in a list than if the element doesn't appear in the list at all. The complexity of this algorithm can be measured under different cases, eg. in the /best case/, where the element to find is at the start of the list (constant time complexity); the /average case/, where the element is in the middle of the list ($n/2$ complexity) or the /worst case/, where the element to find doesn't appear in the list ($n$ complexity).
 
-*** Big $O$ Notation
+*** Big O Notation
 
 Presented with a function expressing the exact complexity of an algorithm, /big O/ notation simplifies the complexity to its most significant headline complexity. If $f(n)$ is the sum of many terms, then only the term with the highest growth rate is taken. Any constant factor, coefficient or term that doesn't depend on the input size (any overhead) can be ignored. The resulting expression is known as a /complexity class/. 
 
@@ -22,7 +22,7 @@ A function is /at most as fast growing/ as (grows no faster than) the complexity
 
 \[O(1) \subseteq O(\log_2 \log_2 n) \subseteq O(\log_2 n) \subseteq O(n) \subseteq O(n log_2 n) \subseteq O(n^2) \subseteq O(n^3) \subseteq O(2^n)\]
 
-*** Little $o$ Notation
+*** Little o Notation
 
 Little $o$ notation is a stricter upper bound for a function's complexity. Functions that are $o(g(n))$ are also $O(g(n))$, but the opposite is not always true. Little o complexity means that $g(x)$ /grows faster than/ $f(x)$.
 
