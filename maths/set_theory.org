@@ -1,0 +1,200 @@
+#+TITLE: Set Theory
+
+* Introduction
+
+A /set/ is a collection of different items; a set contains /elements/. A set can be simply expressed by enumerating its elements, typically inside $\{$,$\}$ curly brackets. $\{2,4,6,8\}$ and
+$\{\text{Alex}, \text{Benjamin}, \text{Richard}, \text{Bethan}\}$ are examples of sets.
+
+* Membership & Equality
+
+The symbol $\in$ denotes set membership, so if $x$ is a member of set $A$ this can be written $x \in A$. The notation $x \notin A$ means that $x$ is not an element of $A$. Two sets are equal when they contain the same elements, formally:
+
+\[ A = B \iff (\forall x.x \in A \iff x \in B)\]
+
+* Subsets
+
+A set $B$ is a /subset/ of another set $A$, written $B \subseteq A$, if all the elements of $B$ are also elements of $A$.
+
+\[ B \subseteq A \iff (\forall x.x \in B \implies x \in A)\]
+
+Any set is a subset of itself $A \subseteq A$. If $B \subseteq A$ and $A \neq B$, then $B$ is a /proper subset/ of $A$, written $B \subset A$.
+
+\[ B \subset A \iff (\forall x.x \in B \implies x \in A) \land \neg (A = B)\]
+
+Two sets are equal if and only if they are subsets of each other.
+
+\[ A = B \iff (A \subseteq B \land B \subseteq A)\]
+
+* Set Operations
+
+Some common set operations:
+
+- $A \cup B$ is the /union/ of two sets, containing all the elements occurring in $A$ or $B$ or both.
+- $A \cap B$ is the /intersection/ of two sets, containing all the elements occurring in both $A$ and $B$.
+- $A \setminus B$ is the /difference/ of two sets, containing all the elements occurring in $B$ but not $A$.
+
+* Set Cardinality
+
+ Every finite set $A$ has a natural number /cardinality/ $|A|$, its size or number of elements. The empty set is written $\emptyset$ or $\{\}$ and has a cardinality of $0$. $\{\emptyset\}$ is not the empty set, as $1 \neq \{1\}$ it is the /singleton/ set, with cardinality $1$. 
+
+* Set Builder Notation
+
+Enumeration of a subset's elements is inconvenient for large subsets. A subset can be constructing concisely by selecting items from another set according to logical conditions in /set-builder notation/. The $|$ symbol is read /"such that"/.
+
+\[\{n \in \mathbb{N} \text{ } |  \text{ }n \ge 10\} = \{10, 11, 12, \ldots\}\]
+\[\{n^2 \text{ } |  \text{ } n\in \mathbb{N}, n^3 \ge 8\} = \{4, 9, 25, \ldots\}\]
+
+* Product of Sets
+
+A /tuple/ is a finite, ordered sequence of elements. An /ordered pair/ is a /2-tuple/, while an /ordered triple/ is a /3-tuple/, in general an /n-tuple/ has $n$ elements. The ordered pair $(a, b)$ does not equal $(b,a)$ unless $a=b$; order matters surprisingly. The product of two sets is the set of all ordered pairs.
+
+\[A \times B \stackrel{\text{def}}{=} \{(x,y) | x \in A, y \in B\}\]
+
+Every lists of sets has a product. The product of $\emptyset$ is $\{()\}$.
+
+\[A \times B \times C \stackrel{\text{def}}{=} \{(x,y,z) | x \in A, y \in B, z \in C\}\]
+
+* Special Sets
+
+- $A^\ast$ is the set of all (finite) lists of elements of $A$.
+- $A ^\omega$ is the set of all /streams/ (infinite sequences) of elements of $A$.
+- $\mathcal{P}A$ is the /powerset/ (set of all subsets) of $A$.
+
+* Subset Algebra
+
+For any set $S$, $\mathcal{P}S$ is the set of all subsets of $S$. If $A$ and $B$ are elements of $\mathcal{P}S$ they are both subsets of $S$, called the common or /ambient/ set. Operations on $A$ and $B$ include $A \cup B$ and $A \cap B$ and also the /complement/ of $A$ relative to $S$, written $\overline{A}$.
+
+\[\overline{A} \stackrel{\text{def}}{=} S \setminus A\]
+
+The axioms that these operations have:
+
+- Identity elements: $A \cup \emptyset = A$, $A \cap S = A$
+- Absorbing elements: $A \cup S = S$, $A\cap \emptyset = \emptyset$ 
+- Commutativity: $A \cup B$, $A \cap B$
+- Associativity: $A \cup (B \cup C) = (A \cup B) \cup C$, $A \cap (B \cap C) = (A \cap B) \cap C$
+- Idempotence: $A \cup A = A$, $B \cap B = B$
+- Absorption: $(A \cup B) \cap B = B$, $(A \cap B) \cup B = B$
+- Distributivity: $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$
+- Distributivity: $A \cup (B \cap C) = (A \cap B) \cup (A \cap C)$
+- Complements: $\overline{A} \cup A = S$, $\overline{A} \cap A = \emptyset$
+
+Any set equipped with the operations $\land$, $\lor$, $\neg$ and two constants $\top$ and $\bot$ forms a boolean algebra. Every power set forms a boolean algebra assigning $\emptyset = \bot$ and the ambient set $S = \top$.
+
+- Identity elements: $A \lor \bot = A$, $A \land \top = A$
+- Absorbing elements: $A \lor \top = \top$, $A\land \bot = \bot$
+- Commutativity: $A \lor B$, $A \land B$
+- Associativity: $A \lor (B \lor C) = (A \lor B) \lor C$, $A \land (B \land C) = (A \land B) \land C$
+- Idempotence: $A \lor A = A$, $B \land B = B$
+- Absorption: $(A \lor B) \land B = B$, $(A \land B) \lor B = B$
+- Distributivity: $A \land (B \lor C) = (A \land B) \lor (A \land C)$
+- Distributivity: $A \lor (B \land C) = (A \land B) \lor (A \land C)$
+- Complements: $\overline{A} \lor A = \top$, $\overline{A} \land A = \bot$
+
+* Relations
+
+If $A_1, A_2, \ldots, A_n$ is a list of $n$ sets and $R$ is a subset of $A_1 \times A_2 \times \ldots \times A_n$, then $R$ is a /n-ary Relation/. Elements of $A_1 \times A_2 \times \ldots \times A_n$ are all /n-tuples/. Any subset $R$ is a relation. A relation can be represented as a set of ordered /n-tuples/ in tabular or graphical form or using set-builder notation.
+
+*** Binary Relations
+
+A binary relation associates elements of one set, the /domain/, to another set, the /codomain/. A binary relation over the sets $X$ and $Y$ is a subset of $\mathcal{P}(X \times Y)$. A binary relation is /homogeneous/ when $X = Y$ and is said to be a binary relation over $X$. $(x, y) \in R$ means that $x$ is related to $y$, sometimes written $xRy$. A binary relation is a generalisation of a /unary/ function which maps one input to one output.
+
+The composition of the relation $R \subseteq A \times B$ and $S \subseteq B \times C$ is written $S \circ R \subseteq = A \times C$; $R$ is applied first and then $S$.
+
+\[S \circ R = \{(a,c) \text{ } | \text{ } \exists b \in B. (a,b) \in R \land (b,c) \in S \}\]
+
+If $R \subseteq A \times B$, then $R^\circ \subseteq B \times A$. $R^\circ$, $R^{-1}$ or $R^T$ is called the /converse/, /inverse/ or /transpose/ relation of $R$.
+
+\[yR^\circ x \iff xRy\]
+\[R^\circ = \{(y, x) \in B \times A | (x, y) \in R\}\]
+
+*** Functions
+
+A function is a type of binary relation which maps every element of the domain to exactly one element of the codomain. For a relation $R \subseteq A \times B$, $R$ must satisfy two conditions if it is a /functional relation/.
+
+1. *Total:* For every element $a \in A$, there must exist an ordered pair in $R$ where $a$ is the first element.
+
+   \[\forall a \in A \exists b \in B . (a, b) \in R\]
+
+2. *Single-valued:* For every element $a \in A$, there is only one value $b \in B$ such that $(a,b) \in R$. There is only one output for each element in the domain.
+
+   \[\forall a \in A \forall b,c \in B. (a,b) \in R \land (a,c) \in R \implies b=c\]
+
+If $f \subseteq A \times B$ is a function or /functional relation/, its /domain/ is $A$ and its /co-domain/ is $B$. The set of all possible outcomes of a function is a subset of its co-domain, called the /range/ of $f$.
+
+\[\{b \in B \text{ } | \text{ } \exists a\in A. (a,b) \in f\}\]
+
+A relation is not a function if there exists an element in the domain which has multiple values in the co-domain, or if any of the elements in the domain have no value in the co-domain, as in figure [[fig:not_functional_relation]]
+
+#+CAPTION: Two non-functional relations
+#+ATTR_LATEX: :placement [H] :scale 1
+#+NAME: fig:not_functional_relation
+[[../res/invalid_functions.svg]]
+
+Instead of using the notation $f \subseteq A \times B$ to write the domain and co-domain of a functional relation the notation $f: A \mapsto B$ is preferred. Instead of writing $(a, b) \in f$, the notation $f(a) = b$ is used to say $a$ maps to $b$.
+
+If $f : A \mapsto B$, $b \in B$ is the /image/ of *element* $a \in A$, and $a$ is the /pre-image/ of $b$. The term /image/ may also refer to a subset $X$ of the domain $A$, in which case the /image/ is the set of outputs of $f$ applied to elements of $X$, written $f[X]$. Using this notation the /image/ of the whole domain, the range of $f$, is written $f[A]$ ($A \subseteq A$).
+
+\[f[X] \stackrel{\text{def}}{=} \{b \in B \text{ } | \text{ } \exists x \in X. f(x) = b \}\]
+
+The /reverse image/ of a subset $Y$ of the co-domain is denoted $f^{-1}[Y]$
+
+\[f^{-1}[Y] \stackrel{\text{def}}{=} \{a \in A\text{ } | \text{ } f(a) \in Y\}\]
+
+There are several different properties a function may satisfy, illustrated in figure [[fig:functional_relations]].
+
+#+CAPTION: Set of valid functions
+#+ATTR_LATEX: :placement [H] :scale 1
+#+NAME: fig:functional_relations
+[[../res/functions.svg]]
+
+1. General function: defined and single-valued for each element of A. The /many-to-one/ property is valid for a general function. There may be elements of the co-domain without a pre-image in $A$. 
+2. Injective (not surjective) function: no two elements of $B$ have the same pre-image in $A$, a form of /one-to-one/ function; no two elements of $A$ share the same image.
+
+   \[\forall x,y \in A.x \neq y \implies f(x) \neq f(y)\]
+   \[\forall x,y \in A.f(x) = f(y) \implies x=y\]
+
+3. Surjective (not injective) function: the range of the function is the entire co-domain. Every element of $B$ has a pre-image in $A$. If a function is surjective, the cardinality of $A$ is less than or equal to the cardinality of $B$, $|A| \le |B|$.
+
+   \[\forall b\in B \exists a \in A. f(a) = b\]
+
+4. Bijective function: both injective and surjective, the domain and co-domain have equal cardinality $|A| = |B|$.
+
+*** Endorelations
+
+A binary relation $R$ from a set $A$ to itself is called an /endorelation/ on $A$, $R \subseteq A \times A$. A function from $A$ to $A$ is called an /endofunction/. A binary relation may have some additional special properties.
+
+- *Reflexivity:* A binary relation is /reflexive/ if every element of the set is related to itself.
+
+  \[\forall x \in A. (x,x) \in R\]
+
+- *Irreflexivity:* A binary relation is /irreflexive/ if every element of the set is not related to itself.
+
+  \[\forall x \in A. (x,x) \notin R\]
+
+- *Symmetry:* A binary relation is /symmetric/ if for all elements $x$ and $y$ in $A$ if $x$ is related to $y$ then $y$ is related to $x$.
+
+  \[\forall x,y \in A. (x,y) \in R \implies (y,x) \in R\]
+
+- *Antisymmetry:* A binary relation is /antisymmetric/ if for all elements $x$ and $y$ in $A$ if $x$ is related to $y$ then $x = y$.
+
+  \[\forall x,y \in A. (x,y) \in R \land (y,x) \in R \implies y = x\]
+
+- *Asymmetry:* A binary relation is /asymmetric/ if it is both antisymmetric and irreflexive.
+
+  \[\forall x,y \in A . (x,y) \in R \implies (y,x) \notin R\]
+
+- *Transitive:* A binary relation is /transitive/ if for all elements $x$, $y$ and $z$ in $A$ if $x$ is related to $y$ and $y$ is related to $z$, then $x$ is related to $z$.
+
+  \[\forall x,y,z \in A. (x,y) \in R \land (y,z) \in R\implies (x,z) \in R\]
+
+*** Equivalence Relation
+
+An /equivalence relation/ is /reflexive/, /symmetric/ and /transitive/. The symbols $\approx$ and $\equiv$ are often used to denote equivalence relations. If a set $A$ is equipped with an equivalence relation, every element of $A$ has an /equivalence class/, the set of elements equivalent to it. The equivalence class of $x$ is written $[x]_\equiv$.
+
+\[[x]_\equiv \stackrel{\text{def}}{=} \{y \in A \text{ }| \text { } x \equiv y\}\]
+
+An element always belongs to the equivalence class containing itself $x \in [x]_\equiv$. If $x \equiv y$ then $[x]_\equiv =[y]_\equiv$. If $x \not\equiv y$ then $[x]_\equiv \cap [y]_\equiv = \emptyset$, any two equivalence classes are fully disjoint. 
+
+An equivalence relation forms a /classification/ of elements of $A$; $A$ is decomposed into subsets. The set of all equivalence classes is $A/\equiv$. These classes are all disjoint, no element can be in more than one equivalence class and each element is in some equivalence class, the set $A$ is fully covered by $A/ \equiv$.
+
+For a function $f: A \mapsto B$, which is not injective, its /kernel/ is the equivalence relation on $A$ which relates two elements with the same image in $B$ under $f$, written $\text{ker}(f)$. Therefore the set of equivalence classes $A / \text{ker}(f)$ corresponds to the range of $f$.
