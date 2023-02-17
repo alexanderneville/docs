@@ -1,0 +1,8 @@
+#+TITLE: Introduction to Git
+
+A version control system records changes made to a file or set of files, making it possible to view and recover previous versions as required.
+
+* References
+
+- [[https://git-scm.com/docs][Official Git Reference]]
+- [[https://git-scm.com/book/en/v2][Pro Git Book]]
