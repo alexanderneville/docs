@@ -1,4 +1,5 @@
 #+TITLE: Performance and Complexity
+#+DATE: [2023-01-12 Thu]
 
 The /performance/ of an algorithm refers to its resource usage: memory consumption, running time or both. Both factors are important when choosing an algorithm, but more often than not it is time complexity being measured.
 

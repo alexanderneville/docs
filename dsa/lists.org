@@ -1,10 +1,11 @@
 #+TITLE: Lists
+#+DATE: [2023-01-10 Tue]
 
 A /list/ is an abstract data type representing a finite number of ordered values in which the same value may appear more than once. Lists are frequently implemented with array and linked list data structures, among others. 
 
 * Arrays
 
-An array is a simple data structure which stores items in sequential memory locations. Arrays can be written as a collection of items inside square brackets as follows, $[4,3,7,2,9,1,8,6]$. This array has 8 elements, so its /size/ would be considered 8. If this array was assigned to a variable $a$, its elements can be accessed through their /index/ $i$ and the indexing notation $a[i]$. Indexing usually begins from 0, so the valid indices for this list are $0 \ldots 7$, as seen in [[fig:array]].
+An array is a simple data structure which stores items in sequential memory locations. Arrays can be written as a collection of items inside square brackets as follows, $[4,3,7,2,9,1,8,6]$. This array has 8 elements, so its /size/ would be considered 8. If this array was assigned to a variable $a$, its elements can be accessed through their /index/ $i$ and the indexing notation $a[i]$. Indexing usually begins from 0, so the valid indices for this list are $0 \ldots 7$, as seen in figure [[fig:array]].
 
 #+CAPTION: An array and its indices
 #+ATTR_LATEX: :placement [H] :scale 1

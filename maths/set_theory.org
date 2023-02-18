@@ -1,4 +1,5 @@
 #+TITLE: Set Theory
+#+DATE: [2023-01-04 Wed]
 
 * Introduction
 
@@ -94,7 +95,7 @@ Any set equipped with the operations $\land$, $\lor$, $\neg$ and two constants $
 
 If $A_1, A_2, \ldots, A_n$ is a list of $n$ sets and $R$ is a subset of $A_1 \times A_2 \times \ldots \times A_n$, then $R$ is a /n-ary Relation/. Elements of $A_1 \times A_2 \times \ldots \times A_n$ are all /n-tuples/. Any subset $R$ is a relation. A relation can be represented as a set of ordered /n-tuples/ in tabular or graphical form or using set-builder notation.
 
-*** Binary Relations
+** Binary Relations
 
 A binary relation associates elements of one set, the /domain/, to another set, the /codomain/. A binary relation over the sets $X$ and $Y$ is a subset of $\mathcal{P}(X \times Y)$. A binary relation is /homogeneous/ when $X = Y$ and is said to be a binary relation over $X$. $(x, y) \in R$ means that $x$ is related to $y$, sometimes written $xRy$. A binary relation is a generalisation of a /unary/ function which maps one input to one output.
 
@@ -107,7 +108,7 @@ If $R \subseteq A \times B$, then $R^\circ \subseteq B \times A$. $R^\circ$, $R^
 \[yR^\circ x \iff xRy\]
 \[R^\circ = \{(y, x) \in B \times A | (x, y) \in R\}\]
 
-*** Functions
+** Functions
 
 A function is a type of binary relation which maps every element of the domain to exactly one element of the codomain. For a relation $R \subseteq A \times B$, $R$ must satisfy two conditions if it is a /functional relation/.
 
@@ -159,7 +160,7 @@ There are several different properties a function may satisfy, illustrated in fi
 
 4. Bijective function: both injective and surjective, the domain and co-domain have equal cardinality $|A| = |B|$.
 
-*** Endorelations
+** Endorelations
 
 A binary relation $R$ from a set $A$ to itself is called an /endorelation/ on $A$, $R \subseteq A \times A$. A function from $A$ to $A$ is called an /endofunction/. A binary relation may have some additional special properties.
 
@@ -187,7 +188,7 @@ A binary relation $R$ from a set $A$ to itself is called an /endorelation/ on $A
 
   \[\forall x,y,z \in A. (x,y) \in R \land (y,z) \in R\implies (x,z) \in R\]
 
-*** Equivalence Relation
+** Equivalence Relations
 
 An /equivalence relation/ is /reflexive/, /symmetric/ and /transitive/. The symbols $\approx$ and $\equiv$ are often used to denote equivalence relations. If a set $A$ is equipped with an equivalence relation, every element of $A$ has an /equivalence class/, the set of elements equivalent to it. The equivalence class of $x$ is written $[x]_\equiv$.
 

@@ -1,4 +1,5 @@
 #+TITLE: Trees
+#+DATE: [2023-01-09 Mon]
 
 A tree data structure models the abstract tree type. A conceptual tree is a hierarchical structure with an explicit /root/. In the context of data structures and algorithms, a tree is a type of connected graph, composed of /nodes/ and /edges/ with no cycles and exactly one route between the root and any other node. Trees are generally depicted with the root node at the top and all other nodes arranged into discrete levels as in figure [[fig:general_tree]].
 

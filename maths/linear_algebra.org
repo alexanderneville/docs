@@ -1,4 +1,5 @@
 #+TITLE: Linear Algebra
+#+DATE: [2023-01-05 Thu]
 
 * Gaussian Elimination
 

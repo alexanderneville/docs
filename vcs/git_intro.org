@@ -2,6 +2,34 @@
 
 A version control system records changes made to a file or set of files, making it possible to view and recover previous versions as required.
 
+* Snapshots
+
+#+begin_src
+v1
+File A
+File B
+File C
+
+#+end_src
+
+
+* States
+
+- /Modified/ files exist with changes in the working directory, but those changes have not yet been added to the git database.
+- /Staged/ files are marked, so that their current version is added to the database at the next commit.
+- /Committed/ files have a current snapshot in the git database.
+
+#+begin_src text
+  pwd       staged      .git
+   |          |           |
+   |     <-checkout-      |
+   |          |           |
+   | -stage-> |           |
+   |          |           |
+   |          | -commit-> |
+   |          |           |
+#+end_src
+
 * References
 
 - [[https://git-scm.com/docs][Official Git Reference]]

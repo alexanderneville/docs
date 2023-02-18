@@ -1,4 +1,5 @@
 #+TITLE: Searching and Sorting
+#+DATE: [2023-01-11 Wed] 
 
 A sorting function orders elements according to a /comparison function/. Sometimes, as is the case with numeric records, a bespoke comparison function is not explicitly required.
 
