@@ -1,4 +1,6 @@
 #+TITLE: Blog
 
+A small collection of articles, notes and documentation that I have written.
+
 - [[./dsa/][Data Structures & Algorithms]]
 - [[./maths/][Maths for CS]]
