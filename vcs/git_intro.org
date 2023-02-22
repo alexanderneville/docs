@@ -1,24 +1,21 @@
 #+TITLE: Introduction to Git
+#+DATE: [2023-02-21 Tue]
 
-A version control system records changes made to a file or set of files, making it possible to view and recover previous versions as required.
+A version control system records changes made to a file or set of files, making it possible to view and recover previous versions as required. Git is a popular, free and open source /distributed/ version control system.
 
-* Snapshots
+* Principles
 
-#+begin_src
-v1
-File A
-File B
-File C
+The majority of git operations are local and do not require network access, this allows many different developers to work on the same project simultaneously without the availability of a central server. Git manages tracked files with snapshots, rather than /diffs/ or /deltas/; changed files get a new snapshot. Git makes regular use of checksums to ensure data integrity, such as using a checksum to identify file snapshots.
 
-#+end_src
+Most git actions add data to the database and very few actually remove data from the database, thus deleting a file in the working repository does not mean its history is removed from the git database. Files exist in one of three states:
 
-
-* States
-
-- /Modified/ files exist with changes in the working directory, but those changes have not yet been added to the git database.
-- /Staged/ files are marked, so that their current version is added to the database at the next commit.
 - /Committed/ files have a current snapshot in the git database.
+- /Modified/ files exist with changes in the working directory, but those changes have not yet been added to the git database.
+- /Staged/ files are marked for inclusion in the next commit a current snapshot of the file will be added to the database.
 
+The working area is a /checkout/ of one version of a project. The /staging/ area is managed by git to calculate which files will be included in the next commit. This is technically referred to as the index.
+
+:tmp:
 #+begin_src text
   pwd       staged      .git
    |          |           |
@@ -29,6 +26,23 @@ File C
    |          | -commit-> |
    |          |           |
 #+end_src
+:end:
+
+* Setup
+
+The =git config= command is used to set configuration options. The default behaviour matches =git config --local= and the options are set for the current repository only, using the file =.git/config= (in the git directory of the current project). The =--global= flag sets options for all repositories for the current user and writes to a file such as =~/.gitconfig= or =~/.config/git/config=. Options can be set for all users on the system with the =--system= flag (requires root user privileges). Local configuration options take precedence over global options, which in turn take precedence over system-wide options.
+
+Some common configuration options:
+
+#+begin_src shell
+git config --global user.name "Alexander Neville"
+git config --global user.email "username@example.com"
+git config --global core.editor nvim
+git config --global init.defaultBranch main
+git config --global credential.helper store
+#+end_src
+
+The list of configuration options which apply to the current directory can be shown with =git config --list=.
 
 * References
 
