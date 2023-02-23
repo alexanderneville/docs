@@ -1,0 +1,9 @@
+#+TITLE: Version Control Usage
+#+AUTHOR: Alexander Neville
+#+DATE: [2023-02-23 Thu]
+#+OPTIONS: 
+
+A version control system records changes made to a file or set of files, making it possible to view and recover previous versions as required. Git is a popular, free and open source /distributed/ version control system. Some of its basic usage is covered in the articles:
+
+- [[file:git-intro.org][Introduction to git]]
+- [[file:tracking-changes.org][Tracking files with git]]

@@ -1,11 +1,9 @@
 #+TITLE: Introduction to Git
 #+DATE: [2023-02-21 Tue]
 
-A version control system records changes made to a file or set of files, making it possible to view and recover previous versions as required. Git is a popular, free and open source /distributed/ version control system.
-
 * Principles
 
-The majority of git operations are local and do not require network access, this allows many different developers to work on the same project simultaneously without the availability of a central server. Git manages tracked files with snapshots, rather than /diffs/ or /deltas/; changed files get a new snapshot. Git makes regular use of checksums to ensure data integrity, such as using a checksum to identify file snapshots.
+The majority of git operations are local and do not require network access, this allows many different developers to work on the same project simultaneously without the availability of a central server. Git manages tracked files with snapshots, rather than /diffs/ or /deltas/; changed files get a new snapshot. Git makes frequent use of checksums to ensure data integrity, such as using a checksum to identify file snapshots.
 
 Most git actions add data to the database and very few actually remove data from the database, thus deleting a file in the working repository does not mean its history is removed from the git database. Files exist in one of three states:
 
@@ -43,6 +41,33 @@ git config --global credential.helper store
 #+end_src
 
 The list of configuration options which apply to the current directory can be shown with =git config --list=.
+
+* Command Line Help
+
+There are three ways to retrieve the manual page for any git sub-command or /verb/ as they are often called.
+
+#+begin_src sh
+git help <command>
+git <command> --help
+man git-<command>
+#+end_src
+
+All git commits have the =-h= flag which concisely shows usage options, rather than the complete manual page.
+
+* Creating a Git Repository
+
+To create a git repository, a =.git= directory must be created in a folder. To start versioning a project with git, change into the existing project directory, or create a new directory and do the same. Then run =git init=. If required take a snapshot of the existing files as they are when the git directory is created:
+
+#+begin_src shell
+git add *
+git commit -m "Initial Commit"
+#+end_src
+
+Alternatively, create a copy of an existing project using =git clone=. /Cloning/ an existing project creates a new directory (defaults to the name of the repository, if not specified) and fetches the required git information for that project. The clone command also /checks out/ a copy of the current version to the working directory.
+
+#+begin_src shell
+git clone https://github.com/alexanderneville/website <local-directory>
+#+end_src
 
 * References
 
