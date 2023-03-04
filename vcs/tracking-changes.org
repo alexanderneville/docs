@@ -50,6 +50,8 @@ On branch main
 nothing to commit, working tree clean
 #+end_src
 
+The =-m= flag is used to provide a commit message. Committing without the =-m= flag will open the user's preferred editor to enter a message. The =-a= flag can be used to stage and commit all changes to the working directory, effectively bypassing the staging area.
+
 New untracked files and changes to tracked files are shown by =git status=.
 
 #+begin_src 
@@ -147,6 +149,7 @@ The normal status command shows the untracked, modified and staged files as befo
 - =M=: modified
 - =A=: added (previously untracked)
 - =??=: untracked
+- =D=: deleted
 
 For a more granular view of changes to the repository there is the command =git diff=. By default, =git diff= shows the differences between the working directory and the index for every modified file. The =--cached= and =--staged= flags allow the index to be compared with the last commit. Optionally a path can be supplied to view the differences for a single file.
 
@@ -159,7 +162,7 @@ index 76e8197..40cbb54 100644
 @@ -1 +1 @@
 -int main() { return 0; }
 +int main() { return 1; }
-$ git diff --staged
+$ git diff --cached
 diff --git a/README.md b/README.md
 index 7e59600..5d937d3 100644
 --- a/README.md
@@ -179,4 +182,37 @@ index 0000000..cd9ac48
 +
 +if __name__ == "__main__":
 +    main()
+#+end_src
+
+* Removing Files
+
+Removing a file in the conventional way does not removed it from the git database or even the index; the removed file is not staged for commit. The deletion can, however, be staged in the usual way.
+
+#+begin_src
+$ rm file1
+$ git status
+On branch main
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    file1
+$ git add file1
+$ git status
+no changes added to commit (use "git add" and/or "git commit -a")
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        deleted:    file1
+#+end_src
+
+The =git rm= command removes a file (or files) from the working directory and updates the staging area to reflect the change.
+
+#+begin_src
+$ git rm file2
+rm 'file2'
+$ gs
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        deleted:    file2
 #+end_src
