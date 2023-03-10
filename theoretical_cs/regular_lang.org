@@ -37,13 +37,13 @@ A deterministic finite automaton $F$ can be represented as a tuple $(\Sigma, S, 
 - State transition function $\delta : S \times \Sigma \rightarrow S$.
 - A set of accepting states $A \subseteq S$.
 
+A Nondeterministic finite automaton
+
 - Input alphabet $\Sigma$.
 - Finite, non-empty set of states $S$.
 - Initial state $s_{0} \in S$.
 - State transition function $\delta : S \times \Sigma \rightarrow \mathcal{P}(S)$.
 - A set of accepting states $A \subseteq S$.
 
-
 * Finite State Machine
-
 * Kleene's Theorem
