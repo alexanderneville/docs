@@ -1,4 +1,0 @@
-# Local Variables:
-# eval: (visual-line-mode -1)
-# eval: (visual-fill-column-mode -1)
-# End:

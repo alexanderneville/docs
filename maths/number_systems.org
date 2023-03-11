@@ -29,7 +29,7 @@ The value of a number written in positional notation is the sum of the digits mu
 
 The /decimal/ system (base 10) is most often used and assumed to be the default base, that is unless another base is explicitly specified. This is often done with a subscript after the representation of a number. $11$ is assumed to be the natural number eleven, written in decimal, rather than three written in binary. $11_2$ is unmistakably binary, but this specificity isn't always necessary.
 
-#+include: "../tables/positional_notation_1.org"
+#+include: "../tables/positional_notation.org"
 
 * Algebraic Structures
 
