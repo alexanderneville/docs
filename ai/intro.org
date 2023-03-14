@@ -26,15 +26,75 @@ The term /percept/ is the information an agent's sensors are currently perceivin
 
 ** Rationality
 
-In order to exhibit intelligence, an agent must attempt to make the correct decision. The performance of an agent is evaluated by a /performance measure/. A rational agent selects the action expected to maximise its performance measure. An /omniscient/ agent knows the exact outcome of its actions, there is no uncertainty in its behaviour. A rational agent will not perform perfectly, but in most cases it should perform well.
+In order to exhibit intelligence, an agent must attempt to make the correct decision. The performance of an agent is evaluated by a /performance measure/. A rational agent selects the action expected to maximise its performance measure over a sequence of actions and states. An /omniscient/ agent knows the exact outcome of its actions, there is no uncertainty in its behaviour. A rational agent will not perform perfectly, but in most cases it should perform well.
 
-** TODO Agent Structure                                           :noexport:
-:LOGBOOK:
-- State "TODO"       from              [2023-02-19 Sun 22:48]
-:END:
-:TMP:
-Simple reflex agents respond directly to percepts, whereas model-based reflex agents maintain internal state to track aspects of the world that are not evident in the current percept. Goal-based agents act to achieve their goals, and utility-based agents try to maximise their own expected “happiness”.
-:END:
+** Agent Structure
+
+Simple reflex agents respond directly to the current percept, regardless of state of the percept sequence. Theses agents struggle in partially (un)observable environments, often becoming stuck in an infinite loop. Sometimes randomisation is used to break these loops, but this type of agent is fundamentally unable to maintain its own understanding of the environment.
+
+#+begin_src
+  FUNCTION simple-reflex-agent(percept) -> action:
+    STATIC rules;
+    state <- interpret(percept);
+    action <- lookup-action(state, rules);
+    RETURN action;
+#+end_src
+
+#+ATTR_ORG:
+#+ATTR_HTML:
+#+ATTR_LATEX: :placement [H] :scale 1
+#+NAME: fig:simple-reflex-agent
+#+CAPTION: The structure of a reflex agent
+[[../res/simple-reflex-agent.svg]]
+
+*** Models and Goals
+
+/Model-based/ reflex agents maintain internal state and a model of its interaction with the environment, facilitating rational behaviour in only partially observable environments. The agent's representation of the environment is derived from the agent's /sensor model/, how its percept represents the state of the environment, and its /transition model/ - the effect observed in the environment by an action of the agent. 
+
+#+begin_src
+  FUNCTION model-based-reflex-agent(percept) -> action:
+    STATIC rules, state, last-action transition-model, sensor-model;
+    state <- interpret(state, last-action,
+                       percept,
+		       transition-model,
+		       sensor-model);
+    action <- lookup-action(state, rules);
+    RETURN action;
+#+end_src
+
+#+ATTR_ORG:
+#+ATTR_HTML:
+#+ATTR_LATEX: :placement [H] :scale 1
+#+NAME: fig:model-based-agent
+#+CAPTION: The structure of a model-based agent
+[[../res/model-based-reflex-agent.svg]]
+
+Basic reflex agents implement a form of /if-then/ behaviour, dictated by the rules that relate the agent's current understanding of the environment with actions. Model-based agents extend the capabilities of simple reflex agents by maintaining an internal representation of the wider environment and having some understanding of how its percepts and actions represent or affect the environment. /Goal-based/ agents further extend the structure of model-based agents by requiring information about desirable /goal/ states. These agents combine the transition model with the current state to select actions which achieve the chosen
+goal.
+
+#+ATTR_ORG:
+#+ATTR_HTML:
+#+ATTR_LATEX: :placement [H] :scale 1
+#+NAME: fig:model-based-agent
+#+CAPTION: The structure of a goal-based agent
+[[../res/goal-based-model-based-agent.svg]]
+
+An agent's /utility function/ is an internalisation of the performance measure. While many action sequences may satisfy a goal, utility-based agents seek to maximise their utility function and hence performance measure (optimisation). Utility-based agents have some internal sense of what the performance measure is, though this is not required for an agent to be rational. In very simple scenarios, rational behaviour can be programmed into a reflex agent in the form condition-action rules. More complex agents are generally more flexible and have the ability to learn and improve their performance. In each state a utility-based agent is able to assess the desirability of a state resulting from an action in the current state, using its utility function.
+
+#+ATTR_ORG:
+#+ATTR_HTML:
+#+ATTR_LATEX: :placement [H] :scale 1
+#+NAME: fig:model-based-agent
+#+CAPTION: The structure of a Utility-based agent
+[[../res/utility-based-model-based-agent.svg]]
+
+*** Learning Agents
+
+In all cases seen so far, an agent selects actions under certain conditions. This model does not explain how an agent is constructed. Simple agents may be programmed explicitly to behave rationally. Another strategy for creating agents is through /learning/. Learning agents are divided into the /learning element/ and /performance element/, which dictates the actions the agent chooses as before. The learning element determines how the state and models of the performance element are modified.
+
+*** State Representation
+
+Depending on the complexity of the problem, the representation of the current state varies. In the most simple case, the state is represented /atomically/ - there is no internal structure of the state, it is not composed of many variables. The only property of the state is its relationship with other states. Increasing in complexity, a /factored representation/ divides each state into a set of variables with values. Being in such a state is a consequence of all these values combined, a change to one or more of them will result in a different state. /Structured representations/ are more complicated again, incorporating objects and relationships between them, rather than just a set of individual properties.
 
 ** Task Environment
 

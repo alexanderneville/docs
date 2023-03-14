@@ -1,0 +1,27 @@
+digraph {
+    nodesep = 0.5;
+    ranksep = 0.5;
+    fontsize = 10.0;
+    node [shape="box", fontsize = 10.0];
+    edge [arrowsize=0.75];
+    subgraph cluster_agent {
+        label="Simple Reflex Agent";
+        rules [label="Rules"];
+        {
+            rank=same;
+            sensors [label="Sensors"];
+            state [label="Current State"];
+            action [label="Action"];
+            actuators [label="Actuators"];
+        }
+    };
+    environment [label="Environment", shape="oval"];
+    // a0:e -> e0:n [dir="back"];
+    // e0:s -> a3:e [dir="back"];
+    rules -> action;
+    sensors -> state;
+    state -> action;
+    action -> actuators;
+    sensors:s -> environment:w [dir="back"];
+    actuators:s -> environment:e;
+}

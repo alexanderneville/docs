@@ -1,0 +1,39 @@
+digraph {
+    nodesep = 0.5;
+    ranksep = 0.5;
+    fontsize = 10.0;
+    node [shape="box", fontsize = 10.0];
+    edge [arrowsize=0.75];
+    subgraph cluster_agent {
+        label="Goal-based Model-based Agent";
+        {
+            rank=same;
+            old_state [label="State", style="dashed"];
+            transition_model [label="Transition Model"];
+            sensor_model [label="Sensor Model"];
+            goals [label="Goals"];
+        }
+        {
+            rank=same;
+            sensors [label="Sensors"];
+            current_state [label="Current State"];
+            resulting_state [label="Resulting State"];
+            action [label="Action"];
+            actuators [label="Actuators"];
+        }
+    };
+    environment [label="Environment", shape="oval"];
+    transition_model -> current_state:ne;
+    transition_model -> action [style=invisible, arrowhead=none];
+    transition_model -> resulting_state;
+    old_state -> current_state [dir="back"];
+    old_state -> current_state;
+    sensor_model -> current_state:nw;
+    goals -> action;
+    sensors -> current_state;
+    current_state -> resulting_state;
+    resulting_state -> action;
+    action -> actuators;
+    sensors:s -> environment:w [dir="back"];
+    actuators:s -> environment:e;
+}
