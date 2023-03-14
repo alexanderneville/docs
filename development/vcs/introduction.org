@@ -44,7 +44,7 @@ The list of configuration options which apply to the current directory can be sh
 
 * Command Line Help
 
-There are three ways to retrieve the manual page for any git sub-command or /verb/ as they are often called.
+There are three ways to retrieve the manual page for any git sub-command or /verb/, as they are often called.
 
 #+begin_src sh
 git help <command>

@@ -1,6 +1,6 @@
 #+TITLE: Maths for Computer Science
 
-- [[file:linear_algebra.org][Linear Algebra]]
-- [[file:number_systems.org][Number Systems]]
-- [[file:set_theory.org][Set Theory]]
+- [[file:linear-algebra.org][Linear Algebra]]
+- [[file:number-systems.org][Number Systems]]
+- [[file:set-theory.org][Set Theory]]
 - [[file:relations.org][Mathematical Relations]]
