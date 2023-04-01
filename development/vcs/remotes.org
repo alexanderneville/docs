@@ -1,0 +1,12 @@
+#+TITLE: Working with Remote Branches
+#+AUTHOR: Alexander Neville
+#+DATE: [2023-03-29 Wed]
+#+OPTIONS: 
+
+#+begin_src text
+  $ git remote
+  origin
+  $ git remote -v
+  origin  https://github.com/alexanderneville/website (fetch)
+  origin  https://github.com/alexanderneville/website (push)
+#+end_src

@@ -1,38 +1,38 @@
 #+TITLE: Working with the Commit History
 #+AUTHOR: Alexander Neville
 #+DATE: [2023-03-15 Wed]
-#+OPTIONS: 
+#+OPTIONS:
 
 Reviewing the history of a project is possible with the =git log= command. By default, the log command will print a list of commits in reverse order (most recent first).
 
 #+begin_src text
-$ git log
-commit 06a00edd58d65bcee1d70b0cb45a8acdc0543cd1
-Author: Alexander Neville <alexander.neville@icloud.com>
-Date:   Wed Mar 15 14:34:14 2023 +0000
-
-    change LICENSE
-
-commit 16b89b1410d919818f9e5dab4eaab35872dac21a
-Author: Alexander Neville <alexander.neville@icloud.com>
-Date:   Wed Mar 15 14:33:45 2023 +0000
-
-    modify README
-
-commit 1c19a4b51dff6a0faf02d413289d782c33fe5227
-Author: Alexander Neville <alexander.neville@icloud.com>
-Date:   Wed Mar 15 14:32:25 2023 +0000
-
-    Add license
-
-commit efbb720533e1086398676db9d744455abb635e45
-Author: Alexander Neville <alexander.neville@icloud.com>
-Date:   Wed Mar 15 14:31:16 2023 +0000
-
-    initial commit
+  $ git log
+  commit 06a00edd58d65bcee1d70b0cb45a8acdc0543cd1
+  Author: Alexander Neville <alexander.neville@icloud.com>
+  Date:   Wed Mar 15 14:34:14 2023 +0000
+  
+      change LICENSE
+  
+  commit 16b89b1410d919818f9e5dab4eaab35872dac21a
+  Author: Alexander Neville <alexander.neville@icloud.com>
+  Date:   Wed Mar 15 14:33:45 2023 +0000
+  
+      modify README
+  
+  commit 1c19a4b51dff6a0faf02d413289d782c33fe5227
+  Author: Alexander Neville <alexander.neville@icloud.com>
+  Date:   Wed Mar 15 14:32:25 2023 +0000
+  
+      Add license
+  
+  commit efbb720533e1086398676db9d744455abb635e45
+  Author: Alexander Neville <alexander.neville@icloud.com>
+  Date:   Wed Mar 15 14:31:16 2023 +0000
+  
+      initial commit
 #+end_src
 
-* Options
+* Log Options
 
 There are, unsurprisingly, many options for controlling the output format of =git log=. Some useful examples are listed below (their purpose can be looked up using [[file:introduction.org::*Command Line Help][git's own help interface]]).
 
@@ -51,51 +51,51 @@ Other options filter or limit the commits that are displayed. The option =-<n>=,
 Print the commits in which changes include the string =GPL=.
 
 #+begin_src text
-$ git log -S GPL
-commit 06a00edd58d65bcee1d70b0cb45a8acdc0543cd1 (HEAD -> main)
-Author: Alexander Neville <alexander.neville@icloud.com>
-Date:   Wed Mar 15 14:34:14 2023 +0000
-
-    change LICENSE
-
-commit 1c19a4b51dff6a0faf02d413289d782c33fe5227
-Author: Alexander Neville <alexander.neville@icloud.com>
-Date:   Wed Mar 15 14:32:25 2023 +0000
-
-    Add license
+  $ git log -S GPL
+  commit 06a00edd58d65bcee1d70b0cb45a8acdc0543cd1 (HEAD -> main)
+  Author: Alexander Neville <alexander.neville@icloud.com>
+  Date:   Wed Mar 15 14:34:14 2023 +0000
+  
+      change LICENSE
+  
+  commit 1c19a4b51dff6a0faf02d413289d782c33fe5227
+  Author: Alexander Neville <alexander.neville@icloud.com>
+  Date:   Wed Mar 15 14:32:25 2023 +0000
+  
+      Add license
 #+end_src
 
 This slightly redundant command prints the name and status of the changed files, limited to the commits affecting the =README=.
 
 #+begin_src text
-$ git log --oneline --name-status -- README.md
-16b89b1 modify README
-M       README.md
-efbb720 initial commit
-A       README.md
+  $ git log --oneline --name-status -- README.md
+  16b89b1 modify README
+  M       README.md
+  efbb720 initial commit
+  A       README.md
 #+end_src
 
 This command prints a summary of the committed changes where the message contains the string ="license"= (case insensitive).
 
 #+begin_src text
-$ git log --grep="LICENSE\|license" --stat
-commit 06a00edd58d65bcee1d70b0cb45a8acdc0543cd1 (HEAD -> main)
-Author: Alexander Neville <alexander.neville@icloud.com>
-Date:   Wed Mar 15 14:34:14 2023 +0000
-
-    change LICENSE
-
- LICENSE | 27 ++++++++++++++++-----------
- 1 file changed, 16 insertions(+), 11 deletions(-)
-
-commit 1c19a4b51dff6a0faf02d413289d782c33fe5227
-Author: Alexander Neville <alexander.neville@icloud.com>
-Date:   Wed Mar 15 14:32:25 2023 +0000
-
-    Add license
-
- LICENSE | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+  $ git log --grep="LICENSE\|license" --stat
+  commit 06a00edd58d65bcee1d70b0cb45a8acdc0543cd1 (HEAD -> main)
+  Author: Alexander Neville <alexander.neville@icloud.com>
+  Date:   Wed Mar 15 14:34:14 2023 +0000
+  
+      change LICENSE
+  
+   LICENSE | 27 ++++++++++++++++-----------
+   1 file changed, 16 insertions(+), 11 deletions(-)
+  
+  commit 1c19a4b51dff6a0faf02d413289d782c33fe5227
+  Author: Alexander Neville <alexander.neville@icloud.com>
+  Date:   Wed Mar 15 14:32:25 2023 +0000
+  
+      Add license
+  
+   LICENSE | 16 ++++++++++++++++
+   1 file changed, 16 insertions(+)
 #+end_src
 
 * Amending a Commit
@@ -103,40 +103,40 @@ Date:   Wed Mar 15 14:32:25 2023 +0000
 Using the =--amend= option it is possible to modify the last commit. If there are staged changes, only the commit message is changed.
 
 #+begin_src text
-$ git log --oneline -1
-06a00ed (HEAD -> main) change LICENSE
-$ git commit --amend -m "modify LICENSE"
-[main 62d7f45] modify LICENSE
- Date: Wed Mar 15 14:34:14 2023 +0000
- 1 file changed, 16 insertions(+), 11 deletions(-)
-$ git log --oneline -1
-62d7f45 (HEAD -> main) modify LICENSE
+  $ git log --oneline -1
+  06a00ed (HEAD -> main) change LICENSE
+  $ git commit --amend -m "modify LICENSE"
+  [main 62d7f45] modify LICENSE
+   Date: Wed Mar 15 14:34:14 2023 +0000
+   1 file changed, 16 insertions(+), 11 deletions(-)
+  $ git log --oneline -1
+  62d7f45 (HEAD -> main) modify LICENSE
 #+end_src
 
 If a change was accidentally omitted from a commit, it can be staged and then added to the last commit via the same method.
 
 #+begin_src text
-$ git log -1 --stat
-commit 06a00edd58d65bcee1d70b0cb45a8acdc0543cd1 (HEAD -> main)
-Author: Alexander Neville <alexander.neville@icloud.com>
-Date:   Wed Mar 15 14:34:14 2023 +0000
-
-    change LICENSE
-
- LICENSE | 27 ++++++++++++++++-----------
- 1 file changed, 16 insertions(+), 11 deletions(-)
-$ git add CONTRIBUTING.md
-$ git commit --amend -m "LICENCE and CONTRIBUTING info"
-$ git log -1 --stat
-commit b18d694dae570093b428c13b003d6a3785a8b628 (HEAD -> main)
-Author: Alexander Neville <alexander.neville@icloud.com>
-Date:   Wed Mar 15 14:34:14 2023 +0000
-
-    LICENCE and CONTRIBUTING info
-
- CONTRIBUTING.md |  4 ++++
- LICENSE         | 27 ++++++++++++++++-----------
- 2 files changed, 20 insertions(+), 11 deletions(-)
+ $ git log -1 --stat
+ commit 06a00edd58d65bcee1d70b0cb45a8acdc0543cd1 (HEAD -> main)
+ Author: Alexander Neville <alexander.neville@icloud.com>
+ Date:   Wed Mar 15 14:34:14 2023 +0000
+ 
+     change LICENSE
+ 
+  LICENSE | 27 ++++++++++++++++-----------
+  1 file changed, 16 insertions(+), 11 deletions(-)
+ $ git add CONTRIBUTING.md
+ $ git commit --amend -m "LICENCE and CONTRIBUTING info"
+ $ git log -1 --stat
+ commit b18d694dae570093b428c13b003d6a3785a8b628 (HEAD -> main)
+ Author: Alexander Neville <alexander.neville@icloud.com>
+ Date:   Wed Mar 15 14:34:14 2023 +0000
+ 
+     LICENCE and CONTRIBUTING info
+ 
+  CONTRIBUTING.md |  4 ++++
+  LICENSE         | 27 ++++++++++++++++-----------
+  2 files changed, 20 insertions(+), 11 deletions(-)
 #+end_src
 
 ** Reverting Changes
@@ -144,46 +144,46 @@ Date:   Wed Mar 15 14:34:14 2023 +0000
 There are multiple ways to remove changes from the index. Traditionally, a =reset= action is used, though this can be destructive. Modern versions of git recommend the =restore= command. The =--staged= option is used to /unstage files/, or reset the index. Changes remain in the working directory.
 
 #+begin_src text
-$ echo "change" >> CONTRIBUTING.md
-$ git status
-On branch main
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git restore <file>..." to discard changes in working directory)
-        modified:   CONTRIBUTING.md
-
-no changes added to commit (use "git add" and/or "git commit -a")
-$ git add CONTRIBUTING.md
-$ git status
-On branch main
-Changes to be committed:
-  (use "git restore --staged <file>..." to unstage)
-        modified:   CONTRIBUTING.md
-
-$ git restore --staged CONTRIBUTING.md
-$ git status
-On branch main
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git restore <file>..." to discard changes in working directory)
-        modified:   CONTRIBUTING.md
-
-no changes added to commit (use "git add" and/or "git commit -a")
+  $ echo "change" >> CONTRIBUTING.md
+  $ git status
+  On branch main
+  Changes not staged for commit:
+    (use "git add <file>..." to update what will be committed)
+    (use "git restore <file>..." to discard changes in working directory)
+          modified:   CONTRIBUTING.md
+  
+  no changes added to commit (use "git add" and/or "git commit -a")
+  $ git add CONTRIBUTING.md
+  $ git status
+  On branch main
+  Changes to be committed:
+    (use "git restore --staged <file>..." to unstage)
+          modified:   CONTRIBUTING.md
+  
+  $ git restore --staged CONTRIBUTING.md
+  $ git status
+  On branch main
+  Changes not staged for commit:
+    (use "git add <file>..." to update what will be committed)
+    (use "git restore <file>..." to discard changes in working directory)
+          modified:   CONTRIBUTING.md
+  
+  no changes added to commit (use "git add" and/or "git commit -a")
 #+end_src
 
 The =restore= command without the =--staged= option is used to discard changes in the working directory - this is a destructive operation as the file in the working directory is reset to its state in the last commit.
 
 #+begin_src text
-$ git status
-On branch main
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git restore <file>..." to discard changes in working directory)
-        modified:   CONTRIBUTING.md
+  $ git status
+  On branch main
+  Changes not staged for commit:
+    (use "git add <file>..." to update what will be committed)
+    (use "git restore <file>..." to discard changes in working directory)
+          modified:   CONTRIBUTING.md
 
-no changes added to commit (use "git add" and/or "git commit -a")
-$ git restore CONTRIBUTING.md
-$ git status
-On branch main
-nothing to commit, working tree clean
+  no changes added to commit (use "git add" and/or "git commit -a")
+  $ git restore CONTRIBUTING.md
+  $ git status
+  On branch main
+  nothing to commit, working tree clean
 #+end_src

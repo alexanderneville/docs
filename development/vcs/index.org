@@ -8,4 +8,9 @@ A version control system records changes made to a file or set of files, making 
 - [[file:introduction.org][Introduction to git]]
 - [[file:tracking-changes.org][Tracking files with git]]
 - [[file:commit-history.org][Viewing the commit history]]
+- [[file:git-features.org][Useful git Features]]
+- [[file:branches.org][Working with local git Branches]]
+- [[file:remotes.org][Working with remote git Branches]]
+- [[file:rebase.org][Git rebase]]
+ 
 

@@ -32,12 +32,12 @@ The =git config= command is used to set configuration options. The default behav
 
 Some common configuration options:
 
-#+begin_src shell
-git config --global user.name "Alexander Neville"
-git config --global user.email "username@example.com"
-git config --global core.editor nvim
-git config --global init.defaultBranch main
-git config --global credential.helper store
+#+begin_src text
+  $ git config --global user.name "Alexander Neville"
+  $ git config --global user.email "username@example.com"
+  $ git config --global core.editor nvim
+  $ git config --global init.defaultBranch main
+  $ git config --global credential.helper store
 #+end_src
 
 The list of configuration options which apply to the current directory can be shown with =git config --list=.
@@ -46,10 +46,10 @@ The list of configuration options which apply to the current directory can be sh
 
 There are three ways to retrieve the manual page for any git sub-command or /verb/, as they are often called.
 
-#+begin_src sh
-git help <command>
-git <command> --help
-man git-<command>
+#+begin_src text
+  $ git help <command>
+  $ git <command> --help
+  $ man git-<command>
 #+end_src
 
 All git commits have the =-h= flag which concisely shows usage options, rather than the complete manual page.
@@ -58,15 +58,15 @@ All git commits have the =-h= flag which concisely shows usage options, rather t
 
 To create a git repository, a =.git= directory must be created in a folder. To start versioning a project with git, change into the existing project directory, or create a new directory and do the same. Then run =git init=. If required take a snapshot of the existing files as they are when the git directory is created:
 
-#+begin_src shell
-git add *
-git commit -m "Initial Commit"
+#+begin_src text
+  $ git add *
+  $ git commit -m "Initial Commit"
 #+end_src
 
 Alternatively, create a copy of an existing project using =git clone=. /Cloning/ an existing project creates a new directory (defaults to the name of the repository, if not specified) and fetches the required git information for that project. The clone command also /checks out/ a copy of the current version to the working directory.
 
-#+begin_src shell
-git clone https://github.com/alexanderneville/website <local-directory>
+#+begin_src text
+  $ git clone https://github.com/alexanderneville/website <local-directory>
 #+end_src
 
 * References
