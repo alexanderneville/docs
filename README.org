@@ -1,0 +1,6 @@
+#+TITLE: Org Mode Documents
+#+AUTHOR: Alexander Neville
+#+DATE: [2023-04-02 Sun] 
+#+OPTIONS:
+
+A small collection of plain text documents, focusing on programming and computer science. Github is able to render the simple elements of org syntax, but some latex fragments and other components are not displayed properly. The contents of this repository can be read online [[https://alexneville.co.uk/blog/][here]].
