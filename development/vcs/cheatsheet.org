@@ -1,4 +1,0 @@
-#+TITLE: Git Cheatsheet
-#+AUTHOR: Alexander Neville
-#+DATE: [2023-03-30 Thu] 
-#+OPTIONS: 

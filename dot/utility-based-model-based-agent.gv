@@ -1,43 +1,20 @@
-digraph {
-    nodesep = 0.5;
-    ranksep = 0.5;
-    fontsize = 10.0;
-    node [shape="box", fontsize = 10.0];
-    edge [arrowsize=0.75];
-    subgraph cluster_agent {
-        label="Utility-based Model-based Agent";
-        {
-            rank=same;
-            old_state [label="State", style="dashed"];
-            transition_model [label="Transition Model"];
-            sensor_model [label="Sensor Model"];
-            utility [label="Utility"];
-        }
-        {
-            rank=same;
-            sensors [label="Sensors"];
-            current_state [label="Current State"];
-            resulting_state [label="Resulting State"];
-            desirability [label="Desirability"];
-            action [label="Action"];
-            actuators [label="Actuators"];
-        }
-    };
-    environment [label="Environment", shape="oval"];
-    transition_model -> current_state:ne;
-    transition_model -> action [style=invisible, arrowhead=none];
-    transition_model -> resulting_state;
-    old_state -> current_state [dir="back"];
-    old_state -> current_state;
-    sensor_model -> current_state:nw;
-    sensors -> current_state;
-    current_state -> resulting_state;
-    resulting_state -> desirability;
-    utility -> desirability;
-    transition_model -> desirability [style=invisible, arrowhead=none];
-    desirability -> action;
-    utility -> action [style=invisible, arrowhead=none];
-    action -> actuators;
-    sensors:s -> environment:w [dir="back"];
-    actuators:s -> environment:e;
-}
+digraph { nodesep = 0.5; ranksep = 0.5; fontsize = 10.0; node
+\[shape=\"box\", fontsize = 10.0\]; edge \[arrowsize=0.75\]; subgraph
+cluster~agent~ { label=\"Utility-based Model-based Agent\"; { rank=same;
+old~state~ \[label=\"State\", style=\"dashed\"\]; transition~model~
+\[label=\"Transition Model\"\]; sensor~model~ \[label=\"Sensor
+Model\"\]; utility \[label=\"Utility\"\]; } { rank=same; sensors
+\[label=\"Sensors\"\]; current~state~ \[label=\"Current State\"\];
+resulting~state~ \[label=\"Resulting State\"\]; desirability
+\[label=\"Desirability\"\]; action \[label=\"Action\"\]; actuators
+\[label=\"Actuators\"\]; } }; environment \[label=\"Environment\",
+shape=\"oval\"\]; transition~model~ -\> current~state~:ne;
+transition~model~ -\> action \[style=invisible, arrowhead=none\];
+transition~model~ -\> resulting~state~; old~state~ -\> current~state~
+\[dir=\"back\"\]; old~state~ -\> current~state~; sensor~model~ -\>
+current~state~:nw; sensors -\> current~state~; current~state~ -\>
+resulting~state~; resulting~state~ -\> desirability; utility -\>
+desirability; transition~model~ -\> desirability \[style=invisible,
+arrowhead=none\]; desirability -\> action; utility -\> action
+\[style=invisible, arrowhead=none\]; action -\> actuators; sensors:s -\>
+environment:w \[dir=\"back\"\]; actuators:s -\> environment:e; }

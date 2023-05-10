@@ -1,7 +1,0 @@
-#+TITLE: Concurrency
-#+AUTHOR: Alexander Neville
-#+DATE: 
-#+OPTIONS: 
-
-* Terminology
-* Synchronisation

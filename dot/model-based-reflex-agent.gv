@@ -1,36 +1,15 @@
-digraph {
-    nodesep = 0.5;
-    ranksep = 0.5;
-    fontsize = 10.0;
-    node [shape="box",fontsize = 10.0];
-    edge [arrowsize=0.75];
-    subgraph cluster_agent {
-        label="Model-based Reflex Agent";
-        {
-            rank=same;
-            old_state [label="State", style="dashed"];
-            transition_model [label="Transition Model"];
-            sensor_model [label="Sensor Model"];
-            rules [label="Rules"];
-        }
-        {
-            rank=same;
-            sensors [label="Sensors"];
-            current_state [label="Current State"];
-            action [label="Action"];
-            actuators [label="Actuators"];
-        }
-    };
-    environment [label="Environment", shape="oval"];
-    transition_model -> current_state:ne;
-    transition_model -> action [style=invisible, arrowhead=none];
-    old_state -> current_state [dir="back"];
-    old_state -> current_state;
-    sensor_model -> current_state:nw;
-    rules -> action;
-    sensors -> current_state;
-    current_state -> action;
-    action -> actuators;
-    sensors:s -> environment:w [dir="back"];
-    actuators:s -> environment:e;
-}
+digraph { nodesep = 0.5; ranksep = 0.5; fontsize = 10.0; node
+\[shape=\"box\",fontsize = 10.0\]; edge \[arrowsize=0.75\]; subgraph
+cluster~agent~ { label=\"Model-based Reflex Agent\"; { rank=same;
+old~state~ \[label=\"State\", style=\"dashed\"\]; transition~model~
+\[label=\"Transition Model\"\]; sensor~model~ \[label=\"Sensor
+Model\"\]; rules \[label=\"Rules\"\]; } { rank=same; sensors
+\[label=\"Sensors\"\]; current~state~ \[label=\"Current State\"\];
+action \[label=\"Action\"\]; actuators \[label=\"Actuators\"\]; } };
+environment \[label=\"Environment\", shape=\"oval\"\]; transition~model~
+-\> current~state~:ne; transition~model~ -\> action \[style=invisible,
+arrowhead=none\]; old~state~ -\> current~state~ \[dir=\"back\"\];
+old~state~ -\> current~state~; sensor~model~ -\> current~state~:nw;
+rules -\> action; sensors -\> current~state~; current~state~ -\> action;
+action -\> actuators; sensors:s -\> environment:w \[dir=\"back\"\];
+actuators:s -\> environment:e; }

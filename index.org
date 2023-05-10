@@ -1,7 +1,0 @@
-#+TITLE: Blog
-
-A growing collection of articles, notes and documentation that I have written.
-
-- [[./dsa/index.org][Data Structures & Algorithms]]
-- [[./maths/index.org][Maths]]
-- [[./development/index.org][Sofware Development]]

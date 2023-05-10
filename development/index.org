@@ -1,5 +1,0 @@
-#+TITLE: Software Development
-#+AUTHOR: Alexander Neville
-#+DATE: [2023-03-15 Wed]
-
-- [[./vcs/index.org][Version Control with Git]]
