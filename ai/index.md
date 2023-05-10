@@ -1,2 +1,1 @@
--   [Introduction](introduction.org)
--   [Search Problems](search.org)
+- [Introduction](introduction.md)

@@ -1,4 +1,6 @@
-``` {.text}
+# Remote Git Repositories
+
+```{.text}
 $ git remote
 origin
 $ git remote -v

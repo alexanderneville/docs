@@ -1,4 +1,6 @@
--   [Linear Algebra](linear-algebra.org)
--   [Number Systems](number-systems.org)
--   [Set Theory](set-theory.org)
--   [Mathematical Relations](relations.org)
+# Maths for Computer Science
+
+- [Linear Algebra](linear-algebra.md)
+- [Number Systems](number-systems.md)
+- [Set Theory](set-theory.md)
+- [Mathematical Relations](relations.md)

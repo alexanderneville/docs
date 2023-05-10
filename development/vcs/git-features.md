@@ -1,15 +1,14 @@
-Tags
-====
+# Tags
 
 Create a lightweight tag without an annotation:
 
-``` {.text}
+```{.text}
 $ git tag v1.0
 $ git tag
 v1.0
 $ git show v1.0
 commit 2c35a17e92118e9c8b160438d0270af72f289ce3 (HEAD -> main, tag: v1.0)
-Author: Alexander Neville <alexander.neville@icloud.com>
+Author: Alexander Neville <dev@alexneville.co.uk>
 Date:   Tue Mar 28 15:38:42 2023 +0100
 
     create README
@@ -17,7 +16,7 @@ Date:   Tue Mar 28 15:38:42 2023 +0100
 
 Deleting a tag:
 
-``` {.text}
+```{.text}
 $ git tag
 v1.0
 $ git tag -d v1.0
@@ -27,20 +26,20 @@ $ git tag
 
 Creating an annotated tag:
 
-``` {.text}
+```{.text}
 $ git tag
 $ git tag -a v1.1 -m "version 1.1 with CONTRIBUTING info"
 $ git tag
 v1.1
 $ git show v1.1
 tag v1.1
-Tagger: Alexander Neville <alexander.neville@icloud.com>
+Tagger: Alexander Neville <dev@alexneville.co.uk>
 Date:   Tue Mar 28 16:02:58 2023 +0100
 
 version 1.1 with CONTRIBUTING info
 
 commit f47ea70f45dc677673556040d3d2f0fc5ac452d0 (HEAD -> main, tag: v1.1)
-Author: Alexander Neville <alexander.neville@icloud.com>
+Author: Alexander Neville <dev@alexneville.co.uk>
 Date:   Tue Mar 28 15:57:50 2023 +0100
 
     create CONTRIBUTING
@@ -48,7 +47,7 @@ Date:   Tue Mar 28 15:57:50 2023 +0100
 
 Creating a tag for a previous commit:
 
-``` {.text}
+```{.text}
 $ git log --oneline
 f47ea70 (HEAD -> main, tag: v1.1) create CONTRIBUTING
 2c35a17 create README
@@ -61,11 +60,7 @@ f47ea70 (HEAD -> main, tag: v1.1) create CONTRIBUTING
 2c35a17 (tag: v1.0) create README
 ```
 
-[TODO]{.todo .TODO} Remote Tags {#remote-tags}
--------------------------------
-
-Aliases
-=======
+# Aliases
 
 Short aliases for common commands can be defined by git itself, using
 `git config`; these aliases can optionally be made global, with the
@@ -73,7 +68,7 @@ Short aliases for common commands can be defined by git itself, using
 The git operation to perform is specified in quotes. External commands
 are prefaced with a `!`.
 
-``` {.text}
+```{.text}
 $ git config alias.unstage 'restore --staged'
 $ git status
 On branch main

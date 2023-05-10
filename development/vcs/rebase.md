@@ -1,10 +1,9 @@
-Simple Rebase example
-=====================
+# Git Rebase
 
 It is possible to rebase a topic branch, onto a main branch. Initialise
 a new git project, create a commit and a new branch.
 
-``` {.text}
+```{.text}
 $ nvim README.md
 $ git add README.md
 $ git commit -m "initial commit"
@@ -28,7 +27,7 @@ Switch back to the main branch and create a commit. Now, neither of the
 two branches is an ancestor of the other; they cannot be merged by
 fast-forwarding one of the branches.
 
-``` {.text}
+```{.text}
 $ git checkout main
 Switched to branch 'main'
 $ echo "# HOW TO" >> CONTRIBUTING.md
@@ -48,7 +47,7 @@ By rebasing the `dev` branch against the `main` branch, the divergent
 history is fixed. The `main` branch can now be fast-forwarded to the
 `dev` branch by merging the two (an additional commit is not created).
 
-``` {.text}
+```{.text}
 $ git checkout dev
 Switched to branch 'dev'
 $ git rebase main
@@ -73,17 +72,16 @@ $ git log --oneline --decorate --graph --all
 
 With the `dev` branch checked out, the following forms are equivalent:
 
--   `git rebase main`
--   `git rebase main dev`
+- `git rebase main`
+- `git rebase main dev`
 
-Rebase Onto
-===========
+# Rebase Onto
 
 It is possible to rebase a topic branch, created from another topic
 branch, onto a different branch altogether. For this example, initialise
 a new git project, create a commit and branch twice.
 
-``` {.text}
+```{.text}
 $ git init
 $ nvim README.md
 $ git add README.md
@@ -111,7 +109,7 @@ $ git commit -m "add contributing information"
 
 Create divergent history between the `dev` and `doc` branches.
 
-``` {.text}
+```{.text}
 $ git checkout dev
 Switched to branch 'dev'
 $ nvim index.html
@@ -129,7 +127,7 @@ $ git log --oneline --decorate --graph --all
 
 Create divergent history between the `main` and `dev` branches.
 
-``` {.text}
+```{.text}
 $ git checkout main
 Switched to branch 'main'
 $ nvim makefile
@@ -151,7 +149,7 @@ $ git log --oneline --decorate --graph --all
 Rebase the `doc` branch onto the main branch, then rebase the `dev`
 branch onto the `doc` branch.
 
-``` {.text}
+```{.text}
 $ git rebase --onto main dev doc
 Successfully rebased and updated refs/heads/doc.
 $ git log --oneline --decorate --graph --all
@@ -172,9 +170,9 @@ $ git log --oneline --decorate --graph --all
 ```
 
 Checkout the `main` branch and fast-forward it through the commit
-history. Delete the branches that have been *\"merged\"*.
+history. Delete the branches that have been _\"merged\"_.
 
-``` {.text}
+```{.text}
 $ git checkout main
 Switched to branch 'main'
 $ git merge dev

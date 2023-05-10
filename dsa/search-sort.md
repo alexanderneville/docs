@@ -1,9 +1,10 @@
-A sorting function orders elements according to a *comparison function*.
+# Searching & Sorting Algorithms
+
+A sorting function orders elements according to a _comparison function_.
 Sometimes, as is the case with numeric records, a bespoke comparison
 function is not explicitly required.
 
-Sorting Strategies
-==================
+## Sorting Strategies
 
 1.  **Selection:** Find the correct value for a given position in the
     output data structure.
@@ -14,16 +15,14 @@ Sorting Strategies
 4.  **Divide & Conquer:** Recursively divide the input into smaller
     sub-problems and reassemble, preserving order into the output data.
 
-Stability
-=========
+## Stability
 
 The relative order of two records with the same key is preserved by a
-*stable* sorting algorithm. A combination of stable sorting algorithms
-can form a sorting *pipeline* and underlying elements are ordered by a
+_stable_ sorting algorithm. A combination of stable sorting algorithms
+can form a sorting _pipeline_ and underlying elements are ordered by a
 combination of conditions.
 
-Bubble Sort
-===========
+## Bubble Sort
 
 Bubble sort is a stable, in-place, comparison-based, exchange sort
 algorithm. After $i$ iterations, $i$ elements are in the correct
@@ -37,7 +36,7 @@ space required).
 
 [Two common bubblesort implementations]{.label}
 
-``` {.text}
+```{.text}
 bubblesort(a[],n) {
     for (i = 0; i < n - 1; i++)
         for (j = 0; j < n - i - 1; j++)
@@ -54,8 +53,7 @@ bubblesort(a[],n) {
 
 </div>
 
-Insertion Sort
-==============
+## Insertion Sort
 
 Insertion sort may be implemented as a stable, in-place,
 comparison-based, insertion sort algorithm. After $i$ iterations, $i$
@@ -71,7 +69,7 @@ grows inside the input array.
 
 [Insertion sort implementation]{.label}
 
-``` {.text}
+```{.text}
 insertionsort(a[],n) {
     for (i = 1; i < n; i++){
         j = i;
@@ -85,8 +83,7 @@ insertionsort(a[],n) {
 
 </div>
 
-Selection Sort
-==============
+## Selection Sort
 
 Selection sort may be implemented as a stable, in-place,
 comparison-based, selection sort algorithm. After $i$ iterations, $i$
@@ -100,7 +97,7 @@ the output array grows inside the input array.
 
 [Selection sort implementation]{.label}
 
-``` {.text}
+```{.text}
 selectionsort(a[],n) {
     for (i = 0; i < n - 1; i++) {
         k = i;
@@ -113,8 +110,7 @@ selectionsort(a[],n) {
 
 </div>
 
-Merge Sort
-==========
+## Merge Sort
 
 Merge sort is a more efficient stable, comparison-based
 divide-and-conquer sorting algorithm. The list to be sorted is
@@ -129,7 +125,7 @@ as a buffer for merging sub-lists if the sort acts on an array.
 
 [Merge sort implementation]{.label}
 
-``` {.text}
+```{.text}
 mergesort(a[], l, r) {
     if (l < r) {
         m = (l + r) // 2;
@@ -156,8 +152,7 @@ mergesublists(a[], l, m, r) {
 
 </div>
 
-QuickSort
-=========
+## QuickSort
 
 Quicksort is an efficient comparison-based divide-and-conquer sorting
 algorithm. At each recursive level a partition element is chosen
@@ -176,7 +171,7 @@ is $O(n \log n)$. In the worst case the complexity is $O(n^2)$.
 
 [Unstable quicksort implementation]{.label}
 
-``` {.text}
+```{.text}
 quicksort(a[], l, r) {
     if (l < r) {
         p = partition(a[], l, r);
@@ -223,7 +218,7 @@ sub-list. Using a buffer introduces $O(n)$ auxiliary space complexity.
 
 [Stable quicksort implementation using a buffer]{.label}
 
-``` {.text}
+```{.text}
 partition(a[], l, r) { // stable sort
     p = choose_pivot(...);
     pv = a[p];

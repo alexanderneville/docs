@@ -1,10 +1,16 @@
-Repository Status
-=================
+# Tracking Changes in Git
+
+Git exposes a set of commands for checking the status of the repository
+and files within it. Git also includes an intuitive interface for moving files
+between the different states. The same can be acheived using more
+primitive operations, but all modern git versions share a very similar CLI.
+
+## Repository Status
 
 Following the steps to create a new repository, create a directory,
 change into it and create a new git repository with `git init`:
 
-``` {.text}
+```{.text}
 $ mkdir git-test
 $ cd git-test
 $ git init
@@ -14,7 +20,7 @@ The `git status` command outputs information relevant to the current
 state of the repository. In this recently initialised, empty project the
 output is very short.
 
-``` {.text}
+```{.text}
 $ git status
 On branch main
 
@@ -23,16 +29,15 @@ No commits yet
 nothing to commit (create/copy files and use "git add" to track)
 ```
 
-Untracked Files
-===============
+## Untracked Files
 
-A file which was not in the previous snapshot is said to be *untracked*,
+A file which was not in the previous snapshot is said to be _untracked_,
 git has no version history for it. The output of the status command
 reports that `git add` will move an untracked file to the staging area,
 from where it can be committed. After these two operations, the working
 directory is once again a direct check out of the git directory.
 
-``` {.text}
+```{.text}
 $ echo "README" > README.md
 $ git status
 On branch main
@@ -62,7 +67,7 @@ directory, effectively bypassing the staging area.
 New untracked files and changes to tracked files are shown by
 `git status`.
 
-``` {.text}
+```{.text}
 $ echo "int main() { return 0; }" > main.c
 $ echo "# README.md" > README.md
 $ git status
@@ -79,10 +84,10 @@ main.c
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
-By *adding* all the files in the working directory, tracked and
+By _adding_ all the files in the working directory, tracked and
 untracked files alike become staged.
 
-``` {.text}
+```{.text}
 $ git add *
 $ git status
 On branch main
@@ -99,14 +104,13 @@ On branch main
 nothing to commit, working tree clean
 ```
 
-Modifying Files
-===============
+## Modifying Files
 
 In this scenario, a committed file is modified in the working directory;
 the change is staged and then the same file is modified a second time in
 the working directory.
 
-``` {.text}
+```{.text}
 $ echo "git is a vcs" >> README.md
 $ git add README.md
 $ echo "this line isn't staged" >> README.md
@@ -128,14 +132,13 @@ of the file at the point it was staged is earmarked for inclusion in the
 next commit. Subsequent changes to the same file are not reflected in
 the snapshot to be committed.
 
-Status and Diff
-===============
+## Status and Diff
 
 The short form of the `git status` command is a concise and helpful way
 of visualising these states. Create some changes to the repository and
 then use `git status --short` or `git status -s`:
 
-``` {.text}
+```{.text}
 $ vi main.c
 $ vi main.py
 $ vi LICENSE.txt
@@ -169,10 +172,10 @@ directory and two columns for each file. The leftmost column represents
 the staging area and the second column represents the working directory.
 The meaning of these letters:
 
--   `M`: modified
--   `A`: added (previously untracked)
--   `??`: untracked
--   `D`: deleted
+- `M`: modified
+- `A`: added (previously untracked)
+- `??`: untracked
+- `D`: deleted
 
 For a more granular view of changes to the repository there is the
 command `git diff`. By default, `git diff` shows the differences between
@@ -181,7 +184,7 @@ the working directory and the index for every modified file. The
 last commit. Optionally a path can be supplied to view the differences
 for a single file.
 
-``` {.text}
+```{.text}
 $ git diff main.c
 diff --git a/main.c b/main.c
 index 76e8197..40cbb54 100644
@@ -196,7 +199,7 @@ index 7e59600..5d937d3 100644
 --- a/README.md
 +++ b/README.md
 @@ -1 +1,2 @@
-# README
+## README
 +git is a vcs
 diff --git a/main.py b/main.py
 new file mode 100644
@@ -212,14 +215,13 @@ index 0000000..cd9ac48
 +    main()
 ```
 
-Removing Files
-==============
+## Removing Files
 
 Removing a file in the conventional way does not removed it from the git
 database or even the index; the removed file is not staged for commit.
 The deletion can, however, be staged in the usual way.
 
-``` {.text}
+```{.text}
 $ rm file1
 $ git status
 On branch main
@@ -239,7 +241,7 @@ deleted:    file1
 The `git rm` command removes a file (or files) from the working
 directory and updates the staging area to reflect the change.
 
-``` {.text}
+```{.text}
 $ git rm file2
 rm 'file2'
 $ gs

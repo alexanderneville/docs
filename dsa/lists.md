@@ -1,23 +1,24 @@
-A *list* is an abstract data type representing a finite number of
+# List ADT
+
+A _list_ is an abstract data type representing a finite number of
 ordered values in which the same value may appear more than once. Lists
 are frequently implemented with array and linked list data structures,
 among others.
 
-Arrays
-======
+## Arrays
 
 An array is a simple data structure which stores items in sequential
 memory locations. Arrays can be written as a collection of items inside
 square brackets as follows, $[4,3,7,2,9,1,8,6]$. This array has 8
-elements, so its *size* would be considered 8. If this array was
+elements, so its _size_ would be considered 8. If this array was
 assigned to a variable $a$, its elements can be accessed through their
-*index* $i$ and the indexing notation $a[i]$. Indexing usually begins
+_index_ $i$ and the indexing notation $a[i]$. Indexing usually begins
 from 0, so the valid indices for this list are $0 \ldots 7$, as seen in
 figure [fig:array](fig:array).
 
 ![An array and its indices](../res/array.svg "array")
 
-Each element may be accessed *sequentially* by incrementing or
+Each element may be accessed _sequentially_ by incrementing or
 decrementing the index as required, or at random by taking any index -
 assuming it is a valid index. For the indexing operation to be
 effective, each item in the array is required to be the same size, which
@@ -25,18 +26,17 @@ means in practice array elements are of the same type. In a language
 such as C, the array $a$ would be considered a pointer to the memory
 location of the beginning of the array and the index $i$ is an offset
 from the start of the array. This means that $a[0]$ points to the
-beginning of the array, the *zeroth* element. For non zero indices, this
+beginning of the array, the _zeroth_ element. For non zero indices, this
 offset is calculated by multiplying the index by a certain number of
 bytes equal to the size of each item, $c$. As such the address of $a[i]$
 is $a + c \times i$.
 
-Arrays, Iteration & Invariants
-==============================
+## Arrays, Iteration & Invariants
 
 Index access to array elements, makes the array data structure conducive
 to sequential access. Iteration over the index variable, which is
 repeatedly incremented, enables array elements to be accessed and
-processed at run time. A *loop* is the programming construct
+processed at run time. A _loop_ is the programming construct
 facilitating iteration. It is commonly expressed in pseudocode and C
 like syntax.
 
@@ -44,12 +44,12 @@ like syntax.
 
 [Iteration in pseudocode and C like syntax]{.label}
 
-``` {.text}
+```{.text}
 For i <- 0 ... (N - 1) Do
     use value i
 
 for (i = 0; i < N; i++) {
-    // use value i 
+    // use value i
 }
 ```
 
@@ -61,42 +61,40 @@ errors such as accessing indices beyond the end of an array. Due to the
 static nature of arrays (arrays are allocated once at a certain size),
 array size is a common program invariant.
 
-List ADT
-========
+## List ADT
 
 As an abstract data type, a list is defined in terms of its public
-functions. A minimal list type can be defined with two *constructors*,
+functions. A minimal list type can be defined with two _constructors_,
 where $E$ is an element of a list and $L$ is a list.
 
--   $\text{emptylist} () \rightarrow L$
--   $\text{prepend} (E, L) \rightarrow L$
+- $\text{emptylist} () \rightarrow L$
+- $\text{prepend} (E, L) \rightarrow L$
 
 Any list can be created from a single empty list and a series of prepend
 operations. The list $[1,2,3]$ is created with the expression
 `prepend(1, prepend(2, prepend 3, emptylist()))`. This is called an
-*inductive* type definition, relying on the repeated application of the
+_inductive_ type definition, relying on the repeated application of the
 inductive step `prepend(E,L)` on the base case `emptylist()`. Any useful
 data type has accessor methods. In the absence of array indices, any
-list element can be retrieved with a combination of two *selectors*.
+list element can be retrieved with a combination of two _selectors_.
 
--   $\text{head} (L) \rightarrow E$
--   $\text{tail} (L) \rightarrow L$
+- $\text{head} (L) \rightarrow E$
+- $\text{tail} (L) \rightarrow L$
 
 The functions head and tail are not defined for the empty list. An
 additional function is required to determine whether a given list is
 empty.
 
--   $\text{isemptylist} (L) \rightarrow \text{T}|\text{F}$
+- $\text{isemptylist} (L) \rightarrow \text{T}|\text{F}$
 
 With this set of functions, the following expressions are true.
 
--   $\text{isemptylist} (\text{emptylist} ())$
--   $\text{not isemptylist} (\text{prepend} (e, l))$
--   $\text{head} (\text{prepend} (e, l)) == e$
--   $\text{tail} (\text{prepend} (e, l)) == l$
+- $\text{isemptylist} (\text{emptylist} ())$
+- $\text{not isemptylist} (\text{prepend} (e, l))$
+- $\text{head} (\text{prepend} (e, l)) == e$
+- $\text{tail} (\text{prepend} (e, l)) == l$
 
-Recursion & Derived List Procedures
-===================================
+## Recursion & Derived List Procedures
 
 Iteration is the logical and convenient method to process a collection
 of elements in an array, due to indexing. With the abstract list
@@ -104,14 +102,14 @@ definition and in many list implementations, such as linked lists, there
 is no index. It becomes more convenient to process lists with recursion,
 although any recursion can be expressed as an iteration. Because of the
 inductive construction of the list type, obtaining the last element
-requires every element in the list is processed or *traversed*. The
+requires every element in the list is processed or _traversed_. The
 function `last` returns the last element of the list `l`.
 
 <div>
 
 [Return the last element of a list]{.label}
 
-``` {.text}
+```{.text}
 last(L:l) -> E {
     if (isemptylist(tail(l)) return head(l);
     return last(tail(l));
@@ -130,7 +128,7 @@ in the `last` function.
 
 [The same, with error handling]{.label}
 
-``` {.text}
+```{.text}
 last(L:l) ->E {
     if (isemptylist(l)) {
         error();
@@ -153,7 +151,7 @@ to the end of a list `l1` can be achieved by passing
 
 [Append one list to another]{.label}
 
-``` {.text}
+```{.text}
 append(L:l1,L:l2) -> L {
    if (isemptylist(l1)) return l2;
    return prepend(head(l1), append(tail(l1), l2))
@@ -169,7 +167,7 @@ which appends a single element to the end of a list.
 
 [Append an element to a list]{.label}
 
-``` {.text}
+```{.text}
 append(L:l,E:x) -> L {
    if (isemptylist(l)) return prepend(x, emptylist());
    return prepend(head(l), append(tail(l), x))
@@ -182,7 +180,7 @@ Many of these derived functions are slow and inefficient. In practice it
 might be easier to use some of the underlying implementation details of
 a data structure to accelerate more complicated operations and expose
 more functions on a type than are technically required. Also absent in
-this ADT are *mutator* functions, which destructively modify a list. In
+this ADT are _mutator_ functions, which destructively modify a list. In
 the functional inductive approach to ADT specification lists are
 immutable and each function returns a new list. It is convenient to
 return a new immutable list for every operation on a given list, as it
@@ -193,8 +191,7 @@ trade off is the space and time complexity associated with repeated
 memory allocation and traversal, yet another reason why complex data
 types in programming languages and libraries are truly abstract.
 
-Linked Lists
-============
+## Linked Lists
 
 Lists contain a finite number of elements, but theoretically this number
 has no upper bound. Lists on computers are practically limited in size
@@ -203,12 +200,12 @@ space for the data elements it contains. If the maximum size of a list
 is known in advance, an array may be the most effective way too
 implement a list. Otherwise, if the size of a list varies at run time, a
 more dynamic implementation is required. The first such implementation
-is the *linked list*.
+is the _linked list_.
 
-The most simple linked list is composed of a sequence of *nodes* or
-*two-cells*. Each contains an element (or a reference to an element) and
-a *reference* to the next node. figure
-[fig:abstract\_llist](fig:abstract_llist) is the most abstract graphical
+The most simple linked list is composed of a sequence of _nodes_ or
+_two-cells_. Each contains an element (or a reference to an element) and
+a _reference_ to the next node. figure
+[fig:abstract_llist](fig:abstract_llist) is the most abstract graphical
 representation of the list $[8,4,1,7,3,6]$. The second of each two-cell
 is a reference to the next node, not the first cell of the next node, as
 is often depicted.
@@ -223,7 +220,7 @@ hold a copy of the element in place. The second field however **must**
 contain a reference to the next node. In a language such as Java, a node
 may be a user-defined object.
 
-``` {.java}
+```{.java}
 class Node {
     int data;
     Node next;
@@ -236,7 +233,7 @@ The allocation of a new node and pointer logic are all handled
 implicitly. This is the equivalent of a C structure containing a pointer
 to another structure of the same type.
 
-``` {.c}
+```{.c}
 struct Node {
     int data;
     struct Node * next;
@@ -248,25 +245,25 @@ as it would appear in Java, as the structure definition is incomplete at
 the point the field is declared. Attempting to declare such a structure
 is impossible, it would require an infinite amount of memory.
 
-``` {.c}
+```{.c}
 struct Node {
     int data;
     struct Node next; // invalid
 }
 ```
 
-The same linked list is more rigorously represented as a *structure*
+The same linked list is more rigorously represented as a _structure_
 containing a start pointer to a node and subsequent nodes are referenced
 by a field of the previous node, as in figure [fig:llist](fig:llist), at
 the cost of revealing more implementation details. This removes the
 confusion of what the second cell of each two-cell references in the
-figure [fig:abstract\_llist](fig:abstract_llist). The value of each node
+figure [fig:abstract_llist](fig:abstract_llist). The value of each node
 can also be written more compactly inside the first two cell.
 
 In short there are practical reasons to model a whole linked list as a
 data type in its own right and there are different stylistic approaches
 to illustrating linked lists. Compare figures
-[fig:abstract\_llist](fig:abstract_llist) and [fig:llist](fig:llist).
+[fig:abstract_llist](fig:abstract_llist) and [fig:llist](fig:llist).
 
 ![A more concrete linked list illustration](../res/llist.svg "llist")
 
@@ -275,7 +272,7 @@ illustrate both nodes and a dedicated list object. It is still possible
 to write a linked list implementation where the only user defined type
 is a node. It is useful to have a separate linked list type to store
 additional metadata about the list such as size or tail pointers in the
-case of a *queue*. In either case, such a type can be abstracted away
+case of a _queue_. In either case, such a type can be abstracted away
 and it is assumed there is some reference to the first node somewhere in
 the program when a linked list is expressed as a simple collection of
 nodes.
@@ -284,41 +281,40 @@ As an example of a linked list variation, the last node may reference
 the first node, the same as the start pointer. Some program may need to
 begin performing an operation at some arbitrary point within the list,
 other than the first element, in which case this change is helpful. This
-is called a *circular* linked list.
+is called a _circular_ linked list.
 
 ![A circular linked list](../res/circular_llist.svg "circular_llist")
 
-A *queue* is a linked list with an additional two-cell pointing to the
+A _queue_ is a linked list with an additional two-cell pointing to the
 front and rear nodes.
 
 ![A linked list with start and rear
 pointer](../res/queue_llist.svg "queue_llist")
 
 A node could contain a pointer for the next and previous nodes, called a
-*doubly-linked* or *double linked* list. If the list additionally
+_doubly-linked_ or _double linked_ list. If the list additionally
 implements the circular property, it can behave as a queue (the rear
 pointer is the previous node of the start).
 
 ![A circular doubly-linked
 list](../res/double_circular_llist.svg "double_circular_llist")
 
-Dynamic Arrays
-==============
+## Dynamic Arrays
 
 An array is allocated once with a given size. An array is an ideal
 container type, if the data to be stored is of the same form and the
 quantity of data is know at compile time. If the maximum size of a data
 structure required to store some elements is not known at compile time,
 it is still possible to use an array with some additional caveats. An
-array capable of growing in this way is known as a *dynamic array* or
-*array list*.
+array capable of growing in this way is known as a _dynamic array_ or
+_array list_.
 
 Array size is a type of program invariant, although an array list is
-characterised by two variables: the current maximum *capacity* of the
-array and the *size* or number of elements. Insertion when size is less
+characterised by two variables: the current maximum _capacity_ of the
+array and the _size_ or number of elements. Insertion when size is less
 than capacity is $O(1)$. Insertion when size is equal to capacity is of
 order $O(n)$, the array must be reallocated to make space for more
-elements. Figure [fig:array\_list](fig:array_list) depicts the growth of
+elements. Figure [fig:array_list](fig:array_list) depicts the growth of
 a dynamic array, reallocation is indicated with an arrow.
 
 ![Reallocation of an array list](../res/array_list.svg "array_list")
@@ -332,20 +328,19 @@ complexity if more space than is required is allocated and under certain
 conditions the time complexity of an operation may be worse, such as the
 reallocation of memory.
 
-Stacks
-======
+## Stacks
 
-A stack is an abstract data type organises data in *First-In-Last-Out
-(FILO)* or *Last-In-First-Out (LIFO)* manner. The most recently inserted
+A stack is an abstract data type organises data in _First-In-Last-Out
+(FILO)_ or _Last-In-First-Out (LIFO)_ manner. The most recently inserted
 item is the first to be removed from a stack. A stack can be defined
 inductively with the constructors `emptystack` and `push`, the
 conditional `isemptystack` and the selectors `top` and `pop`.
 
--   $\text{emptystack} () \rightarrow S$
--   $\text{push} (E,S) \rightarrow S$
--   $\text{isemptystack} (S) \rightarrow T|F$
--   $\text{top} (S) \rightarrow E$
--   $\text{pop} (S) \rightarrow S$
+- $\text{emptystack} () \rightarrow S$
+- $\text{push} (E,S) \rightarrow S$
+- $\text{isemptystack} (S) \rightarrow T|F$
+- $\text{top} (S) \rightarrow E$
+- $\text{pop} (S) \rightarrow S$
 
 In this stack definition, which does not mutate the state of one stack,
 instead creating and returning new stacks as required, `top` returns the
@@ -354,8 +349,8 @@ without the first element. For most practical purposes, a single stack
 is used and changed destructively, in which case `push` and `pop` have
 different definitions.
 
--   $\text{push} (E,S)$
--   $\text{pop} (S) \rightarrow E$
+- $\text{push} (E,S)$
+- $\text{pop} (S) \rightarrow E$
 
 This version of `pop` removes and returns the first element of a stack.
 The state of the original stack is changed to reflect the result of the
@@ -363,7 +358,7 @@ operation. There is no need to create and return a new stack.
 
 A stack is very easily implemented with a singly linked list. Items are
 inserted and removed from the front. In figure
-[fig:stack\_push\_pop](fig:stack_push_pop) the integers 7, 2 and 9 are
+[fig:stack_push_pop](fig:stack_push_pop) the integers 7, 2 and 9 are
 pushed onto the stack. Items are retrieved in the reverse order of their
 insertion. The integers pushed onto the stack are popped from the front
 and returned in the order 9, 2, 7. In this example, the whole process
@@ -378,32 +373,31 @@ of the stack (the number of element in the stack). Accessing any element
 in an array can be done in constant time. The stack implementation also
 maintains the maximum stack size (size of the underlying array). If the
 size of the stack is the allocated size of the array, the stack is
-considered *full*. Pushing and further elements onto the stack will
-result in a state known as *stack overflow*. A dynamic array stack
+considered _full_. Pushing and further elements onto the stack will
+result in a state known as _stack overflow_. A dynamic array stack
 implementation can be used to avoid this condition.
 
 ![Stack implemented as an array](../res/stack_array.svg "stack_array")
 
-Queue
-=====
+## Queue
 
 Unlike a stack, queue items are removed in the order they were
-originally inserted, called a *First-In-First-Out (FIFO)* or
-*Last-In-Last-Out (LILO)* data structure. Queues share a very similar
+originally inserted, called a _First-In-First-Out (FIFO)_ or
+_Last-In-Last-Out (LILO)_ data structure. Queues share a very similar
 inductive definition to stacks, though their implementations differ.
 
--   $\text{emptyqueue} () \rightarrow Q$
--   $\text{push} (E,Q) \rightarrow Q$
--   $\text{isemptyqueue} (S) \rightarrow T|F$
--   $\text{top} (Q) \rightarrow E$
--   $\text{pop} (Q) \rightarrow Q$
+- $\text{emptyqueue} () \rightarrow Q$
+- $\text{push} (E,Q) \rightarrow Q$
+- $\text{isemptyqueue} (S) \rightarrow T|F$
+- $\text{top} (Q) \rightarrow E$
+- $\text{pop} (Q) \rightarrow Q$
 
 The role of `top` and `pop` are achieved through the mutator `dequeue`,
 while `enqueue` performs an operation analogous to `push`, manipulating
 an existing queue.
 
--   $\text{enqueue} (E,Q)$
--   $\text{dequeue} (Q) \rightarrow E$
+- $\text{enqueue} (E,Q)$
+- $\text{dequeue} (Q) \rightarrow E$
 
 For an efficient queue implementation, start and rear pointers must be
 maintained. With these two references, items can be enqueued at either
@@ -414,7 +408,7 @@ penultimate (new rear) element. With a singly linked list, this requires
 iteration from the start, $O(n)$ complexity. Therefore, the most
 effective way to use a linked list to implement a queue is enqueue at
 the rear and dequeue from the front, illustrated in figure
-[fig:queue\_enqueue\_dequeue](fig:queue_enqueue_dequeue).
+[fig:queue_enqueue_dequeue](fig:queue_enqueue_dequeue).
 
 ![Queue operations, enqueue and
 dequeue](../res/queue_enqueue_dequeue.svg "queue_enqueue_dequeue")
@@ -437,11 +431,11 @@ array only becomes full when the size of the queue is equal to the
 capacity of the array. In a circular array, a queue occupies the
 indices:
 
--   `front, ..., front + size - 1` if `front + size - 1 < capacity`
--   `front, ..., capacity - 1` and `0, .., front + size - capacity - 1`
-    if `front + size > capacity`
+- `front, ..., front + size - 1` if `front + size - 1 < capacity`
+- `front, ..., capacity - 1` and `0, .., front + size - capacity - 1` if
+  `front + size > capacity`
 
-In figure [fig:circular\_queue](fig:circular_queue), a queue of size
+In figure [fig:circular_queue](fig:circular_queue), a queue of size
 three occupies different portions of the array. The front pointer is
 indicated with an arrow.
 
@@ -457,7 +451,7 @@ constructor `enqueue` (emptyqueue is omitted here) and a selector
 
 [Circular queue implementation]{.label}
 
-``` {.text}
+```{.text}
 record E { ... };
 record Q {
     int size;

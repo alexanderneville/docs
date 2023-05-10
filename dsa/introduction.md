@@ -1,13 +1,14 @@
+# Introduction to Data Structures & Algorithms
+
 There is an important distinction between the abstract, theoretical
 nature of algorithms and real-world computer programs. The same is true
-of the relationship between *concrete data structures* and *abstract
-data types*.
+of the relationship between _concrete data structures_ and _abstract
+data types_.
 
-Algorithms
-==========
+## Algorithms
 
 If a computer is to execute the steps of an algorithm, the algorithm in
-question must be *implemented* in a computer program. Programs are
+question must be _implemented_ in a computer program. Programs are
 written in formal languages, which are inherently more detailed and
 precise than an algorithm and conform an exact syntax as understood by a
 compiler. Algorithms provide abstraction from the implementation details
@@ -24,8 +25,7 @@ pseudocode is often used as an abstract method for describing algorithms
 in a way that preserves some focus on the implementation and conveys
 more detail.
 
-Data Types and Structures
-=========================
+## Data Types and Structures
 
 In computer programming, a data type is a set of possible values and
 supported operations for a given piece of data. Many languages include a

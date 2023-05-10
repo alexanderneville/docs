@@ -1,89 +1,89 @@
+# Tree ADT
+
 A tree data structure models the abstract tree type. A conceptual tree
-is a hierarchical structure with an explicit *root*. In the context of
+is a hierarchical structure with an explicit _root_. In the context of
 data structures and algorithms, a tree is a type of connected graph,
-composed of *nodes* and *edges* with no cycles and exactly one route
+composed of _nodes_ and _edges_ with no cycles and exactly one route
 between the root and any other node. Trees are generally depicted with
 the root node at the top and all other nodes arranged into discrete
-levels as in figure [fig:general\_tree](fig:general_tree).
+levels as in figure [fig:general_tree](fig:general_tree).
 
 ![A general tree](../res/general_tree.svg "general_tree")
 
-A tree is composed of *nodes* which contain data and references to other
+A tree is composed of _nodes_ which contain data and references to other
 connected nodes. A node in a tree may have any number of connected
-*child* nodes. Every tree node is referenced by exactly one *parent*
+_child_ nodes. Every tree node is referenced by exactly one _parent_
 node, except in the case of the root node which does not have a parent
 node. Each node can be treated as the root of its own sub-tree. The
 sub-tree with any tree node as its root has all the same properties as
 the tree the sub-tree root belongs to.
 
--   A *descendant* of a node is any node that can be reached traversing
-    from parent to child, repeatedly if necessary. A node can have as
-    many or more descendants than children.
--   An *ancestor* of a node is any node that can be reached by
-    traversing from child to parent any number of times (at least once).
-    A non-root node always has exactly one parent, but may have many
-    nodes as ancestors.
--   A *path* is a sequence of connected edges between two nodes via any
-    number of other nodes.
--   The *depth* or *level* of a node in a tree is the length of the path
-    from the root to the node. The root node has a depth of 0.
--   A node is considered *internal* if it has one or more connected
-    children.
--   A node is said to be a *leaf* node if it has exactly zero connected
-    children.
--   A node\'s *siblings* are any nodes with the same parent. It is
-    possible for a node to have no siblings.
+- A _descendant_ of a node is any node that can be reached traversing
+  from parent to child, repeatedly if necessary. A node can have as many
+  or more descendants than children.
+- An _ancestor_ of a node is any node that can be reached by traversing
+  from child to parent any number of times (at least once). A non-root
+  node always has exactly one parent, but may have many nodes as
+  ancestors.
+- A _path_ is a sequence of connected edges between two nodes via any
+  number of other nodes.
+- The _depth_ or _level_ of a node in a tree is the length of the path
+  from the root to the node. The root node has a depth of 0.
+- A node is considered _internal_ if it has one or more connected
+  children.
+- A node is said to be a _leaf_ node if it has exactly zero connected
+  children.
+- A node\'s _siblings_ are any nodes with the same parent. It is
+  possible for a node to have no siblings.
 
-The *height* of a tree is the length of the longest path from the root
-to any node, *ie.* the maximum depth of any node. The *size* of a tree
+The _height_ of a tree is the length of the longest path from the root
+to any node, _ie._ the maximum depth of any node. The _size_ of a tree
 is the number of nodes it contains. An empty tree has 0 nodes and so a
 size of 0 and in conventional notation a height of -1.
 
-Inductive Type Definition
--------------------------
+## Inductive Type Definition
 
 Each node in a tree is the root of a sub-tree rooted at that point. A
-tree can be built *inductively* from the special *empty tree* which has
+tree can be built _inductively_ from the special _empty tree_ which has
 no value and no children. Larger trees are built with a value and a list
-of children, a list of trees is called a *forest* $F$. For a general
+of children, a list of trees is called a _forest_ $F$. For a general
 tree, the ADT can be defined:
 
--   $\text{emptytree}() \rightarrow T$
--   $\text{maketree}(E,F) \rightarrow T$
--   $\text{isemptytree}(T) \rightarrow \top|\bot$
--   $\text{children}(T \rightarrow F)$
--   $\text{valuetree}(T \rightarrow E)$
+- $\text{emptytree}() \rightarrow T$
+- $\text{maketree}(E,F) \rightarrow T$
+- $\text{isemptytree}(T) \rightarrow \top|\bot$
+- $\text{children}(T \rightarrow F)$
+- $\text{valuetree}(T \rightarrow E)$
 
 A common implementation of the general tree with no constraint on the
-number of children of each node is the *sibling list*, illustrated in
-figure [fig:sibling\_list](fig:sibling_list). Each node has in addition
+number of children of each node is the _sibling list_, illustrated in
+figure [fig:sibling_list](fig:sibling_list). Each node has in addition
 to its value, a pointer to the list of its children and a second pointer
 to its next sibling.
 
 ![A general tree as a sibling
 list](../res/sibling_list.svg "sibling_list")
 
-Binary Trees
-------------
+## Binary Trees
 
-A *binary tree* is a type of *N*-ary tree in which each node has at most
-two children as in figure [fig:binary\_tree](fig:binary_tree). The
+A _binary tree_ is a type of _N_-ary tree in which each node has at most
+two children as in figure [fig:binary_tree](fig:binary_tree). The
 general tree definition holds for binary trees, but the binary nature of
 the tree is not enforced. A proper binary tree definition states that
 building a new tree requires two child trees rather than a list of trees
 of unspecified length. Similarly, a binary tree node\'s children are
 returned by two specific accessor:
 
--   $\text{emptybinarytree}() \rightarrow T$
--   $\text{makebinarytree}(E,T,T) \rightarrow T$
--   $\text{isemptybinarytree}(T) \rightarrow \top|\bot$
--   $\text{leftbinarytree}(T) \rightarrow T$
--   $\text{rightbinarytree}(T) \rightarrow T$
--   $\text{valuebinarytree}(T) \rightarrow E$
+- $\text{emptybinarytree}() \rightarrow T$
+- $\text{makebinarytree}(E,T,T) \rightarrow T$
+- $\text{isemptybinarytree}(T) \rightarrow \top|\bot$
+- $\text{leftbinarytree}(T) \rightarrow T$
+- $\text{rightbinarytree}(T) \rightarrow T$
+- $\text{valuebinarytree}(T) \rightarrow E$
 
 ![A binary tree](../res/binary_tree.svg "binary_tree")
 
-A binary tree or any *N*-ary tree can be implemented as a sibling list,
+A binary tree or any _N_-ary tree can be implemented as a sibling list,
 but this is usually unnecessary if the maximum number of children is
 know. Without changing how a node is defined, the first pointer can be
 used to point to the left child and the second pointer can be used to
@@ -104,8 +104,7 @@ different levels.
 ![A binary tree as an
 array](../res/binary_tree_array.svg "binary_tree_array")
 
-Binary Search Trees
--------------------
+## Binary Search Trees
 
 A binary search tree is a type of binary tree with the additional
 constraint that a node\'s children are in order; keys with a lower value
@@ -114,7 +113,7 @@ the right subtree. Any subtrees rooted on a node\'s left or right child
 must also be binary search trees.
 
 Keys are sorted as they are added so in-order traversal will give the
-inserted keys in order. A binary search tree can be *flattened* into an
+inserted keys in order. A binary search tree can be _flattened_ into an
 array by appending the flattened right subtree to the list containing
 the flattened left subtree and the value of the root in that order
 (recursively).
@@ -127,14 +126,14 @@ tree](../res/small_bst.svg "binary_search_tree")
 To delete a non-leaf node with only one subtree child, replace the node
 to be deleted with the root of the subtree. If a node is a leaf node
 (has no children) it can be removed in a single step (figure
-[fig:bst\_delete\_0\_1\_children](fig:bst_delete_0_1_children)).
-Otherwise, if a node $x$ to be deleted has two children (figure
-[fig:bst\_delete\_2\_children](fig:bst_delete_2_children)):
+[fig:bst_delete_0_1_children](fig:bst_delete_0_1_children)). Otherwise,
+if a node $x$ to be deleted has two children (figure
+[fig:bst_delete_2_children](fig:bst_delete_2_children)):
 
--   Identify the leftmost node $y$ in the right subtree of $x$.
--   Replace the value of $x$ with the value of $y$.
--   Remove the node $y$ by replacing $y$ with its right child, if it
-    exists.
+- Identify the leftmost node $y$ in the right subtree of $x$.
+- Replace the value of $x$ with the value of $y$.
+- Remove the node $y$ by replacing $y$ with its right child, if it
+  exists.
 
 ![Deleting node $x$ with zero or one
 children](../res/bst_delete_0_1_children.svg "bst_delete_0_1_children")
@@ -153,28 +152,28 @@ subtree. The same procedure can be achieved in one traversal by setting
 lower and upper limits $l$ and $u$ to some special extreme value and
 then, taking the root of the tree:
 
-1.  If the current node is empty, return *true*.
+1.  If the current node is empty, return _true_.
 2.  If the current node is not empty and is not in $(l, u)$ return
-    *false*.
+    _false_.
 3.  Else:
     1.  Setting the current node\'s value as $u$ and using the existing
         value of $l$, check the left subtree is a binary search tree. If
-        this is not true, return *false*.
+        this is not true, return _false_.
     2.  Setting the current node\'s value as $l$ and using the existing
         value of $u$, check the right subtree is a binary search tree.
-        If this is not true, return *false*.
-    3.  Return *true*.
+        If this is not true, return _false_.
+    3.  Return _true_.
 
 ### Complexity
 
-The *balance* at any node is the difference in height between left and
+The _balance_ at any node is the difference in height between left and
 right subtrees. Insert and search operations on a search tree are faster
 if the tree is balanced. Ideally, the median key is inserted first so
 that roughly half the keys are inserted to the left and half to the
 right, assuming the order of insertion is random. In the worst case,
 keys are inserted roughly in order, making the tree resemble a unary
 linked list. These two cases are compared in figure
-[fig:bst\_cases](fig:bst_cases). Search, insert and delete on a binary
+[fig:bst_cases](fig:bst_cases). Search, insert and delete on a binary
 search tree with $n$ nodes are $O(\log n)$ in the average case and
 $O(n)$ in the worst case.
 
