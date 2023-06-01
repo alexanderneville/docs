@@ -37,7 +37,7 @@ the tree the sub-tree root belongs to.
   possible for a node to have no siblings.
 
 The _height_ of a tree is the length of the longest path from the root
-to any node, _ie._ the maximum depth of any node. The _size_ of a tree
+to any node, _i.e._ the maximum depth of any node. The _size_ of a tree
 is the number of nodes it contains. An empty tree has 0 nodes and so a
 size of 0 and in conventional notation a height of -1.
 

@@ -35,8 +35,7 @@ Date:   Wed Mar 15 14:31:16 2023 +0000
 
 There are, unsurprisingly, many options for controlling the output
 format of `git log`. Some useful examples are listed below (their
-purpose can be looked up using [git\'s own help
-interface](introduction.org::\*Command Line Help)).
+purpose can be looked up using git's own help interface.
 
 - `--patch`
 - `--stat`

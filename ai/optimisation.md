@@ -1,7 +1,7 @@
 # Optimisation Algorithms
 
-Optimisation problems seach for the best (optimal) or a good solution to
-a problem, satisfying contraints.
+Optimisation problems search for the best (optimal) or a good solution to
+a problem, satisfying constraints.
 
 ```python
 import matplotlib as mpl
@@ -25,7 +25,7 @@ def new_plot():
 
 ## Hill Climbing
 
-A very simple optimsation algorithm is hill climbing. The process
+A very simple optimisation algorithm is hill climbing. The process
 resembles generating neighbour solutions, which are close to the current
 solution, and moving in the direction of the best neighbour. This
 approach will rapidly converge on a nearby optima, however it is not
@@ -107,7 +107,7 @@ anim.save('../animations/optimal.gif')
 ![](../res/animations/optimal.gif)
 
 Applied to more complicated problems, hill climbing may not find a
-perfect soltion as it can become _trapped_ in a local maxima. It is
+perfect solution as it can become _trapped_ in a local maxima. It is
 unable to traverse the search space to find better solutions. Sometimes
 this is not a problem, as a sub-optimal solution may be adequate.The
 following examples illustrate this problem.
@@ -175,7 +175,7 @@ neighbours, allowing it to escape a local maxima and traverse the search
 space. The algorithm gradually forms a basis of attraction to
 increasingly small sections of the search space which contain a maxima.
 
-Because of the random nature of annealing, the algroithm is not optimal,
+Because of the random nature of annealing, the algorithm is not optimal,
 however the probability of locating the global maxima approaches 1 as
 the annealing schedule is extended. Brute-force examination of the
 search space may be faster than random annealing in some cases. Often,

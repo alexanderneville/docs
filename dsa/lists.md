@@ -204,7 +204,7 @@ is the _linked list_.
 
 The most simple linked list is composed of a sequence of _nodes_ or
 _two-cells_. Each contains an element (or a reference to an element) and
-a _reference_ to the next node. figure
+a _reference_ to the next node. Figure
 [fig:abstract_llist](fig:abstract_llist) is the most abstract graphical
 representation of the list $[8,4,1,7,3,6]$. The second of each two-cell
 is a reference to the next node, not the first cell of the next node, as
@@ -228,7 +228,7 @@ class Node {
 ```
 
 It would appear that a node contains the next node directly, although
-this isn\'t the case. In this Java source `Node` is a reference type.
+this isn't the case. In this Java source `Node` is a reference type.
 The allocation of a new node and pointer logic are all handled
 implicitly. This is the equivalent of a C structure containing a pointer
 to another structure of the same type.

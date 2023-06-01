@@ -21,17 +21,17 @@ def new_plot():
     return fig, ax
 ```
 
-## Linear Seperator
+## Linear Separator
 
 Linear functions can perform classification. Such a function is called
 the _decision boundary_ or _linear separator_. A data set admitting a
-linear separator is considered _linearly seperable_ and there exists a
-solution ot the function $h$ with zero cost.
+linear separator is considered _linearly separable_ and there exists a
+solution to the function $h$ with zero cost.
 
 In classification, the hypothesis $h_{\mathbf{w}}(\mathbf{x})$ is the
 linear function $\mathbf{w}\cdot\mathbf{x}$ passed through a _threshold
 function_, returning the classification of the input, rather than a real
-value, as in regression. If the data set is linearly seperable, the
+value, as in regression. If the data set is linearly separable, the
 _percepton learning rule_ will converge on an exact solution.
 
 $$w_i \leftarrow w_i - \alpha (h_{\mathbf{w}}(\mathbf{x}) - y_j) \times x_{i}$$
@@ -42,8 +42,8 @@ The _sigmoid_ or _logistic_ function returns a value in the interval
 $(0,1)$, representing the probability that the point has the
 classification 1. In logistic regression, the vector product of the
 weights and inputs is passed through this logistic function. This
-function is differentiable at all points and it is continous in its
-input. The logistic funcion is a _softer_ threshold function.
+function is differentiable at all points and it is continuous in its
+input. The logistic function is a _softer_ threshold function.
 
 $$\sigma(u) = \dfrac{1}{1+e^{-u}}$$
 
@@ -64,7 +64,6 @@ The sigmoid function, visualised:
 x = np.linspace(-8, 8, 1000)
 f, ax = new_plot()
 ax.set_xticks([])
-#ax.set_yticks([])
 ax.yaxis.set_major_locator(MultipleLocator(1))
 ax.grid()
 ax.plot(x, sigmoid(10 * x), 'green', label="10x")
@@ -130,8 +129,8 @@ def logistic_regression(a, m, W, y, X):
 
 In this example, the points are labelled in advanced (logistic
 regression is always a supervised problem). The decision boundary is
-drawn between the the two classes. Note that this problem is not
-linearly seperable - the cost on the training set is not 0 - it is
+drawn between the two classes. Note that this problem is not
+linearly separable - the cost on the training set is not 0 - it is
 however a fairly good predictor.
 
 ```python

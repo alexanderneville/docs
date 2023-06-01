@@ -1,9 +1,10 @@
 # Tracking Changes in Git
 
 Git exposes a set of commands for checking the status of the repository
-and files within it. Git also includes an intuitive interface for moving files
-between the different states. The same can be acheived using more
-primitive operations, but all modern git versions share a very similar CLI.
+and files within it. Git also includes an intuitive interface for moving
+files between the different states. The same can be achieved using more
+primitive operations, but all modern git versions share a very similar
+CLI.
 
 ## Repository Status
 
@@ -60,7 +61,7 @@ nothing to commit, working tree clean
 ```
 
 The `-m` flag is used to provide a commit message. Committing without
-the `-m` flag will open the user\'s preferred editor to enter a message.
+the `-m` flag will open the user's preferred editor to enter a message.
 The `-a` flag can be used to stage and commit all changes to the working
 directory, effectively bypassing the staging area.
 

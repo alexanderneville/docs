@@ -173,12 +173,12 @@ Deleted branch branch2 (was aea2a4e).
 ### Merging
 
 The merge operation is more complicated when the two branches involved
-are divergent, _ie_. the branch being merged from is not an ancestor of
+are divergent, _i.e._ the branch being merged from is not an ancestor of
 the branch being merged. A new commit must be created, sometimes called
 a `merge commit`.
 
 If both branches modify the same part of a file, git will not be able to
-merge automatically due to the conflict (_eg_. merging `branch1` into
+merge automatically due to the conflict (_e.g._ merging `branch1` into
 `main` as below). `git status` will report which files have conflicts.
 
 ```{.text}

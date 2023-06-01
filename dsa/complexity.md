@@ -21,12 +21,12 @@ size $n$.
 
 Some algorithms may take longer under different input conditions, for
 example linear search is much faster if the element to find is first in
-a list than if the element doesn\'t appear in the list at all. The
-complexity of this algorithm can be measured under different cases, eg.
+a list than if the element doesn't appear in the list at all. The
+complexity of this algorithm can be measured under different cases, e.g.
 in the _best case_, where the element to find is at the start of the
 list (constant time complexity); the _average case_, where the element
 is in the middle of the list ($n/2$ complexity) or the _worst case_,
-where the element to find doesn\'t appear in the list ($n$ complexity).
+where the element to find doesn't appear in the list ($n$ complexity).
 
 ## Big O Notation
 
@@ -34,7 +34,7 @@ Presented with a function expressing the exact complexity of an
 algorithm, _big O_ notation simplifies the complexity to its most
 significant headline complexity. If $f(n)$ is the sum of many terms,
 then only the term with the highest growth rate is taken. Any constant
-factor, coefficient or term that doesn\'t depend on the input size (any
+factor, coefficient or term that doesn't depend on the input size (any
 overhead) can be ignored. The resulting expression is known as a
 _complexity class_.
 

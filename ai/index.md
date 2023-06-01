@@ -1,3 +1,5 @@
+# Artificial Intelligence
+
 - [Introduction](introduction.md)
 - [Linear Regression](./regression.md)
 - [Classification](./classification.md)

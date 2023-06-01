@@ -6,11 +6,11 @@ The set of Natural numbers $\mathbb{N}$, is the infinite set of all
 non-negative Integers, including $0$.
 
 The _natural numbers_ are those used with the purpose of counting or
-ordering. In the sentence _\"There are 7 continents.\"_ the natural
-number 7 is used to count items, it is used as a _cardinal_. In the
-sentence _\"Europe is the sixth largest continent by area.\"_ the
-natural number **six** is used to express Europe\'s position in amongst
-some items, it is used as an _ordinal_.
+ordering. In the sentence _"There are 7 continents."_ the natural number
+7 is used to count items, it is used as a _cardinal_. In the sentence
+_"Europe is the sixth largest continent by area."_ the natural number
+**six** is used to express Europe's position in amongst some items, it
+is used as an _ordinal_.
 
 Depending on context, the set of natural numbers may or may not include
 zero. In computer science, zero is an important element of the set of
@@ -64,7 +64,7 @@ default base, that is unless another base is explicitly specified. This
 is often done with a subscript after the representation of a number.
 $11$ is assumed to be the natural number eleven, written in decimal,
 rather than three written in binary. $11_2$ is unmistakably binary, but
-this specificity isn\'t always necessary.
+this specificity isn't always necessary.
 
 |          |        |        |        |        |
 | :------- | :----- | :----- | :----- | :----- |
@@ -219,12 +219,12 @@ The positional notation used to write natural numbers needs to be
 extended to write the negative numbers in the set of integers.
 
 The most simple system is _Sign-magnitude_ notation. Negative numbers
-are prefixed with a minus sign, eg $-37$. Natural numbers can also be
-written with a distinct positive sign, eg $+37$. If the sign is omitted,
-the number is assumed to be positive. Inversion is very easy using this
-notation, changing the sign is the only step. In a computer system, an
-additional bit is required to store the sign, making the range of
-possible integer values with $n$ bits
+are prefixed with a minus sign, e.g. $-37$. Natural numbers can also be
+written with a distinct positive sign, e.g. $+37$. If the sign is
+omitted, the number is assumed to be positive. Inversion is very easy
+using this notation, changing the sign is the only step. In a computer
+system, an additional bit is required to store the sign, making the
+range of possible integer values with $n$ bits
 $(-2^{n-1} \ldotp \ldotp 2^{n-1})$, with both $+0$ and $-0$ being
 stored.
 

@@ -10,5 +10,4 @@ system. Some of its basic usage is covered in the articles:
 - [Viewing the commit history](commit-history.md)
 - [Useful git Features](git-features.md)
 - [Working with local git Branches](branches.md)
-- [Working with remote git Branches](remotes.md)
 - [Git rebase](rebase.md)

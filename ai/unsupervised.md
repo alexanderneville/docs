@@ -4,7 +4,7 @@ In supervised learning, each observation in the training set is an
 $(\mathbf{x}, y)$ tuple, consisting of a input vector $\mathbf{x}$ and
 an output label $y$. The goal is to learn a function $h(\mathbf{x})$
 that approximates this relationship. This function should accurately
-predict the output label of an useen observation. If the labels form a
+predict the output label of an unseen observation. If the labels form a
 set of discrete values or classes, the problem is called classification.
 If the labels are continuous, it is a regression problem.
 
@@ -34,12 +34,12 @@ def new_plot():
 
 ## Normalisation
 
-Unupervised learning algorithms draw upon the similarity of elements in
+Unsupervised learning algorithms draw upon the similarity of elements in
 the training set to form predictions. The _distance metric_ is an
 important part of doing so. In multidimensional problems, the magnitude
 of different attributes can differ significantly, effectively weighting
 the proximity in the dimension which has the largest average value more
-heavily. Attributes should be normalised to presereve any existing
+heavily. Attributes should be normalised to preserve any existing
 relationship, but scaling the underlying values to lie within a certain
 range.
 
@@ -50,7 +50,7 @@ def z_score_standardise_feature(x_mean, x_std, x_i):
     return (x_i-x_mean)/x_std
 ```
 
-The same dataset without normailisation, using min/max normalisation and
+The same dataset without normalisation, using min/max normalisation and
 using z-score normalisation.
 
 ```python
@@ -78,9 +78,9 @@ ax.scatter(z_score_standardise_feature(np.mean(X[:, 0]), np.std(X[:, 0]), X[:, 0
 
 ![png](../res/unsupervised_5_1.png)
 
-## Minowski distance
+## Minkowski distance
 
-If $X$ and $Y$ are vectors of size $n$, the Minowski distance is defined
+If $X$ and $Y$ are vectors of size $n$, the Minkowski distance is defined
 as:
 
 $$D(X,Y) = (\sum_i^n|x_i-y_i|^p)^{\frac{1}{p}}$$
@@ -136,7 +136,7 @@ Given a number of clusters $K$ and $N$ observations:
 1. Select $K$ observations as centroids.
 2. Repeat:
    1. Assign each observation to the cluster of the nearest centroid.
-   2. Calculte the new centroid position for each cluster.
+   2. Calculate the new centroid position for each cluster.
 
 ```python
 def nearest_centroid(c_k, x):

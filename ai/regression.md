@@ -46,7 +46,7 @@ def new_plot():
 ## Univariable Linear Regression
 
 The process of fitting a straight line to an $x$/$y$ dataset is called
-_univariate linear regression_, univariate refering to the single output
+_univariate linear regression_, univariate referring to the single output
 variable $y$. In the most simple case, $x$ is a single value, though in
 more complicated cases $\mathbf{x}$ is a vector of values, linear
 regression applies to these cases equally well. Sometimes a function
@@ -91,7 +91,7 @@ def mse(y_actual, y_pred):
     return loss/y_actual.size
 ```
 
-Compare the cost for a fitted function (for which the paramters are
+Compare the cost for a fitted function (for which the parameters are
 already know) with a line of gradient 1, for example. The fitted
 function has a much smaller cost.
 
@@ -107,7 +107,7 @@ print(mse(y, f(1, x, 0))) # large cost
 ### Stochastic Gradient Descent
 
 To perform regression, a function must be fitted to a dataset. For
-univariate linear regression, the paramaters can be computed exactly
+univariate linear regression, the parameters can be computed exactly
 from the derivative of the loss function, though a different approach is
 required to fit more complex functions.
 
@@ -117,11 +117,11 @@ set, making a small step in the direction of steepest descent, according
 to the _learning rate_ $\alpha$. If the loss represents how poor the
 current model is on a training example, the learning process should
 **minimise** this loss and hence the term _gradient descent_ is
-preffered over hill-climbing.
+preferred over hill-climbing.
 
 Where $\mathbf{w}$ is the vector of weights as before, the gradient
 descent algorithm updates each weight by taking the partial derivative
-of the losss function $L$ with respect to that weight for each point
+of the loss function $L$ with respect to that weight for each point
 $x$.
 
 $$w_i \leftarrow w_i - \alpha \frac{\delta}{\delta w_i}L(x)$$
@@ -204,7 +204,7 @@ of _mini-batch_ gradient descent. The loss of all the points within a
 mini-batch within the training set are used to calculate a change to the
 vector of weights. This is often preferred over both approaches seen so
 far as it converges faster than element by element SGD, without the
-resource utilisation of fully determinisic gradient descent.
+resource utilisation of fully deterministic gradient descent.
 
 ```python
 def SGD(a, n, w_0, w_1, y, x):
