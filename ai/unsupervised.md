@@ -188,4 +188,10 @@ anim = animation.FuncAnimation(fig=fig, func=animate_k_means, frames=9, interval
 anim.save('../animations/k_means.gif')
 ```
 
-![png](../res/unsupervised_12_0.png)
+![](../res/animations/k_means.gif)
+
+K-Means is not optimal. The algorithm may not generate ideal cluster centroids, as
+is the case in the example below. Many strategies for evaluating
+clustering algorithms and finding more optimal solutions exist.
+
+![](../res/animations/sub_optimal_k_means.gif)
