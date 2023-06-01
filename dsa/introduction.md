@@ -1,4 +1,8 @@
-# Introduction to Data Structures & Algorithms
+---
+author: Alex Neville
+date: 2023-01-03
+title: Introduction to DSA
+---
 
 There is an important distinction between the abstract, theoretical
 nature of algorithms and real-world computer programs. The same is true

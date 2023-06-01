@@ -1,4 +1,8 @@
-# Linear Algebra
+---
+author: Alex Neville
+date: 2023-01-05
+title: Linear Algebra
+---
 
 ## Gaussian Elimination
 

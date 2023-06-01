@@ -1,4 +1,8 @@
-# Searching & Sorting Algorithms
+---
+author: Alex Neville
+date: 2023-01-11
+title: Searching and Sorting
+---
 
 A sorting function orders elements according to a _comparison function_.
 Sometimes, as is the case with numeric records, a bespoke comparison

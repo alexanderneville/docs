@@ -1,4 +1,8 @@
-# Relations
+---
+author: Alex Neville
+date: 2023-01-04
+title: Mathematical Relations
+---
 
 If $A_1, A_2, \ldots, A_n$ is a list of $n$ sets and $R$ is a subset of
 $A_1 \times A_2 \times \ldots \times A_n$, then $R$ is a _n-ary

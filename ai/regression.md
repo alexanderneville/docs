@@ -1,4 +1,8 @@
-# Linear Regression
+---
+author: Alex Neville
+date: 2023-06-01
+title: Linear Regression
+---
 
 Regression applies to learning problems in which the output is real
 valued and continuous (outputs do not fit into discrete categories).

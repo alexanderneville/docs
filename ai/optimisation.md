@@ -1,4 +1,8 @@
-# Optimisation Algorithms
+---
+author: Alex Neville
+date: 2023-06-01
+title: Optimisation
+---
 
 Optimisation problems search for the best (optimal) or a good solution to
 a problem, satisfying constraints.

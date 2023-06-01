@@ -1,4 +1,10 @@
-# Tags
+---
+author: Alex Neville
+date: 2023-03-15 Wed
+title: Working with the Commit History
+---
+
+## Tags
 
 Create a lightweight tag without an annotation:
 
@@ -60,7 +66,7 @@ f47ea70 (HEAD -> main, tag: v1.1) create CONTRIBUTING
 2c35a17 (tag: v1.0) create README
 ```
 
-# Aliases
+## Aliases
 
 Short aliases for common commands can be defined by git itself, using
 `git config`; these aliases can optionally be made global, with the

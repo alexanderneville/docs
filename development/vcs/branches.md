@@ -1,4 +1,8 @@
-# Git Branches
+---
+author: Alex Neville
+date: 2023-03-29
+title: Branches
+---
 
 The branch information can be suppressed/shown with the `--no-decorate`
 / `--decorate` flags.

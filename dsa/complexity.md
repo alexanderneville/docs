@@ -1,4 +1,8 @@
-# Asymptotic Complexity
+---
+author: Alex Neville
+date: 2023-01-12
+title: Performance and Complexity
+---
 
 The _performance_ of an algorithm refers to its resource usage: memory
 consumption, running time or both. Both factors are important when
@@ -42,8 +46,8 @@ As an example, the function $f(n) = 3n^2 + 6n +10$ can be simplified to
 the complexity class $n^2$. $f(n)$ is _big O_ of $n^2$, written more
 simply $O(n^2)$. The function $f(n)$ is said to belong to a complexity
 class, often written $f(n) = O(n^2)$. Note that in $O(g(n))$, $O$ is not
-a function, it is shorthand for the _\"class of functions with
-complexity of order $g(n)$\"_, the same expression could also be written
+a function, it is shorthand for the _"class of functions with complexity
+of order $g(n)$"_, the same expression could also be written
 $f(n) \in O(g(n))$.
 
 In formal terms, a function $f$ belongs to complexity class $O(g)$ if
@@ -115,7 +119,7 @@ performance of one operation on a given input size. In some cases, the
 difference between the average and worst case scenario is small and
 large in other situations. If the worst case scenario occurs
 infrequently, big $O$ may not be an accurate assessment of the
-algorithm\'s complexity.
+algorithm's complexity.
 
 Amortized complexity is measured over a number of successive operations.
 This measure is ideal for describing algorithms which perform one or

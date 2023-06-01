@@ -1,3 +1,9 @@
+---
+author: Alex Neville
+date: 2023-06-01
+title: Artificial Intelligence
+---
+
 _Artificial intelligence_ is the study or creation of machine algorithms
 which may make observations and inferences in order to perform
 actionable decision making, as a human or animal might. In wider society
@@ -6,7 +12,7 @@ considered to be a specific discipline of AI, concerned with improving
 an algorithm\'s performance using past experience. This is not an
 article about ML.
 
-# Philosophy of AI
+## Philosophy of AI
 
 There is not a universal consensus on definition of AI (which is a
 relatively ambiguous term), an issue revolving around the meaning of
@@ -39,7 +45,7 @@ study and creation of algorithms capable of _acting rationally_, or
 working to reach the best possible outcome. Sometimes this is called the
 _standard model_ for AI.
 
-# Agents
+## Agents
 
 An _agent_ is an entity, of any type, capable of observing its
 _environment_ and acting upon it. The concept of an agent is not strict,
@@ -70,7 +76,7 @@ determined by a concrete _agent program_, rather than a mathematical
 model. An agent program typically takes the current percept as an
 argument and returns an action.
 
-## Rationality
+### Rationality
 
 In order to exhibit intelligence, an agent must attempt to make the
 correct decision. The performance of an agent is evaluated by a
@@ -80,7 +86,7 @@ An _omniscient_ agent knows the exact outcome of its actions, there is
 no uncertainty in its behaviour. A rational agent will not perform
 perfectly, but in most cases it should perform well.
 
-## Agent Structure
+### Agent Structure
 
 Simple reflex agents respond directly to the current percept, regardless
 of state of the percept sequence. Theses agents struggle in partially
@@ -98,7 +104,7 @@ environment.
 ![The structure of a reflex
 agent](../res/simple-reflex-agent.svg "simple-reflex-agent")
 
-### Models and Goals
+#### Models and Goals
 
 _Model-based_ reflex agents maintain internal state and a model of its
 interaction with the environment, facilitating rational behaviour in
@@ -148,7 +154,7 @@ in the current state, using its utility function.
 ![The structure of a Utility-based
 agent](../res/utility-based-model-based-agent.svg "model-based-agent")
 
-### Learning Agents
+#### Learning Agents
 
 In all cases seen so far, an agent selects actions under certain
 conditions. This model does not explain how an agent is constructed.
@@ -159,7 +165,7 @@ dictates the actions the agent chooses as before. The learning element
 determines how the state and models of the performance element are
 modified.
 
-### State Representation
+#### State Representation
 
 Depending on the complexity of the problem, the representation of the
 current state varies. In the most simple case, the state is represented
@@ -173,7 +179,7 @@ _Structured representations_ are more complicated again, incorporating
 objects and relationships between them, rather than just a set of
 individual properties.
 
-## Task Environment
+### Task Environment
 
 The environment of an agent is the space in which it perceives and
 operates. The _task environment_ of an agent is the \"problem\" which it

@@ -1,4 +1,8 @@
-# Tree ADT
+---
+autor: Alex Neville
+date: 2023-01-09
+title: Tree ADT
+---
 
 A tree data structure models the abstract tree type. A conceptual tree
 is a hierarchical structure with an explicit _root_. In the context of

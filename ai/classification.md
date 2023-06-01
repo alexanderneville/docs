@@ -1,4 +1,8 @@
-# Linear Classification
+---
+author: Alex Neville
+date: 2023-06-01
+title: Linear Classification
+---
 
 A classification problem is designed to return a prediction which is one
 of a finite number of labels, rather than some real value.

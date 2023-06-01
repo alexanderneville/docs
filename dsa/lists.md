@@ -1,4 +1,8 @@
-# List ADT
+---
+author: Alex Neville
+date: 2023-01-10
+title: Lists
+---
 
 A _list_ is an abstract data type representing a finite number of
 ordered values in which the same value may appear more than once. Lists

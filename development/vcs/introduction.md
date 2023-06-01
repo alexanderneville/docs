@@ -1,4 +1,8 @@
-# Git Introduction
+---
+author: Alex Neville
+date: 2023-02-21
+title: Introduction to Git
+---
 
 The majority of git operations are local and do not require network
 access, this allows many different developers to work on the same

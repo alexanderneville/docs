@@ -1,4 +1,8 @@
-# Unsupervised Learning
+---
+author: Alex Neville
+date: 2023-06-01
+title: Unsupervised Learning
+---
 
 In supervised learning, each observation in the training set is an
 $(\mathbf{x}, y)$ tuple, consisting of a input vector $\mathbf{x}$ and

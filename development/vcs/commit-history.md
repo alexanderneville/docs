@@ -1,4 +1,8 @@
-# Viewing the Commit History
+---
+author: Alex Neville
+date: 2023-03-15
+title: Working with the Commit History
+---
 
 Reviewing the history of a project is possible with the `git log`
 command. By default, the log command will print a list of commits in

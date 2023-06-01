@@ -1,4 +1,8 @@
-# Tracking Changes in Git
+---
+author: Alex Neville
+date: 2023-02-23
+title: Tracking Repository Changes
+---
 
 Git exposes a set of commands for checking the status of the repository
 and files within it. Git also includes an intuitive interface for moving

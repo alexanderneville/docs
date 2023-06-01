@@ -1,4 +1,8 @@
-# Number Systems
+---
+author: Alex Neville
+date: 2023-01-03
+title: Number Systems
+---
 
 ## Natural Numbers
 

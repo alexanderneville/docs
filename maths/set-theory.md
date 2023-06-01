@@ -1,4 +1,8 @@
-# Set Theory
+---
+author: Alex Neville
+date: 2023-01-04
+title: Set Theory
+---
 
 A _set_ is a collection of different items; a set contains _elements_. A
 set can be simply expressed by enumerating its elements, typically
