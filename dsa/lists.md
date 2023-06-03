@@ -18,9 +18,9 @@ elements, so its _size_ would be considered 8. If this array was
 assigned to a variable $a$, its elements can be accessed through their
 _index_ $i$ and the indexing notation $a[i]$. Indexing usually begins
 from 0, so the valid indices for this list are $0 \ldots 7$, as seen in
-figure [fig:array](fig:array).
+figure [@fig:array].
 
-![An array and its indices](../res/array.svg "array")
+![An array and its indices](../res/array.svg){#fig:array}
 
 Each element may be accessed _sequentially_ by incrementing or
 decrementing the index as required, or at random by taking any index -
@@ -208,14 +208,13 @@ is the _linked list_.
 
 The most simple linked list is composed of a sequence of _nodes_ or
 _two-cells_. Each contains an element (or a reference to an element) and
-a _reference_ to the next node. Figure
-[fig:abstract_llist](fig:abstract_llist) is the most abstract graphical
-representation of the list $[8,4,1,7,3,6]$. The second of each two-cell
-is a reference to the next node, not the first cell of the next node, as
-is often depicted.
+a _reference_ to the next node. Figure [@fig:abstract_llist] is the most
+abstract graphical representation of the list $[8,4,1,7,3,6]$. The
+second of each two-cell is a reference to the next node, not the first
+cell of the next node, as is often depicted.
 
 ![An abstract graphical linked list
-illustration](../res/abstract_llist.svg "abstract_llist")
+illustration](../res/abstract_llist.svg){#fig:abstract_llist}
 
 In any implementation, the nodes of a linked list are themselves a type,
 in most cases hidden from the external interface of a linked list. The
@@ -232,10 +231,10 @@ class Node {
 ```
 
 It would appear that a node contains the next node directly, although
-this isn't the case. In this Java source `Node` is a reference type.
-The allocation of a new node and pointer logic are all handled
-implicitly. This is the equivalent of a C structure containing a pointer
-to another structure of the same type.
+this isn't the case. In this Java source `Node` is a reference type. The
+allocation of a new node and pointer logic are all handled implicitly.
+This is the equivalent of a C structure containing a pointer to another
+structure of the same type.
 
 ```{.c}
 struct Node {
@@ -258,18 +257,18 @@ struct Node {
 
 The same linked list is more rigorously represented as a _structure_
 containing a start pointer to a node and subsequent nodes are referenced
-by a field of the previous node, as in figure [fig:llist](fig:llist), at
-the cost of revealing more implementation details. This removes the
-confusion of what the second cell of each two-cell references in the
-figure [fig:abstract_llist](fig:abstract_llist). The value of each node
-can also be written more compactly inside the first two cell.
+by a field of the previous node, as in figure [@fig:llist], at the cost
+of revealing more implementation details. This removes the confusion of
+what the second cell of each two-cell references in the figure
+[@fig:abstract_llist]. The value of each node can also be written more
+compactly inside the first two cell.
 
-In short there are practical reasons to model a whole linked list as a
+In short, there are practical reasons to model a whole linked list as a
 data type in its own right and there are different stylistic approaches
-to illustrating linked lists. Compare figures
-[fig:abstract_llist](fig:abstract_llist) and [fig:llist](fig:llist).
+to illustrating linked lists, evident in figures [@fig:abstract_llist]
+and [@fig:llist].
 
-![A more concrete linked list illustration](../res/llist.svg "llist")
+![A more concrete linked list illustration](../res/llist.svg){#fig:llist}
 
 In keeping with the inductive type definition, it is unnecessary to
 illustrate both nodes and a dedicated list object. It is still possible
@@ -287,13 +286,13 @@ begin performing an operation at some arbitrary point within the list,
 other than the first element, in which case this change is helpful. This
 is called a _circular_ linked list.
 
-![A circular linked list](../res/circular_llist.svg "circular_llist")
+![A circular linked list](../res/circular_llist.svg){#fig:circular_llist}
 
 A _queue_ is a linked list with an additional two-cell pointing to the
 front and rear nodes.
 
 ![A linked list with start and rear
-pointer](../res/queue_llist.svg "queue_llist")
+pointer](../res/queue_llist.svg){#fig:queue_llist}
 
 A node could contain a pointer for the next and previous nodes, called a
 _doubly-linked_ or _double linked_ list. If the list additionally
@@ -301,7 +300,7 @@ implements the circular property, it can behave as a queue (the rear
 pointer is the previous node of the start).
 
 ![A circular doubly-linked
-list](../res/double_circular_llist.svg "double_circular_llist")
+list](../res/double_circular_llist.svg){#fig:double_circular_llist}
 
 ## Dynamic Arrays
 
@@ -318,10 +317,10 @@ characterised by two variables: the current maximum _capacity_ of the
 array and the _size_ or number of elements. Insertion when size is less
 than capacity is $O(1)$. Insertion when size is equal to capacity is of
 order $O(n)$, the array must be reallocated to make space for more
-elements. Figure [fig:array_list](fig:array_list) depicts the growth of
-a dynamic array, reallocation is indicated with an arrow.
+elements. Figure [@fig:array_list] depicts the growth of a dynamic
+array, reallocation is indicated with an arrow.
 
-![Reallocation of an array list](../res/array_list.svg "array_list")
+![Reallocation of an array list](../res/array_list.svg){#fig:array_list}
 
 Using an array to implement a data structure has the potential to make
 insert/remove/access operations faster, although there are drawbacks
@@ -361,15 +360,15 @@ The state of the original stack is changed to reflect the result of the
 operation. There is no need to create and return a new stack.
 
 A stack is very easily implemented with a singly linked list. Items are
-inserted and removed from the front. In figure
-[fig:stack_push_pop](fig:stack_push_pop) the integers 7, 2 and 9 are
-pushed onto the stack. Items are retrieved in the reverse order of their
-insertion. The integers pushed onto the stack are popped from the front
-and returned in the order 9, 2, 7. In this example, the whole process
-mutates a single stack, which is explicitly depicted in the figure.
+inserted and removed from the front. In figure [@fig:stack_push_pop] the
+integers 7, 2 and 9 are pushed onto the stack. Items are retrieved in
+the reverse order of their insertion. The integers pushed onto the stack
+are popped from the front and returned in the order 9, 2, 7. In this
+example, the whole process mutates a single stack, which is explicitly
+depicted in the figure.
 
 ![Stack operations, push and
-pop](../res/stack_push_pop.svg "stack_push_pop")
+pop](../res/stack_push_pop.svg){#fig:stack_push_pop}
 
 It is also possible to implement a stack as an array. Items are added
 and removed from the rear. The rear position is calculated from the size
@@ -381,7 +380,7 @@ considered _full_. Pushing and further elements onto the stack will
 result in a state known as _stack overflow_. A dynamic array stack
 implementation can be used to avoid this condition.
 
-![Stack implemented as an array](../res/stack_array.svg "stack_array")
+![Stack implemented as an array](../res/stack_array.svg){#fig:stack_array}
 
 ## Queue
 
@@ -412,10 +411,10 @@ penultimate (new rear) element. With a singly linked list, this requires
 iteration from the start, $O(n)$ complexity. Therefore, the most
 effective way to use a linked list to implement a queue is enqueue at
 the rear and dequeue from the front, illustrated in figure
-[fig:queue_enqueue_dequeue](fig:queue_enqueue_dequeue).
+[@fig:queue_enqueue_dequeue].
 
 ![Queue operations, enqueue and
-dequeue](../res/queue_enqueue_dequeue.svg "queue_enqueue_dequeue")
+dequeue](../res/queue_enqueue_dequeue.svg){#fig:queue_enqueue_dequeue}
 
 A queue can be implemented as an array, with three additional variables:
 `front`, `size` and `capacity`. So that the bounds of the array are not
@@ -439,12 +438,12 @@ indices:
 - `front, ..., capacity - 1` and `0, .., front + size - capacity - 1` if
   `front + size > capacity`
 
-In figure [fig:circular_queue](fig:circular_queue), a queue of size
-three occupies different portions of the array. The front pointer is
-indicated with an arrow.
+In figure [@fig:circular_queue], a queue of size three occupies
+different portions of the array. The front pointer is indicated with an
+arrow.
 
 ![Queue implemented as a circular
-array](../res/circular_array.svg "circular_queue")
+array](../res/circular_array.svg){#fig:circular_queue}
 
 An example implementation of a queue with a circular array contains four
 functions, two conditionals `isemptyqueue` and `isfullqueue`, a
