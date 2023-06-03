@@ -1,4 +1,8 @@
-# Artificial Intelligence
+---
+author: Alex Neville
+date: 2023-06-01
+title: Artificial Intelligence
+---
 
 - [Introduction](introduction.md)
 - [Linear Regression](./regression.md)

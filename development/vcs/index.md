@@ -1,4 +1,8 @@
-# Git Version Control
+---
+author: Alex Neville
+date: 2023-02-21
+title: Version Control
+---
 
 A version control system records changes made to a file or set of files,
 making it possible to view and recover previous versions as required.

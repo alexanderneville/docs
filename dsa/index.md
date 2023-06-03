@@ -1,4 +1,8 @@
-# Data Structures & Algorithms
+---
+author: Alex Neville
+date: 2023-01-03
+title: Data Structures & Algorithms
+---
 
 An _algorithm_ is a sequence of instructions for solving a problem.
 There is not a single specification nor one formal language for writing
