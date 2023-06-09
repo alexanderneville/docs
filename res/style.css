@@ -1,0 +1,64 @@
+@font-face {
+  font-family: IBMPlexMono;
+  src: url("https://cdn.alexneville.co.uk/fonts/IBMPlexMono.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: IBMPlexSans;
+  src: url("https://cdn.alexneville.co.uk/fonts/IBMPlexSans.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: IBMPlexSerif;
+  src: url("https://cdn.alexneville.co.uk/fonts/IBMPlexSerif.ttf")
+    format("truetype");
+}
+
+:root {
+  --bg: #ffffff;
+  --fg: #000000;
+}
+:root.dark-theme {
+  --bg: #000000;
+  --fg: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #000000;
+    --fg: #ffffff;
+  }
+  :root.light-theme {
+    --bg: #ffffff;
+    --fg: #000000;
+  }
+}
+
+body {
+  font-family: IBMPlexSerif, serif;
+  background-color: var(--bg);
+  color: var(--fg);
+}
+
+pre,
+code {
+  font-family: IBMPlexMono, monospace;
+  font-size: 0.875em;
+}
+
+img {
+  background-color: white;
+  max-width: 100%;
+}
+
+.content-width {
+  max-width: 70ch;
+  margin-inline: auto;
+}
+
+.sourceCode {
+  max-width: 100%;
+  overflow-x: scroll;
+}
