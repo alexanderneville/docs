@@ -71,8 +71,8 @@ As an abstract data type, a list is defined in terms of its public
 functions. A minimal list type can be defined with two _constructors_,
 where $E$ is an element of a list and $L$ is a list.
 
-- $\text{emptylist} () \rightarrow L$
-- $\text{prepend} (E, L) \rightarrow L$
+- `emptylist() -> L`
+- `prepend(E, L) -> L`
 
 Any list can be created from a single empty list and a series of prepend
 operations. The list $[1,2,3]$ is created with the expression
@@ -82,21 +82,21 @@ inductive step `prepend(E,L)` on the base case `emptylist()`. Any useful
 data type has accessor methods. In the absence of array indices, any
 list element can be retrieved with a combination of two _selectors_.
 
-- $\text{head} (L) \rightarrow E$
-- $\text{tail} (L) \rightarrow L$
+- `head (L) -> E`
+- `tail (L) -> L`
 
 The functions head and tail are not defined for the empty list. An
 additional function is required to determine whether a given list is
 empty.
 
-- $\text{isemptylist} (L) \rightarrow \text{T}|\text{F}$
+- `isemptylist (L) -> T|F`
 
 With this set of functions, the following expressions are true.
 
-- $\text{isemptylist} (\text{emptylist} ())$
-- $\text{not isemptylist} (\text{prepend} (e, l))$
-- $\text{head} (\text{prepend} (e, l)) == e$
-- $\text{tail} (\text{prepend} (e, l)) == l$
+- `isemptylist (emptylist ())`
+- `not isemptylist (prepend(e, l))`
+- `head (prepend(e, l)) == e`
+- `tail (prepend(e, l)) == l`
 
 ## Recursion & Derived List Procedures
 
@@ -339,11 +339,11 @@ item is the first to be removed from a stack. A stack can be defined
 inductively with the constructors `emptystack` and `push`, the
 conditional `isemptystack` and the selectors `top` and `pop`.
 
-- $\text{emptystack} () \rightarrow S$
-- $\text{push} (E,S) \rightarrow S$
-- $\text{isemptystack} (S) \rightarrow T|F$
-- $\text{top} (S) \rightarrow E$
-- $\text{pop} (S) \rightarrow S$
+- `emptystack() -> S`
+- `push(E,S) -> S`
+- `isemptystack(S) -> T|F`
+- `top(S) -> E`
+- `pop(S) -> S`
 
 In this stack definition, which does not mutate the state of one stack,
 instead creating and returning new stacks as required, `top` returns the
@@ -352,8 +352,8 @@ without the first element. For most practical purposes, a single stack
 is used and changed destructively, in which case `push` and `pop` have
 different definitions.
 
-- $\text{push} (E,S)$
-- $\text{pop} (S) \rightarrow E$
+- `push(E,S)`
+- `pop(S) -> E`
 
 This version of `pop` removes and returns the first element of a stack.
 The state of the original stack is changed to reflect the result of the
@@ -389,18 +389,18 @@ originally inserted, called a _First-In-First-Out (FIFO)_ or
 _Last-In-Last-Out (LILO)_ data structure. Queues share a very similar
 inductive definition to stacks, though their implementations differ.
 
-- $\text{emptyqueue} () \rightarrow Q$
-- $\text{push} (E,Q) \rightarrow Q$
-- $\text{isemptyqueue} (S) \rightarrow T|F$
-- $\text{top} (Q) \rightarrow E$
-- $\text{pop} (Q) \rightarrow Q$
+- `emptyqueue() -> Q`
+- `push(E,Q) -> Q`
+- `isemptyqueue(S) -> T|F`
+- `top(Q) -> E`
+- `pop(Q) -> Q`
 
 The role of `top` and `pop` are achieved through the mutator `dequeue`,
 while `enqueue` performs an operation analogous to `push`, manipulating
 an existing queue.
 
-- $\text{enqueue} (E,Q)$
-- $\text{dequeue} (Q) \rightarrow E$
+- `enqueue(E,Q)`
+- `dequeue(Q) -> E`
 
 For an efficient queue implementation, start and rear pointers must be
 maintained. With these two references, items can be enqueued at either
@@ -479,5 +479,3 @@ dequeue(Q:q) -> E:e {
     return e;
 }
 ```
-
-</div>

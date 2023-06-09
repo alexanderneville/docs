@@ -4,8 +4,8 @@ date: 2023-06-01
 title: Optimisation
 ---
 
-Optimisation problems search for the best (optimal) or a good solution to
-a problem, satisfying constraints.
+Optimisation problems search for the best (optimal) or a good solution
+to a problem, satisfying constraints.
 
 ```python
 import matplotlib as mpl
@@ -81,7 +81,8 @@ def hill_climb(step):
         for i in range(3):
             if len(local_neighbour_quality[i]) > 0:
                 neighbour_plots[i].set_visible(True)
-                neighbour_plots[i].set_offsets(np.stack([local_neighbour_quality[i], f(np.array(local_neighbour_quality[i]))]).T)
+                neighbour_plots[i].set_offsets(np.stack([local_neighbour_quality[i],
+                                                         f(np.array(local_neighbour_quality[i]))]).T)
 
         if max(local_neighbour_solutions) > f(current_solution):
             current_solution = local_neighbours[local_neighbour_solutions.index(max(local_neighbour_solutions))]
@@ -136,7 +137,6 @@ anim.save('../animations/local_maxima.gif')
 
 ```python
 def f(x):
-
     def _f(x):
         if x < 3:
             return x
@@ -243,7 +243,9 @@ def animate_simulated_annealing(frame):
     line.set_xdata([current_solution, current_solution])
     line.set_ydata([0, f(current_solution)])
 
-anim = animation.FuncAnimation(fig=fig, func=animate_simulated_annealing, frames=2000, interval=20)
+anim = animation.FuncAnimation(fig=fig,
+                               func=animate_simulated_annealing,
+                               frames=2000, interval=20)
 anim.save('../animations/simulated_annealing.gif')
 ```
 
