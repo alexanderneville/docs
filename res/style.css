@@ -1,24 +1,91 @@
 @font-face {
-  font-family: IBMPlexMono;
-  src: url("https://cdn.alexneville.co.uk/fonts/IBMPlexMono.ttf")
+  font-family: LiberationMono;
+  src: url("https://cdn.alexneville.co.uk/fonts/LiberationMono-Regular.ttf")
     format("truetype");
 }
 
 @font-face {
-  font-family: IBMPlexSans;
-  src: url("https://cdn.alexneville.co.uk/fonts/IBMPlexSans.ttf")
+  font-family: LiberationMono;
+  src: url("https://cdn.alexneville.co.uk/fonts/LiberationMono-Italic.ttf")
+    format("truetype");
+  font-style: italic;
+}
+
+@font-face {
+  font-family: LiberationMono;
+  src: url("https://cdn.alexneville.co.uk/fonts/LiberationMono-Bold.ttf")
+    format("truetype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: LiberationMono;
+  src: url("https://cdn.alexneville.co.uk/fonts/LiberationMono-BoldItalic.ttf")
+    format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: LiberationSans;
+  src: url("https://cdn.alexneville.co.uk/fonts/LiberationSans-Regular.ttf")
     format("truetype");
 }
 
 @font-face {
-  font-family: IBMPlexSerif;
-  src: url("https://cdn.alexneville.co.uk/fonts/IBMPlexSerif.ttf")
+  font-family: LiberationSans;
+  src: url("https://cdn.alexneville.co.uk/fonts/LiberationSans-Italic.ttf")
     format("truetype");
+  font-style: italic;
+}
+
+@font-face {
+  font-family: LiberationSans;
+  src: url("https://cdn.alexneville.co.uk/fonts/LiberationSans-Bold.ttf")
+    format("truetype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: LiberationSans;
+  src: url("https://cdn.alexneville.co.uk/fonts/LiberationSans-BoldItalic.ttf")
+    format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: LiberationSerif;
+  src: url("https://cdn.alexneville.co.uk/fonts/LiberationSerif-Regular.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: LiberationSerif;
+  src: url("https://cdn.alexneville.co.uk/fonts/LiberationSerif-Italic.ttf")
+    format("truetype");
+  font-style: italic;
+}
+
+@font-face {
+  font-family: LiberationSerif;
+  src: url("https://cdn.alexneville.co.uk/fonts/LiberationSerif-Bold.ttf")
+    format("truetype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: LiberationSerif;
+  src: url("https://cdn.alexneville.co.uk/fonts/LiberationSerif-BoldItalic.ttf")
+    format("truetype");
+  font-weight: bold;
+  font-style: italic;
 }
 
 :root {
   --bg: #ffffff;
   --fg: #000000;
+  --comment: #656e77;
 }
 :root.dark-theme {
   --bg: #000000;
@@ -36,16 +103,30 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: IBMPlexSerif, serif;
+  font-family: LiberationSans, sans;
   background-color: var(--bg);
   color: var(--fg);
 }
 
+p {
+  line-height: 1.5em;
+}
+
+pre {
+  position: relative;
+  margin-inline: 0.5em;
+  line-height: 1.25em;
+}
+
 pre,
 code {
-  font-family: IBMPlexMono, monospace;
-  font-size: 0.875em;
+  font-family: LiberationMono, monospace;
+  font-size: 0.9em;
 }
 
 img {
@@ -61,4 +142,50 @@ img {
 .sourceCode {
   max-width: 100%;
   overflow-x: scroll;
+}
+
+.copyButton {
+  position: absolute;
+  top: 0.25em;
+  right: 0.5em;
+  color: var(--comment);
+  transition: color 1s;
+}
+.copyButton:hover {
+  color: var(--fg);
+}
+.copyButton p {
+  margin: 0;
+  font-family: LiberationSans;
+}
+
+#metadata {
+  display: flex;
+  gap: 0.75rem;
+  color: var(--comment);
+}
+
+#metadata p {
+  margin: 0;
+}
+
+h1 {
+  margin-bottom: 0.5em;
+}
+
+
+:is(h1, h2, h3, h4, h5, h6) > a,
+:is(h1, h2, h3, h4, h5, h6) > a:link,
+:is(h1, h2, h3, h4, h5, h6) > a:visited {
+  opacity: 0;
+  color: var(--comment);
+  text-decoration: none;
+  font-size: 0.75em;
+  transition: opacity 1s;
+}
+
+:is(h1, h2, h3, h4, h5, h6):hover > a,
+:is(h1, h2, h3, h4, h5, h6):hover > a:link,
+:is(h1, h2, h3, h4, h5, h6):hover > a:visited {
+  opacity: 1;
 }

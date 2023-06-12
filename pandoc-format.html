@@ -20,38 +20,43 @@ $endif$
 $for(header-includes)$
 $header-includes$
 $endfor$
+
 $if(math)$
 $math$
 $endif$
 <link rel="icon" href="https://cdn.alexneville.co.uk/res/panda.png" />
-<script src="/path/to/highlight.min.js"></script>
-<script>hljs.highlightAll();</script>
 <link href="/res/style.css" rel="stylesheet" />
 <script src="/res/script.js" defer></script>
-<link rel="stylesheet" href="https://cdn.alexneville.co.uk/highlightjs/styles/base16/tomorrow.min.css">
-<link rel="stylesheet alternate" href="https://cdn.alexneville.co.uk/highlightjs/styles/base16/tomorrow-night.min.css">
+<link rel="stylesheet" href="https://cdn.alexneville.co.uk/highlightjs/styles/stackoverflow-light.min.css">
+<link rel="stylesheet alternate" href="https://cdn.alexneville.co.uk/highlightjs/styles/stackoverflow-dark.min.css">
 <script src="https://cdn.alexneville.co.uk/highlightjs/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
+<!-- <link rel="stylesheet" href="https://cdn.alexneville.co.uk/fontawesome/css/all.min.css" /> -->
+<link rel="stylesheet" href="https://cdn.alexneville.co.uk/nerd-fonts/nerd-fonts.css" />
+
 </head>
 <body>
 <header id="page-header">
-<nav class="content-width">
-</nav>
+<div class="content-width">
+<a href="https://blog.alexneville.co.uk">blog.alexneville.co.uk</a>
+</div>
 </header>
 <main class="content-width">
 <article>
 $if(title)$
 <header id="document-title">
-<h1 class="title">$title$</h1>
+<h1 id="title">$title$</h1>
+<div id="metadata">
 $if(subtitle)$
 <p class="subtitle">$subtitle$</p>
 $endif$
 $for(author)$
-<p class="author">$author$</p>
+<p class="author"><i class="nf nf-oct-person"></i> $author$</p>
 $endfor$
 $if(date)$
-<p class="date">$date$</p>
+<p class="date"><i class="nf nf-oct-pencil"></i> $date$</p>
 $endif$
+</div>
 </header>
 $endif$
 $body$
