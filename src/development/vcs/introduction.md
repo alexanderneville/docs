@@ -63,6 +63,7 @@ $ git config --global user.email "dev@alexneville.co.uk"
 $ git config --global core.editor nvim
 $ git config --global init.defaultBranch main
 $ git config --global credential.helper store
+$ git config --global user.signingkey
 ```
 
 The list of configuration options which apply to the current directory

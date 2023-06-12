@@ -80,7 +80,7 @@ ax.scatter(z_score_standardise_feature(np.mean(X[:, 0]), np.std(X[:, 0]), X[:, 0
 
 ```
 
-![png](../res/unsupervised_5_1.png)
+![](../res/unsupervised_5_1.png)
 
 ## Minkowski distance
 

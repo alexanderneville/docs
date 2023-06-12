@@ -86,7 +86,7 @@ An _omniscient_ agent knows the exact outcome of its actions, there is
 no uncertainty in its behaviour. A rational agent will not perform
 perfectly, but in most cases it should perform well.
 
-### Agent Structure
+## Agent Structure
 
 Simple reflex agents respond directly to the current percept, regardless
 of state of the percept sequence. Theses agents struggle in partially
@@ -95,16 +95,18 @@ Sometimes randomisation is used to break these loops, but this type of
 agent is fundamentally unable to maintain its own understanding of the
 environment.
 
-    FUNCTION simple-reflex-agent(percept) -> action:
-      STATIC rules;
-      state <- interpret(percept);
-      action <- lookup-action(state, rules);
-      RETURN action;
+``` {.language-plaintext}
+FUNCTION simple-reflex-agent(percept) -> action:
+    STATIC rules;
+    state <- interpret(percept);
+    action <- lookup-action(state, rules);
+    RETURN action;
+```
 
 ![The structure of a reflex
 agent](../res/simple-reflex-agent.svg "simple-reflex-agent")
 
-#### Models and Goals
+### Models and Goals
 
 _Model-based_ reflex agents maintain internal state and a model of its
 interaction with the environment, facilitating rational behaviour in
@@ -114,14 +116,16 @@ percept represents the state of the environment, and its _transition
 model_ - the effect observed in the environment by an action of the
 agent.
 
-    FUNCTION model-based-reflex-agent(percept) -> action:
-      STATIC rules, state, last-action transition-model, sensor-model;
-      state <- interpret(state, last-action,
-                         percept,
-                 transition-model,
-                 sensor-model);
-      action <- lookup-action(state, rules);
-      RETURN action;
+``` {.language-plaintext}
+FUNCTION model-based-reflex-agent(percept) -> action:
+    STATIC rules, state, last-action transition-model, sensor-model;
+    state <- interpret(state, last-action,
+                       percept,
+                       transition-model,
+                       sensor-model);
+    action <- lookup-action(state, rules);
+    RETURN action;
+```
 
 ![The structure of a model-based
 agent](../res/model-based-reflex-agent.svg "model-based-agent")
@@ -154,7 +158,7 @@ in the current state, using its utility function.
 ![The structure of a Utility-based
 agent](../res/utility-based-model-based-agent.svg "model-based-agent")
 
-#### Learning Agents
+### Learning Agents
 
 In all cases seen so far, an agent selects actions under certain
 conditions. This model does not explain how an agent is constructed.
@@ -165,7 +169,7 @@ dictates the actions the agent chooses as before. The learning element
 determines how the state and models of the performance element are
 modified.
 
-#### State Representation
+### State Representation
 
 Depending on the complexity of the problem, the representation of the
 current state varies. In the most simple case, the state is represented
@@ -179,7 +183,7 @@ _Structured representations_ are more complicated again, incorporating
 objects and relationships between them, rather than just a set of
 individual properties.
 
-### Task Environment
+## Task Environment
 
 The environment of an agent is the space in which it perceives and
 operates. The _task environment_ of an agent is the \"problem\" which it
