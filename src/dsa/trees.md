@@ -1,5 +1,5 @@
 ---
-autor: Alex Neville
+author: Alex Neville
 date: 2023-01-09
 title: Tree ADT
 ---

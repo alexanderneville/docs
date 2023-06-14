@@ -1,6 +1,6 @@
 ---
-author: Alex Neville
-date: 2023-06-01
+# author: Alex Neville
+# date: 2023-06-01
 title: Artificial Intelligence
 ---
 

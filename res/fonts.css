@@ -1,0 +1,83 @@
+@font-face {
+  font-family: LiberationMono;
+  src: url("https://cdn.alexneville.co.uk/fonts/LiberationMono-Regular.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: LiberationMono;
+  src: url("https://cdn.alexneville.co.uk/fonts/LiberationMono-Italic.ttf")
+    format("truetype");
+  font-style: italic;
+}
+
+@font-face {
+  font-family: LiberationMono;
+  src: url("https://cdn.alexneville.co.uk/fonts/LiberationMono-Bold.ttf")
+    format("truetype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: LiberationMono;
+  src: url("https://cdn.alexneville.co.uk/fonts/LiberationMono-BoldItalic.ttf")
+    format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: LiberationSans;
+  src: url("https://cdn.alexneville.co.uk/fonts/LiberationSans-Regular.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: LiberationSans;
+  src: url("https://cdn.alexneville.co.uk/fonts/LiberationSans-Italic.ttf")
+    format("truetype");
+  font-style: italic;
+}
+
+@font-face {
+  font-family: LiberationSans;
+  src: url("https://cdn.alexneville.co.uk/fonts/LiberationSans-Bold.ttf")
+    format("truetype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: LiberationSans;
+  src: url("https://cdn.alexneville.co.uk/fonts/LiberationSans-BoldItalic.ttf")
+    format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: LiberationSerif;
+  src: url("https://cdn.alexneville.co.uk/fonts/LiberationSerif-Regular.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: LiberationSerif;
+  src: url("https://cdn.alexneville.co.uk/fonts/LiberationSerif-Italic.ttf")
+    format("truetype");
+  font-style: italic;
+}
+
+@font-face {
+  font-family: LiberationSerif;
+  src: url("https://cdn.alexneville.co.uk/fonts/LiberationSerif-Bold.ttf")
+    format("truetype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: LiberationSerif;
+  src: url("https://cdn.alexneville.co.uk/fonts/LiberationSerif-BoldItalic.ttf")
+    format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}

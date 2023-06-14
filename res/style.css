@@ -1,105 +1,32 @@
-@font-face {
-  font-family: LiberationMono;
-  src: url("https://cdn.alexneville.co.uk/fonts/LiberationMono-Regular.ttf")
-    format("truetype");
-}
-
-@font-face {
-  font-family: LiberationMono;
-  src: url("https://cdn.alexneville.co.uk/fonts/LiberationMono-Italic.ttf")
-    format("truetype");
-  font-style: italic;
-}
-
-@font-face {
-  font-family: LiberationMono;
-  src: url("https://cdn.alexneville.co.uk/fonts/LiberationMono-Bold.ttf")
-    format("truetype");
-  font-weight: bold;
-}
-
-@font-face {
-  font-family: LiberationMono;
-  src: url("https://cdn.alexneville.co.uk/fonts/LiberationMono-BoldItalic.ttf")
-    format("truetype");
-  font-weight: bold;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: LiberationSans;
-  src: url("https://cdn.alexneville.co.uk/fonts/LiberationSans-Regular.ttf")
-    format("truetype");
-}
-
-@font-face {
-  font-family: LiberationSans;
-  src: url("https://cdn.alexneville.co.uk/fonts/LiberationSans-Italic.ttf")
-    format("truetype");
-  font-style: italic;
-}
-
-@font-face {
-  font-family: LiberationSans;
-  src: url("https://cdn.alexneville.co.uk/fonts/LiberationSans-Bold.ttf")
-    format("truetype");
-  font-weight: bold;
-}
-
-@font-face {
-  font-family: LiberationSans;
-  src: url("https://cdn.alexneville.co.uk/fonts/LiberationSans-BoldItalic.ttf")
-    format("truetype");
-  font-weight: bold;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: LiberationSerif;
-  src: url("https://cdn.alexneville.co.uk/fonts/LiberationSerif-Regular.ttf")
-    format("truetype");
-}
-
-@font-face {
-  font-family: LiberationSerif;
-  src: url("https://cdn.alexneville.co.uk/fonts/LiberationSerif-Italic.ttf")
-    format("truetype");
-  font-style: italic;
-}
-
-@font-face {
-  font-family: LiberationSerif;
-  src: url("https://cdn.alexneville.co.uk/fonts/LiberationSerif-Bold.ttf")
-    format("truetype");
-  font-weight: bold;
-}
-
-@font-face {
-  font-family: LiberationSerif;
-  src: url("https://cdn.alexneville.co.uk/fonts/LiberationSerif-BoldItalic.ttf")
-    format("truetype");
-  font-weight: bold;
-  font-style: italic;
-}
+@import "fonts.css";
 
 :root {
   --bg: #ffffff;
   --fg: #000000;
   --comment: #656e77;
+  --accent: #3b3d48;
+  --highlight: #f6f6f6;
+  --highlight-hover: #d9d9d9;
 }
 :root.dark-theme {
   --bg: #000000;
   --fg: #ffffff;
+  --comment: #656e77; /* TODO */
+  --accent: #534477;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #000000;
     --fg: #ffffff;
+    --comment: #656e77; /* TODO */
+    --accent: #534477;
   }
   :root.light-theme {
     --bg: #ffffff;
     --fg: #000000;
+    --comment: #656e77; /* TODO */
+    --accent: #534477;
   }
 }
 
@@ -111,6 +38,10 @@ body {
   font-family: LiberationSans, sans;
   background-color: var(--bg);
   color: var(--fg);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 p {
@@ -123,34 +54,149 @@ pre {
   line-height: 1.25em;
 }
 
-pre,
 code {
   font-family: LiberationMono, monospace;
   font-size: 0.9em;
-}
-
-img {
-  background-color: white;
-  max-width: 100%;
-}
-
-.content-width {
-  max-width: 70ch;
-  margin-inline: auto;
-}
-
-.sourceCode {
   max-width: 100%;
   overflow-x: scroll;
 }
 
+img {
+  background-color: white;
+  max-width: 80%;
+  margin-inline: auto;
+
+}
+
+figure {
+  max-width: 80%;
+  margin-inline: auto;
+}
+
+.content-width {
+  width: calc(100% - 2em);
+  max-width: 105ch;
+  padding-inline: 1rem;
+  overflow-x: clip;
+  margin-inline: auto;
+}
+
+#page-header {
+  /* border-bottom: 1px solid grey; */
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: var(--bg);
+  background-color: var(--accent);
+}
+#page-header button {
+  background-color: inherit;
+  border: none;
+  color: var(--bg);
+}
+
+#page-header > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+#page-header a {
+  display: flex;
+  align-items: center;
+  color: var(--bg);
+  text-decoration: none;
+  gap: 0.5rem;
+}
+
+#page-header a p {
+  color: var(--bg);
+  text-decoration: none;
+  margin: 0;
+  display: inline;
+}
+
+#page-header a:link {
+  color: var(--bg);
+  text-decoration: none;
+}
+
+#page-header a:visited {
+  color: var(--bg);
+  text-decoration: none;
+}
+
+#page-header a:focus {
+  color: var(--bg);
+  text-decoration: none;
+}
+
+#page-header a:hover {
+  color: var(--highlight-hover);
+  text-decoration: none;
+}
+
+#page-header a:hover p {
+  color: var(--highlight-hover);
+  text-decoration: none;
+}
+
+#page-header a:active {
+  color: var(--bg);
+  text-decoration: none;
+}
+
+#page-header a i {
+  font-size: 2rem;
+}
+
+#page-header button {
+  margin: 0;
+  padding: 0;
+}
+
+#page-header button i {
+  font-size: 2rem;
+}
+
+#menu {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#menu button:hover i {
+  color: var(--highlight-hover);
+}
+
+#logo {
+  display: flex;
+  align-items: center;
+}
+
+.page-start-button {
+  display: none;
+}
+
+#theme-switch-button i {
+  font-size: 1.5rem !important;
+}
+
 .copyButton {
   position: absolute;
-  top: 0.25em;
-  right: 0.5em;
+  top: 0;
+  right: 0;
   color: var(--comment);
   transition: color 1s;
+  border-left: 1px solid var(--comment);
+  border-bottom: 1px solid var(--comment);
+  padding-inline: 0.5rem;
+  /* border-bottom-left-radius: 0.5rem; */
+  background-color: var(--highlight-hover);
 }
+
 .copyButton:hover {
   color: var(--fg);
 }
@@ -169,11 +215,6 @@ img {
   margin: 0;
 }
 
-h1 {
-  margin-bottom: 0.5em;
-}
-
-
 :is(h1, h2, h3, h4, h5, h6) > a,
 :is(h1, h2, h3, h4, h5, h6) > a:link,
 :is(h1, h2, h3, h4, h5, h6) > a:visited {
@@ -188,4 +229,128 @@ h1 {
 :is(h1, h2, h3, h4, h5, h6):hover > a:link,
 :is(h1, h2, h3, h4, h5, h6):hover > a:visited {
   opacity: 1;
+}
+
+main {
+  display: grid;
+  grid-template-areas: "content sidebar";
+  grid-template-columns: calc(100% - calc(23ch + 2rem)) 23ch;
+  gap: 2rem;
+  flex-grow: 1;
+}
+
+@media screen and (max-width: 95ch) {
+  #TOC {
+    display: none;
+  }
+  main {
+    grid-template-areas: "content";
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+article {
+  grid-area: content;
+  width: 100%;
+  overflow-x: clip;
+}
+
+[id] {
+  scroll-margin-top: calc(3.5rem);
+}
+
+aside {
+  grid-area: sidebar;
+  overflow-x: clip;
+}
+
+#TOC {
+  position: sticky;
+  top: 10rem;
+  /* color: var(--comment); */
+  overflow-y: scroll;
+  max-height: 100vh;
+}
+
+#TOC button {
+  border: none;
+  background-color: var(--bg);
+  color: var(--comment);
+  font-size: 1rem;
+  padding: 0;
+  margin: 0;
+}
+
+#TOC ul {
+  list-style-type: none;
+  list-style-position: inside;
+  padding-left: 0;
+}
+
+#TOC li {
+  padding: 0.5rem 0 0.5rem 0.5rem;
+  border-left: 2px solid var(--comment);
+}
+
+#TOC li.active {
+  font-weight: bold;
+  background-color: var(--highlight);
+  border-left-color: var(--accent);
+}
+
+#TOC li:hover {
+  background-color: var(--highlight-hover);
+}
+
+#TOC a {
+  color: var(--comment);
+  text-decoration: none;
+}
+
+#TOC ul a {
+  display: block;
+  width: 100%;
+}
+
+#TOC a:link {
+  color: var(--comment);
+  text-decoration: none;
+}
+
+#TOC a:visited {
+  color: var(--comment);
+  text-decoration: none;
+}
+
+#TOC a:focus {
+  color: var(--comment);
+  text-decoration: none;
+}
+
+#TOC a:hover {
+  color: var(--comment);
+  text-decoration: none;
+}
+
+#TOC a:active {
+  color: var(--comment);
+  text-decoration: none;
+}
+
+footer {
+  background-color: var(--highlight);
+}
+
+footer p {
+  color: var(--comment);
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+#document-title {
+  margin-bottom: 2rem;
 }
