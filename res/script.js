@@ -1,3 +1,46 @@
+function enableStylesheet(node) {
+  node.rel = "stylesheet";
+}
+
+function disableStylesheet(node) {
+  node.rel = "stylesheet alternate";
+}
+
+function lightTheme() {
+  var light_stylesheet = document.getElementById("code-blocks-light");
+  var dark_stylesheet = document.getElementById("code-blocks-dark");
+  disableStylesheet(dark_stylesheet);
+  enableStylesheet(light_stylesheet);
+  var moon = document.createElement("i");
+  moon.classList = "nf nf-oct-moon";
+  var themeButton = document.getElementById("theme-switch-button");
+  themeButton.innerHTML = null;
+  themeButton.appendChild(moon);
+}
+
+function darkTheme() {
+  var light_stylesheet = document.getElementById("code-blocks-light");
+  var dark_stylesheet = document.getElementById("code-blocks-dark");
+  disableStylesheet(light_stylesheet);
+  enableStylesheet(dark_stylesheet);
+  var sun = document.createElement("i");
+  sun.classList = "nf nf-oct-sun";
+  var themeButton = document.getElementById("theme-switch-button");
+  themeButton.innerHTML = null;
+  themeButton.appendChild(sun);
+}
+
+function switchTheme() {
+  console.log("switchTheme");
+  var light_stylesheet = document.getElementById("code-blocks-light");
+  if (light_stylesheet.rel === "stylesheet alternate") {
+    lightTheme();
+  } else {
+    darkTheme();
+  }
+  hljs.highlightAll();
+}
+
 let pageStartButtons = document.querySelectorAll(".page-start-button");
 pageStartButtons.forEach(function (button) {
   button.addEventListener("click", function () {
@@ -72,7 +115,7 @@ function addClipboardItems() {
 }
 
 function addAnchorLinks() {
-  let headings = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+  let headings = document.querySelector("main article").querySelectorAll("h2, h3, h4, h5, h6");
   for (let i = 0; i < headings.length; i++) {
     let link = document.createElement("a");
     link.href = `#${headings[i].id}`;
@@ -85,17 +128,11 @@ function addAnchorLinks() {
 }
 
 function addTOC() {
-  let aside = document.createElement("aside");
-  aside.appendChild(document.createElement("nav"));
-  let nav = aside.querySelector("nav");
-  nav.id = "TOC";
-  nav.appendChild(document.createElement("h3"));
-  nav.querySelector("h3").innerText = "In this article";
-  nav.appendChild(document.createElement("ul"));
-  let list = nav.querySelector("ul");
-  let article = document.querySelector("article");
+  let list = document.querySelector("main aside nav ul");
+  let article = document.querySelector("main article");
   let headings = article.querySelectorAll("h2");
   if (headings.length === 0) {
+    document.querySelector("main aside").style.display = "none";
     document.querySelector("main").style.display = "block";
     return;
   }
@@ -107,35 +144,15 @@ function addTOC() {
     newEntry.appendChild(newLink);
     list.appendChild(newEntry);
   }
-
-  let pageNavigation = document.createElement("div");
-  pageNavigation.style.display = "flex";
-  pageNavigation.style.gap = "0.5rem";
-  let backToTop = document.createElement("button");
-  backToTop.classList = "page-start-button";
-  backToTop.addEventListener("click", scrollToTop);
-  let upIcon = document.createElement("i")
-  upIcon.classList = "nf nf-md-arrow_up";
-  backToTop.appendChild(upIcon);
-  backToTop.appendChild(document.createTextNode(" Top"));
-
-  let upNavigation = document.createElement("a");
-  upNavigation.href = "./";
-  let backIcon = document.createElement("i");
-  backIcon.classList = "nf nf-md-arrow_left";
-  upNavigation.appendChild(backIcon);
-  upNavigation.appendChild(document.createTextNode(" Back"));
-
-  pageNavigation.appendChild(upNavigation);
-  pageNavigation.appendChild(backToTop);
-  nav.appendChild(pageNavigation);
-  document.querySelector("main").appendChild(aside);
   scrollFunction();
 }
 
 addClipboardItems();
 addAnchorLinks();
 addTOC();
+document
+  .getElementById("theme-switch-button")
+  .addEventListener("click", switchTheme);
 
 const anchors = document.querySelector("article").querySelectorAll('h2');
 const links = document.querySelector("aside").querySelectorAll('nav > ul > li');

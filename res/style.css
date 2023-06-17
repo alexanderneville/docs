@@ -1,13 +1,15 @@
 @import "fonts.css";
 
 :root {
-  --bg: #ffffff;
-  --fg: #000000;
-  --comment: #656e77;
-  --accent: #3b3d48;
-  --highlight: #f6f6f6;
-  --highlight-hover: #d9d9d9;
+  --colour0: #000000; /* darkest */
+  --colour1: #1c1b1b;
+  --colour2: #656e77;
+  --colour3: #d9d9d9;
+  --colour4: #f6f6f6;
+  --colour5: #ffffff; /* lightest */
+  --accent: #015692;
 }
+
 :root.dark-theme {
   --bg: #000000;
   --fg: #ffffff;
@@ -23,10 +25,13 @@
     --accent: #534477;
   }
   :root.light-theme {
-    --bg: #ffffff;
-    --fg: #000000;
-    --comment: #656e77; /* TODO */
-    --accent: #534477;
+    --colour0: #000000; /* darkest */
+    --colour1: #1c1b1b;
+    --colour2: #656e77;
+    --colour3: #d9d9d9;
+    --colour4: #f6f6f6;
+    --colour5: #ffffff; /* lightest */
+    --accent: #015692;
   }
 }
 
@@ -36,8 +41,8 @@ html {
 
 body {
   font-family: LiberationSans, sans;
-  background-color: var(--bg);
-  color: var(--fg);
+  background-color: var(--colour5);
+  color: var(--colour0);
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -63,14 +68,21 @@ code {
 
 img {
   background-color: white;
-  max-width: 80%;
+  max-width: 100%;
   margin-inline: auto;
-
 }
 
 figure {
   max-width: 80%;
   margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+figcaption {
+  margin-inline: auto;
+  color: var(--colour2);
 }
 
 .content-width {
@@ -82,17 +94,16 @@ figure {
 }
 
 #page-header {
-  /* border-bottom: 1px solid grey; */
   position: sticky;
   top: 0;
   z-index: 1;
-  background-color: var(--bg);
-  background-color: var(--accent);
+  background-color: var(--colour5);
+  border-bottom: 1px solid var(--colour3);
 }
 #page-header button {
   background-color: inherit;
   border: none;
-  color: var(--bg);
+  color: var(--colour0);
 }
 
 #page-header > div {
@@ -101,50 +112,51 @@ figure {
   align-items: center;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+  background-color: var(--colour5);
 }
 
 #page-header a {
   display: flex;
   align-items: center;
-  color: var(--bg);
+  color: var(--colour0);
   text-decoration: none;
   gap: 0.5rem;
 }
 
 #page-header a p {
-  color: var(--bg);
+  color: var(--colour0);
   text-decoration: none;
   margin: 0;
   display: inline;
 }
 
 #page-header a:link {
-  color: var(--bg);
+  color: var(--colour0);
   text-decoration: none;
 }
 
 #page-header a:visited {
-  color: var(--bg);
+  color: var(--colour0);
   text-decoration: none;
 }
 
 #page-header a:focus {
-  color: var(--bg);
+  color: var(--colour0);
   text-decoration: none;
 }
 
 #page-header a:hover {
-  color: var(--highlight-hover);
+  color: var(--colour2);
   text-decoration: none;
 }
 
 #page-header a:hover p {
-  color: var(--highlight-hover);
+  color: var(--colour2);
   text-decoration: none;
 }
 
 #page-header a:active {
-  color: var(--bg);
+  color: var(--colour0);
   text-decoration: none;
 }
 
@@ -164,11 +176,11 @@ figure {
 #menu {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 #menu button:hover i {
-  color: var(--highlight-hover);
+  color: var(--colour2);
 }
 
 #logo {
@@ -188,17 +200,17 @@ figure {
   position: absolute;
   top: 0;
   right: 0;
-  color: var(--comment);
+  color: var(--colour2);
   transition: color 1s;
-  border-left: 1px solid var(--comment);
-  border-bottom: 1px solid var(--comment);
+  border-left: 1px solid var(--colour2);
+  border-bottom: 1px solid var(--colour2);
   padding-inline: 0.5rem;
   /* border-bottom-left-radius: 0.5rem; */
-  background-color: var(--highlight-hover);
+  background-color: var(--colour3);
 }
 
 .copyButton:hover {
-  color: var(--fg);
+  color: var(--colour0);
 }
 .copyButton p {
   margin: 0;
@@ -208,26 +220,26 @@ figure {
 #metadata {
   display: flex;
   gap: 0.75rem;
-  color: var(--comment);
+  color: var(--colour2);
 }
 
 #metadata p {
   margin: 0;
 }
 
-:is(h1, h2, h3, h4, h5, h6) > a,
-:is(h1, h2, h3, h4, h5, h6) > a:link,
-:is(h1, h2, h3, h4, h5, h6) > a:visited {
-  opacity: 0;
-  color: var(--comment);
+:is(h2, h3, h4, h5, h6) > a,
+:is(h2, h3, h4, h5, h6) > a:link,
+:is(h2, h3, h4, h5, h6) > a:visited {
+  opacity: 0.5;
+  color: var(--colour2);
   text-decoration: none;
   font-size: 0.75em;
   transition: opacity 1s;
 }
 
-:is(h1, h2, h3, h4, h5, h6):hover > a,
-:is(h1, h2, h3, h4, h5, h6):hover > a:link,
-:is(h1, h2, h3, h4, h5, h6):hover > a:visited {
+:is(h2, h3, h4, h5, h6):hover > a,
+:is(h2, h3, h4, h5, h6):hover > a:link,
+:is(h2, h3, h4, h5, h6):hover > a:visited {
   opacity: 1;
 }
 
@@ -237,6 +249,8 @@ main {
   grid-template-columns: calc(100% - calc(23ch + 2rem)) 23ch;
   gap: 2rem;
   flex-grow: 1;
+  border-left: 1px solid var(--colour3);
+  border-right: 1px solid var(--colour3);
 }
 
 @media screen and (max-width: 95ch) {
@@ -245,8 +259,15 @@ main {
   }
   main {
     grid-template-areas: "content";
-    grid-template-columns: 1fr;
+    grid-template-columns: 100%;
     gap: 0;
+  }
+}
+
+@media screen and (max-width: 125ch) {
+  main {
+    border-left: none;
+    border-right: none;
   }
 }
 
@@ -267,19 +288,32 @@ aside {
 
 #TOC {
   position: sticky;
-  top: 10rem;
-  /* color: var(--comment); */
-  overflow-y: scroll;
+  top: 3.5rem;
+  /* color: var(--colour2); */
+  overflow-y: auto;
   max-height: 100vh;
+}
+
+#TOC div {
+  display: flex;
+  gap: 0.5rem;
 }
 
 #TOC button {
   border: none;
-  background-color: var(--bg);
-  color: var(--comment);
+  background-color: var(--colour5);
+  color: var(--colour2);
   font-size: 1rem;
   padding: 0;
   margin: 0;
+}
+
+#TOC div button:hover {
+  font-weight: bold;
+}
+
+#TOC div a:hover {
+  font-weight: bold;
 }
 
 #TOC ul {
@@ -290,21 +324,23 @@ aside {
 
 #TOC li {
   padding: 0.5rem 0 0.5rem 0.5rem;
-  border-left: 2px solid var(--comment);
+  border-left: 1px solid var(--colour2);
+  /* border-right: 1px solid var(--colour3); */
 }
 
 #TOC li.active {
   font-weight: bold;
-  background-color: var(--highlight);
+  background-color: var(--colour4);
   border-left-color: var(--accent);
+  /* border-right-color: var(--accent); */
 }
 
 #TOC li:hover {
-  background-color: var(--highlight-hover);
+  background-color: var(--colour3);
 }
 
 #TOC a {
-  color: var(--comment);
+  color: var(--colour2);
   text-decoration: none;
 }
 
@@ -314,43 +350,120 @@ aside {
 }
 
 #TOC a:link {
-  color: var(--comment);
+  color: var(--colour2);
   text-decoration: none;
 }
 
 #TOC a:visited {
-  color: var(--comment);
+  color: var(--colour2);
   text-decoration: none;
 }
 
 #TOC a:focus {
-  color: var(--comment);
+  color: var(--colour2);
   text-decoration: none;
 }
 
 #TOC a:hover {
-  color: var(--comment);
+  color: var(--colour2);
   text-decoration: none;
 }
 
 #TOC a:active {
-  color: var(--comment);
+  color: var(--colour2);
   text-decoration: none;
 }
 
 footer {
-  background-color: var(--highlight);
+  border-top: 1px solid var(--colour3);
+}
+
+footer > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 footer p {
-  color: var(--comment);
+  color: var(--colour2);
 }
 
 h1 {
   font-size: 3rem;
   margin-bottom: 0.5rem;
+  margin-top: 1rem;
 }
 
-#document-title {
+article > header {
   margin-bottom: 2rem;
+}
+
+footer button {
+  background-color: inherit;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: var(--colour2);
+  font-size: 1rem;
+}
+
+footer button:hover {
+  font-weight: bold;
+}
+
+footer a {
+  color: var(--colour2);
+  text-decoration: none;
+}
+
+footer ul a {
+  display: block;
+  width: 100%;
+}
+
+footer a:link {
+  color: var(--colour2);
+  text-decoration: none;
+}
+
+footer a:visited {
+  color: var(--colour2);
+  text-decoration: none;
+}
+
+footer a:focus {
+  color: var(--colour2);
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: var(--colour2);
+  text-decoration: underline;
+}
+
+footer a:active {
+  color: var(--colour2);
+  text-decoration: underline;
+}
+
+#dropdown-container{
+  position: relative;
+  float: right;
+}
+
+#dropdown-menu {
+  position: absolute;
+  display: none;
+  right: 0;
+  background-color: var(--colour5);
+  border: 1px solid var(--colour3);
+  padding: 0.5rem;
+}
+
+#dropdown-menu a i {
+  font-size: 1rem;
+}
+
+#dropdown-container:hover #dropdown-menu {
+  display: block;
 }

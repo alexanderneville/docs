@@ -151,7 +151,7 @@ ax.scatter(x,y, s=1)
 ax.plot(x, f(w_1, x, w_0), 'red')
 ```
 
-![](../res/regression_11_1.png)
+![Linear Regression](../res/regression_11_1.png){#fig:regression_11_1}
 
 ### Deterministic Gradient Descent
 
@@ -199,7 +199,7 @@ anim = animation.FuncAnimation(fig=fig, func=animate, frames=25, interval=10)
 anim.save('../animations/epochs.gif')
 ```
 
-![](../res/animations/epochs.gif)
+![Linear Regression](../res/animations/epochs.gif){#fig:animation}
 
 ### Mini-batch Gradient Descent
 
@@ -234,7 +234,7 @@ ax.scatter(x,y, s=1)
 ax.plot(x, f(w_1, x, w_0), 'purple')
 ```
 
-![](../res/regression_19_1.png)
+![Linear Regression](../res/regression_19_1.png){#fig:regression_19_1}
 
 ## Multivariable Linear Regression
 
@@ -295,7 +295,7 @@ ax.scatter(X,y, s=1)
 ax.plot([Z[i][1] for i in range(Z.shape[0])], [h(W, Z[i]) for i in range(Z.shape[0])], 'lightblue')
 ```
 
-![](../res/regression_23_1.png)
+![Linear Regression](../res/regression_23_1.png){#fig:regression_23_1}
 
 A regression problem in which the input vector has two dimensions - the
 function's input has multiple variables - can be solved with this SGD
@@ -331,7 +331,7 @@ ax.plot([Z[i][1] for i in range(Z.shape[0])],
         color='magenta')
 ```
 
-![](../res/regression_25_1.png)
+![Linear Regression](../res/regression_25_1.png){#fig:regression_25_1}
 
 ## Non-linear Regression
 
@@ -346,4 +346,4 @@ fig, ax = new_plot()
 ax.scatter(x,y, s=1)
 ```
 
-![](../res/regression_27_1.png)
+![Linear Regression](../res/regression_27_1.png){#fig:regression_27_1}

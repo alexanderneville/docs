@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="utf-8" />
 <meta name="generator" content="pandoc" />
@@ -20,22 +21,21 @@ $endif$
 $for(header-includes)$
 $header-includes$
 $endfor$
-
 $if(math)$
 $math$
 $endif$
 <link rel="icon" href="https://cdn.alexneville.co.uk/res/panda.png" />
 <link href="/res/style.css" rel="stylesheet" />
 <script src="/res/script.js" defer></script>
-<link rel="stylesheet" href="https://cdn.alexneville.co.uk/highlightjs/styles/stackoverflow-light.min.css">
-<link rel="stylesheet alternate" href="https://cdn.alexneville.co.uk/highlightjs/styles/stackoverflow-dark.min.css">
+<link rel="stylesheet" href="https://cdn.alexneville.co.uk/highlightjs/styles/stackoverflow-light.min.css" id="code-blocks-light">
+<link rel="stylesheet alternate" href="https://cdn.alexneville.co.uk/highlightjs/styles/stackoverflow-dark.min.css" id="code-blocks-dark">
 <script src="https://cdn.alexneville.co.uk/highlightjs/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
-<!-- <link rel="stylesheet" href="https://cdn.alexneville.co.uk/fontawesome/css/all.min.css" /> -->
 <link rel="stylesheet" href="https://cdn.alexneville.co.uk/nerd-fonts/nerd-fonts.css" />
-
 </head>
+
 <body>
+
 <header id="page-header">
 <div class="content-width">
 <div id="logo">
@@ -44,11 +44,20 @@ $endif$
 <div id="menu">
 <button class="page-start-button"><i class = "nf nf-md-chevron_double_up"></i></button>
 <button id="theme-switch-button"><i class = "nf nf-oct-moon"></i></button>
+<div id="dropdown-container">
 <button id="menu-button"><i class = "nf nf-md-menu"></i></button>
+<div id="dropdown-menu">
+<a href="https://alexneville.co.uk"><i class="nf nf-oct-person"></i> Home</a>
+<a href="https://blog.alexneville.co.uk"><i class="nf nf-oct-pencil"></i> Blog</a>
+<a href="https://blog.alexneville.co.uk/license.html"><i class="nf nf-md-scale nf-md-scale_balance"></i> License</a>
+</div>
+</div>
 </div>
 </div>
 </header>
+
 <main class="content-width">
+
 <article>
 $if(title)$
 <header id="document-title">
@@ -68,14 +77,27 @@ $endif$
 $endif$
 $body$
 </article>
+
+<aside>
+<nav id="TOC">
+<h3>In this Article</h3>
+<ul></ul>
+<div><a href="./"><i class="nf nf-md-arrow_left"></i> Back</a><button class="page-start-button"><i class="nf nf-md-arrow_up"></i> Top</button></div>
+</nav>
+</aside>
+
 </main>
+
 <footer id="page-footer">
 <div class="content-width">
 <p>
-Copyright &copy 2023 Alexander Neville,
-<a href="/license.html">(CC BY-SA / GNU GPL)</a>.
+<i class="nf nf-md-copyright"></i> 2023 Alexander Neville, <i class="nf nf-md-scale nf-md-scale_balance"></i>
+<a href="/license.html">CC BY-SA / GNU GPL</a>.
 </p>
+<button class="page-start-button"><i class="nf nf-md-arrow_up"></i> Top</button>
 </div>
 </footer>
+
 </body>
+
 </html>
