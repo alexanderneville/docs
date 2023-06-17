@@ -10,4 +10,5 @@ build="pandoc -f markdown -t html -s --mathjax=https://cdn.alexneville.co.uk/mat
 find src -mindepth 2 -type f -name '*.md' -exec $build out/{} {} \;
 for f in $(find out -iname '*.md' -type f -print); do mv "$f" ${f%.md}.html; done
 mv out/src/* out/
+sass res/style.scss out/res/style.css
 rm -rf out/src

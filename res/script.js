@@ -118,6 +118,7 @@ function addAnchorLinks() {
   let headings = document.querySelector("main article").querySelectorAll("h2, h3, h4, h5, h6");
   for (let i = 0; i < headings.length; i++) {
     let link = document.createElement("a");
+    link.classList = "heading-anchor-link"
     link.href = `#${headings[i].id}`;
     let icon = document.createElement("i");
     icon.classList = "nf nf-oct-link";
