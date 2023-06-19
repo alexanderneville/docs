@@ -1,10 +1,31 @@
 aside {
   grid-area: sidebar;
+  display: block;
   overflow-x: clip;
   position: sticky;
   top: 5rem;
   overflow-y: auto;
   max-height: calc(100vh - 8rem);
+  // position: static;
+  #menu-links {
+    display: none;
+    i {
+      font-size: 1rem;
+    }
+    .link-button {
+      padding: 0.5rem;
+      color: var(--fg-secondary);
+    }
+    @media (hover: hover) {
+      .link-button:hover {
+        background-color: var(--bg-emphasis);
+        p {
+          text-decoration: none;
+        }
+      }
+    }
+    margin-bottom: 1.5rem;
+  }
   h3 {
     margin-left: 0.5rem;
     margin-top: 0;
@@ -17,6 +38,9 @@ aside {
     a {
       color: var(--fg-main);
     }
+    a:hover {
+      text-decoration: none;
+    }
     justify-content: flex-start;
     button {
       border: none;
@@ -27,6 +51,7 @@ aside {
     }
   }
   #article-contents {
+    margin-bottom: 1.5rem;
     a:link,
     a:visited,
     a:hover,

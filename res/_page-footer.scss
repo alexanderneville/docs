@@ -22,6 +22,14 @@
       margin-bottom: 0;
     }
   }
+  // .link-button p {
+  //   color: var(--accent);
+  // }
+  @media (hover: hover) {
+    .link-button:hover p {
+      text-decoration: underline;
+    }
+  }
 }
 
 #page-footer > div {

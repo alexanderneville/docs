@@ -29,6 +29,12 @@
   }
 }
 
+@media (hover: hover) {
+  .link-button:hover p {
+    text-decoration: underline;
+  }
+}
+
 .copyButton {
   position: absolute;
   display: none;

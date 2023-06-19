@@ -27,13 +27,33 @@ main {
   gap: 1rem;
   flex-grow: 1;
   margin-top: 1rem;
+  position: relative;
 }
 
 @media screen and (max-width: 95ch) {
   aside {
+    grid-area: content;
     display: none;
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+    // z-index: 1;
+    width: 100%;
+    max-height: initial;
+    #menu-links {
+      display: block;
+      div{
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+    }
+    #page-navigation {
+      display: none;
+    }
   }
   main {
+    display: grid;
     grid-template-areas: "content";
     grid-template-columns: 100%;
     gap: 0;

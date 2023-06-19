@@ -18,6 +18,9 @@
       font-size: 2rem;
     }
   }
+  #site-logo:hover p {
+    text-decoration: none;
+  }
   #theme-switch-button i {
     font-size: 1.5rem !important;
   }
@@ -34,14 +37,30 @@
         right: 0;
         background-color: var(--bg-main);
         border: 1px solid var(--bg-emphasis);
-        padding: 0.5rem;
+        // padding: 0.5rem;
         i {
           font-size: 1rem;
         }
+        div {
+          padding: 0.5rem;
+          padding-inline: 1rem;
+        }
+        @media (hover: hover) {
+          div:hover {
+            background-color: var(--bg-secondary);
+          }
+        }
       }
     }
-    #dropdown-container:hover #dropdown-menu {
-      display: block;
+    @media (hover: hover) {
+      @media screen and (min-width: 95ch) {
+        #dropdown-container:hover #dropdown-menu {
+          display: block;
+        }
+      }
+      #dropdown-container:hover #menu-button {
+        color: var(--fg-secondary);
+      }
     }
   }
 }
