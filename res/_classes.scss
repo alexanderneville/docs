@@ -57,3 +57,12 @@ pre:hover .copyButton {
     display: block;
   }
 }
+
+@media (hover: hover) {
+  .bold-hover:hover {
+    font-weight: bold !important;
+  }
+  .accent-hover:hover {
+    color: var(--fg-secondary) !important;
+  }
+}

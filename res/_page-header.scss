@@ -18,9 +18,6 @@
       font-size: 2rem;
     }
   }
-  #site-logo:hover {
-    color: var(--fg-secondary);
-  }
   #theme-switch-button i {
     font-size: 1.5rem !important;
   }
@@ -28,9 +25,6 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-    button:hover i {
-      color: var(--fg-secondary);
-    }
     #dropdown-container {
       position: relative;
       float: right;
