@@ -148,6 +148,17 @@ function addTOC() {
   scrollFunction();
 }
 
+function highlightCurrentDocument() {
+  let pages = window.frames["section-contents-iframe"].contentDocument.querySelectorAll("li");
+  console.log(pages);
+  for (let i = 0; i < pages.length; i++){
+    if (pages[i].querySelector("a").href.split("/").reverse()[0] === location.pathname.split("/").reverse()[0]) {
+      pages[i].classList.add("active");
+      break;
+    }
+  }
+}
+
 addClipboardItems();
 addAnchorLinks();
 addTOC();

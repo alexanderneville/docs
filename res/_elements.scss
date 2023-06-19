@@ -9,7 +9,7 @@ pre {
 }
 
 code {
-  font-family: LiberationMono, monospace;
+  font-family: IBMPlexMono, monospace;
   font-size: 0.9em;
   max-width: 100%;
   overflow-x: scroll;
@@ -48,4 +48,18 @@ h1 {
   font-size: 3rem;
   margin-bottom: 0.5rem;
   margin-top: 0.5rem;
+}
+
+a:link,
+a:visited {
+  color: var(--fg-main);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--green);
+}
+
+a:active {
+  color: red;
 }

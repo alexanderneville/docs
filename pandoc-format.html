@@ -31,6 +31,11 @@ $endif$
 <link rel="stylesheet alternate" href="https://cdn.alexneville.co.uk/highlightjs/styles/stackoverflow-dark.min.css" id="code-blocks-dark">
 <script src="https://cdn.alexneville.co.uk/highlightjs/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
+<script>
+  function resizeIframe(obj) {
+    obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
+  }
+</script>
 <link rel="stylesheet" href="https://cdn.alexneville.co.uk/nerd-fonts/nerd-fonts.css" />
 </head>
 
@@ -38,16 +43,30 @@ $endif$
 
 <header id="page-header">
 <div class="content-width">
-<a href="https://blog.alexneville.co.uk"><i class = "nf nf-md-code_braces"></i><p>Blog - Alex Neville</p></a>
+<div id="site-logo" class="link-button">
+<i class = "nf nf-md-code_braces"></i><p>Software Blog</p>
+<a href="https://blog.alexneville.co.uk/">
+<span></span>
+</a>
+</div>
 <div id="menu">
 <button class="page-start-button"><i class = "nf nf-md-chevron_double_up"></i></button>
 <button id="theme-switch-button"><i class = "nf nf-oct-moon"></i></button>
 <div id="dropdown-container">
 <button id="menu-button"><i class = "nf nf-md-menu"></i></button>
 <div id="dropdown-menu">
-<a href="https://alexneville.co.uk"><i class="nf nf-oct-person"></i> Home</a>
-<a href="https://blog.alexneville.co.uk"><i class="nf nf-oct-pencil"></i> Blog</a>
-<a href="https://blog.alexneville.co.uk/license.html"><i class="nf nf-md-scale nf-md-scale_balance"></i> License</a>
+<div class="link-button">
+<i class="nf nf-oct-person"></i> <p>Home</p>
+<a href="https://alexneville.co.uk"><span></span></a>
+</div>
+<div class="link-button">
+<i class="nf nf-oct-pencil"></i> <p>Blog</p>
+<a href="https://blog.alexneville.co.uk"><span></span></a>
+</div>
+<div class="link-button">
+<i class="nf nf-md-scale nf-md-scale_balance"></i> <p>License</p>
+<a href="https://blog.alexneville.co.uk/license.html"><span></span></a>
+</div>
 </div>
 </div>
 </div>
@@ -77,11 +96,15 @@ $body$
 </article>
 
 <aside>
-<nav id="TOC">
+<nav id="article-contents">
 <h3>In this Article</h3>
 <ul></ul>
-<div><a href="./"><i class="nf nf-md-arrow_left"></i> Back</a><button class="page-start-button"><i class="nf nf-md-arrow_up"></i> Top</button></div>
 </nav>
+<nav id="section-contents">
+<h3>In this Section</h3>
+<iframe src="./_contents.html" frameborder="0" scrolling="no" onload="resizeIframe(this); highlightCurrentDocument();" id="section-contents-iframe"></iframe>
+</nav>
+<div id="page-navigation"><a href="/"><i class="nf nf-md-arrow_left"></i> Back</a><button class="page-start-button"><i class="nf nf-md-arrow_up"></i> Top</button></div>
 </aside>
 
 </main>
@@ -92,10 +115,10 @@ $body$
 <p>
 <i class="nf nf-md-copyright"></i> 2023 Alexander Neville
 </p>
-<p>
-<i class="nf nf-md-scale nf-md-scale_balance"></i>
-<a href="/license.html"> CC BY-SA / GNU GPL</a>
-</p>
+<div class="link-button">
+<i class="nf nf-md-scale nf-md-scale_balance"></i><p>CC BY-SA / GNU GPL</p>
+<a href="/license.html"><span></span></a>
+</div>
 </div>
 <button class="page-start-button"><i class="nf nf-md-arrow_up"></i> Top</button>
 </div>

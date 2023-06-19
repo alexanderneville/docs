@@ -1,0 +1,6 @@
+- [Introduction to git](introduction.md)
+- [Tracking files with git](tracking-changes.md)
+- [Viewing the commit history](commit-history.md)
+- [Useful git Features](git-features.md)
+- [Working with local git Branches](branches.md)
+- [Git rebase](rebase.md)
