@@ -100,7 +100,7 @@ window.addEventListener(
         resizedIframe = true;
       }
       if (document.querySelector("article").style.display === "none") {
-        _toggleCompactMenu();
+        _toggleCompactMainMenu();
       }
     }
   },

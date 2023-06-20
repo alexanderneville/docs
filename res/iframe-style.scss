@@ -24,8 +24,7 @@ ul {
   padding: 0;
   width: 100%;
   li {
-    padding: 0.5rem;
-    width: calc(100% - 1rem);
+    padding: 0;
   }
   li.active {
     font-weight: bold;
@@ -37,5 +36,7 @@ ul {
   a {
     display: block;
     width: 100%;
+    padding: 0.5rem;
+    width: calc(100% - 1rem);
   }
 }

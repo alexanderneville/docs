@@ -71,10 +71,6 @@ function addTOC() {
     let newLink = document.createElement("a");
     newLink.href = headings[i].querySelector("a").href;
     newLink.innerText = headings[i].innerText;
-    newLink.onclick = () => {
-      toggleMenu();
-      location.hash = newLink.href;
-    };
     newEntry.appendChild(newLink);
     list.appendChild(newEntry);
   }
