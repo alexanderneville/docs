@@ -32,13 +32,9 @@ function highlightCurrentSection() {
     links != null
   ) {
     let scrollTop = window.scrollY;
-
-    // highlight the last scrolled-to: set everything inactive first
     links.forEach((link, index) => {
       link.classList.remove("active");
     });
-
-    // then iterate backwards, on the first match highlight it and break
     for (var i = anchors.length - 1; i >= 0; i--) {
       if (scrollTop > anchors[i].offsetTop - 100) {
         links[i].classList.add("active");
@@ -63,7 +59,6 @@ function highlightCurrentDocument() {
     }
   }
 }
-
 
 const anchors = document
   .querySelector("article")

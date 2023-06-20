@@ -18,6 +18,11 @@ function lightTheme() {
     enableStylesheet(light_stylesheet);
   } catch {}
   localStorage.setItem("theme", "light");
+  try {
+    document
+      .getElementById("section-contents-iframe")
+      .contentDocument.location.reload(true);
+  } catch {}
 }
 
 function darkTheme() {
@@ -31,6 +36,11 @@ function darkTheme() {
     enableStylesheet(dark_stylesheet);
   } catch {}
   localStorage.setItem("theme", "dark");
+  try {
+    document
+      .getElementById("section-contents-iframe")
+      .contentDocument.location.reload(true);
+  } catch {}
 }
 
 function systemTheme() {
@@ -53,19 +63,51 @@ function systemTheme() {
   } catch {}
   localStorage.clear();
   preference.addEventListener("change", toggleCodeBlockTheme);
+  try {
+    document
+      .getElementById("section-contents-iframe")
+      .contentDocument.location.reload(true);
+  } catch {}
 }
 
-document
-  .querySelectorAll(".light-theme-button")
-  .forEach((button) => button.addEventListener("click", lightTheme));
+document.querySelectorAll(".light-theme-button").forEach((button) =>
+  button.addEventListener("click", () => {
+    lightTheme();
+    if (
+      window
+        .getComputedStyle(document.querySelector("main"))
+        .getPropertyValue("grid-template-areas") !== '"content"'
+    ) {
+      toggleThemeMenu();
+    }
+  })
+);
 
-document
-  .querySelectorAll(".dark-theme-button")
-  .forEach((button) => button.addEventListener("click", darkTheme));
+document.querySelectorAll(".dark-theme-button").forEach((button) =>
+  button.addEventListener("click", () => {
+    darkTheme();
+    if (
+      window
+        .getComputedStyle(document.querySelector("main"))
+        .getPropertyValue("grid-template-areas") !== '"content"'
+    ) {
+      toggleThemeMenu();
+    }
+  })
+);
 
 document
   .querySelectorAll(".system-theme-button")
-  .forEach((button) => button.addEventListener("click", systemTheme));
+  .forEach((button) => button.addEventListener("click", () => {
+    systemTheme();
+    if (
+      window
+        .getComputedStyle(document.querySelector("main"))
+        .getPropertyValue("grid-template-areas") !== '"content"'
+    ) {
+      toggleThemeMenu();
+    }
+  }));
 
 const toggleCodeBlockTheme = (setting) => {
   if (setting.matches) {
