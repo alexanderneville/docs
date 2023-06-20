@@ -22,12 +22,15 @@
     text-decoration: none;
   }
   #theme-switch-button i {
-    font-size: 1.5rem !important;
+    font-size: 1.5rem;
   }
   #menu {
     display: flex;
     align-items: center;
     gap: 1rem;
+    .page-start-button {
+      margin-right: 0.25rem;
+    }
     #theme-dropdown-container,
     #menu-dropdown-container {
       position: relative;
@@ -59,12 +62,12 @@
       }
     }
     @media (hover: hover) {
-      @media screen and (min-width: 95ch) {
-        #theme-dropdown-container:hover .dropdown-menu,
-        #menu-dropdown-container:hover .dropdown-menu {
-          display: block;
-        }
-      }
+      // @media screen and (min-width: 95ch) {
+      //   #theme-dropdown-container:hover .dropdown-menu,
+      //   #menu-dropdown-container:hover .dropdown-menu {
+      //     display: block;
+      //   }
+      // }
       #theme-dropdown-container:hover button i,
       #menu-dropdown-container:hover button i {
         color: var(--fg-secondary);
