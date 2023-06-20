@@ -34,15 +34,24 @@ main {
   aside {
     grid-area: content;
     display: none;
-    // position: absolute;
-    // top: 0;
-    // left: 0;
-    // z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
     width: 100%;
     max-height: initial;
+    // height: 100vh;
+    // background-color: var(--bg-main);
+
+    button {
+      background-color: inherit;
+      border: none;
+      color: var(--fg-main);
+    }
+    #theme-buttons,
     #menu-links {
       display: block;
-      div{
+      div {
         display: flex;
         align-items: center;
         gap: 0.5rem;

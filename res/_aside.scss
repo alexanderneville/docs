@@ -7,6 +7,8 @@ aside {
   overflow-y: auto;
   max-height: calc(100vh - 8rem);
   // position: static;
+  background-color: var(--bg-main);
+  #theme-buttons,
   #menu-links {
     display: none;
     i {
@@ -19,9 +21,9 @@ aside {
     @media (hover: hover) {
       .link-button:hover {
         background-color: var(--bg-emphasis);
-        p {
-          text-decoration: none;
-        }
+        // p {
+        //   text-decoration: none;
+        // }
       }
     }
     margin-bottom: 1.5rem;

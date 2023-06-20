@@ -8,21 +8,21 @@
 }
 
 :root.dark-theme {
-  --fg-main: #000000;
+  --fg-main: #ffffff;
   --fg-secondary: #656e77;
   --bg-emphasis: #d9d9d9;
   --bg-secondary: #f6f6f6;
-  --bg-main: #ffffff;
+  --bg-main: #000000;
   --accent: #015692;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --fg-main: #000000;
+    --fg-main: #ffffff;
     --fg-secondary: #656e77;
     --bg-emphasis: #d9d9d9;
     --bg-secondary: #f6f6f6;
-    --bg-main: #ffffff;
+    --bg-main: #000000;
     --accent: #015692;
   }
   :root.light-theme {

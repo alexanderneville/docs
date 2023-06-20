@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="system-theme">
 
 <head>
 <meta charset="utf-8" />
@@ -43,18 +43,44 @@ $endif$
 
 <header id="page-header">
 <div class="content-width">
+
 <div id="site-logo" class="link-button accent-hover">
-<i class = "nf nf-md-code_braces"></i><p>Software Blog</p>
+<i class = "nf nf-md-code_braces"></i><p>Alex Neville - Blog</p>
 <a href="/">
 <span></span>
 </a>
 </div>
+
 <div id="menu">
 <button class="page-start-button accent-hover"><i class = "nf nf-md-chevron_double_up"></i></button>
-<button id="theme-switch-button" class="accent-hover"><i class = "nf nf-oct-moon"></i></button>
-<div id="dropdown-container">
+
+<div id="theme-dropdown-container">
+<button id="theme-switch-button" class="accent-hover"><i class = "nf nf-md-circle_half_full"></i></button>
+<div class="dropdown-menu">
+<div class="link-button">
+<i class="nf nf-oct-sun"></i> <p>Light</p>
+<button class="light-theme-button">
+<span></span>
+</button>
+</div>
+<div class="link-button">
+<i class="nf nf-oct-moon"></i> <p>Dark</p>
+<button class="dark-theme-button">
+<span></span>
+</button>
+</div>
+<div class="link-button">
+<i class="nf nf-md-circle_half_full"></i> <p>System</p>
+<button class="system-theme-button">
+<span></span>
+</button>
+</div>
+</div>
+</div>
+
+<div id="menu-dropdown-container">
 <button id="menu-button" class="accent-hover"><i class = "nf nf-md-menu"></i></button>
-<div id="dropdown-menu">
+<div class="dropdown-menu">
 <div class="link-button">
 <i class="nf nf-oct-person"></i> <p>Home</p>
 <a href="https://alexneville.co.uk"><span></span></a>
@@ -69,7 +95,7 @@ $endif$
 </div>
 </div>
 </div>
-</div>
+
 </div>
 </header>
 
@@ -96,6 +122,29 @@ $body$
 </article>
 
 <aside>
+<div id="theme-buttons">
+<h3>Theme</h3>
+<div>
+<div class="link-button">
+<i class="nf nf-oct-sun"></i> <p>Light</p>
+<button class="light-theme-button">
+<span></span>
+</button>
+</div>
+<div class="link-button">
+<i class="nf nf-oct-moon"></i> <p>Dark</p>
+<button class="dark-theme-button">
+<span></span>
+</button>
+</div>
+<div class="link-button">
+<i class="nf nf-md-circle_half_full"></i> <p>System</p>
+<button class="system-theme-button">
+<span></span>
+</button>
+</div>
+</div>
+</div>
 <div id="menu-links">
 <h3>On this Website</h3>
 <div>
