@@ -68,9 +68,7 @@ const links = document
   .querySelectorAll("nav > ul > li");
 
 window.addEventListener("scroll", highlightCurrentSection);
-window.onscroll = function () {
-  scrollFunction();
-};
+window.addEventListener("scroll", scrollFunction);
 
 let resizedIframe = false;
 

@@ -35,9 +35,10 @@ function _toggleCompactMainMenu() {
         link.addEventListener("click", closeCompactMenu);
       });
     positionInArticle = window.scrollY;
-    window.scrollToTop();
-    document.getElementById("page-footer").style.display = "none";
+    window.scrollTo({top: 0, behavior:'instant'});
+    // document.getElementById("page-footer").style.display = "none";
     window.removeEventListener("scroll", highlightCurrentSection);
+    window.removeEventListener("scroll", scrollFunction);
     document
       .querySelectorAll(".page-start-button")
       .forEach((button) => (button.style.display = "none"));
@@ -46,6 +47,7 @@ function _toggleCompactMainMenu() {
     resizeIframe(document.querySelector("iframe"));
     menuIcon.classList = "nf nf-md-close";
     menuIcon.style.color = "var(--fg-secondary)";
+    window.scrollTo({top: 0, behavior:'instant'});
   } else {
     document
       .querySelectorAll("aside #article-contents a")
@@ -55,6 +57,7 @@ function _toggleCompactMainMenu() {
     menu.removeAttribute("style");
     menuIcon.removeAttribute("style");
     document.querySelector("article").removeAttribute("style");
+    window.addEventListener("scroll", scrollFunction);
     window.scrollTo({
       top: positionInArticle,
       left: 0,
@@ -94,6 +97,9 @@ function toggleMainMenu() {
       .getPropertyValue("grid-template-areas") === '"content"'
   ) {
     _toggleCompactMainMenu();
+    // if (document.querySelector("aside").style.display === "block") {
+    //   // window.scrollTo({top:0, behaviour:'instant'});
+    // }
   } else {
     _toggleDropdownMainMenu();
   }
