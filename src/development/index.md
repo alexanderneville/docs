@@ -1,8 +1,5 @@
 ---
-author: Alex Neville
-date: 2023-02-21
 title: Software Development
 ---
 
-- [Version Control with Git](./vcs/index.md)
-- [Encryption with GPG](./gpg-notes.md)
+- [Encryption with GPG](development/gpg-notes.md)

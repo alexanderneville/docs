@@ -7,7 +7,13 @@ title: Introduction to DSA
 There is an important distinction between the abstract, theoretical
 nature of algorithms and real-world computer programs. The same is true
 of the relationship between _concrete data structures_ and _abstract
-data types_.
+data types_. An _algorithm_ is a sequence of instructions for solving a
+problem. There is not a single specification nor one formal language for
+writing and interpreting algorithms, they are an abstract concept. The
+role of a _data structure_ is to manage how a program's information is
+stored and accessed. _Concrete_ data structures implement the _abstract
+data types_. For any program, the algorithms it implements and the
+organisation of its data are important components of the solution.
 
 ## Algorithms
 

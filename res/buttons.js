@@ -45,7 +45,7 @@ function _toggleCompactMainMenu() {
       });
     positionInArticle = window.scrollY;
     window.scrollTo({top: 0, behavior: "instant"});
-    // document.getElementById("page-footer").style.display = "none";
+    document.getElementById("page-footer").style.display = "none";
     window.removeEventListener("scroll", highlightCurrentSection);
     window.removeEventListener("scroll", scrollFunction);
     document

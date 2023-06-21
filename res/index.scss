@@ -7,8 +7,8 @@
 
 .content-width {
   width: calc(100% - 2em);
-  max-width: 81ch;
   padding-inline: 1rem;
+  max-width: 81ch !important;
   overflow-x: clip;
   margin-inline: auto;
 }
@@ -30,7 +30,14 @@ body {
 main {
   flex-grow: 1;
   margin-top: 1rem;
+  margin-bottom: 1rem;
   position: relative;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
 }
 
 aside {
@@ -94,5 +101,25 @@ article {
   overflow-x: clip;
   [id] {
     scroll-margin-top: calc(3.5rem);
+  }
+}
+
+#pages {
+  display: grid;
+  max-width: 60ch;
+  margin-inline: auto;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-auto-rows: 1fr;
+  gap: 1rem;
+}
+
+.card {
+  padding: 1rem;
+  border: 1px solid var(--bg-emphasis);
+  h3 {
+    margin-top: 0;
+  }
+  a {
+    line-height: 1.5rem;
   }
 }

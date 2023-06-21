@@ -1,10 +1,10 @@
 ---
 author: Alex Neville
 date: 2023-02-21
-title: Introduction to Git
+title: Git Rebase
 ---
 
-It is possible to rebase a topic branch, onto a main branch. Initialise
+It's possible to rebase a topic branch onto a main branch. Initialise
 a new git project, create a commit and a new branch.
 
 ```{.text}
@@ -79,7 +79,7 @@ With the `dev` branch checked out, the following forms are equivalent:
 - `git rebase main`
 - `git rebase main dev`
 
-# Rebase Onto
+## Rebase Onto
 
 It is possible to rebase a topic branch, created from another topic
 branch, onto a different branch altogether. For this example, initialise

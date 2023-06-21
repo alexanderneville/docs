@@ -25,7 +25,9 @@ $if(math)$
 $math$
 $endif$
 <link rel="icon" href="https://cdn.alexneville.co.uk/res/panda.png" />
-<link href="/res/index.css" rel="stylesheet" />
+<link href="/res/style.css" rel="stylesheet" />
+<!-- <script src="/res/script.js" defer></script> -->
+<script src="/res/onPageLoad.js" defer></script>
 <script src="/res/windowEvents.js" defer></script>
 <script src="/res/buttons.js" defer></script>
 <script src="/res/theme.js" defer></script>
@@ -104,6 +106,22 @@ $endif$
 <main class="content-width">
 
 <article>
+$if(title)$
+<header id="document-title">
+<h1 id="title">$title$</h1>
+<div id="metadata">
+$if(subtitle)$
+<p class="subtitle">$subtitle$</p>
+$endif$
+$for(author)$
+<p class="author"><i class="nf nf-oct-person"></i> $author$</p>
+$endfor$
+$if(date)$
+<p class="date"><i class="nf nf-oct-pencil"></i> $date$</p>
+$endif$
+</div>
+</header>
+$endif$
 $body$
 </article>
 
@@ -148,24 +166,20 @@ $body$
 </div>
 </div>
 </div>
+<nav id="article-contents">
+<h3>In this Article</h3>
+<ul></ul>
+</nav>
+<nav id="section-contents">
+<h3>In this Section</h3>
+<iframe src="./_contents.html" frameborder="0" scrolling="no" onload="resizeIframe(this); highlightCurrentDocument();" id="section-contents-iframe"></iframe>
+</nav>
+<div id="page-navigation"><a href="/" class="bold-hover"><i class="nf nf-md-chevron_double_left"></i> Back</a><button class="page-start-button bold-hover"><i class="nf nf-md-chevron_double_up"></i> Top</button></div>
 </aside>
 
 </main>
 
-<footer id="page-footer">
-<div class="content-width">
-<div id="copyright-info">
-<p>
-<i class="nf nf-md-copyright"></i> 2023 Alexander Neville
-</p>
-<div class="link-button">
-<i class="nf nf-md-scale nf-md-scale_balance"></i><p>CC BY-SA / GNU GPL</p>
-<a href="/license.html"><span></span></a>
-</div>
-</div>
-<button class="page-start-button bold-hover"><i class="nf nf-md-chevron_double_up"></i> Top</button>
-</div>
-</footer>
+${ footer.html() }
 
 </body>
 

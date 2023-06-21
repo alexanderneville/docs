@@ -1,2 +1,0 @@
-- [Version Control with Git](./vcs/index.md)
-- [Encryption with GPG](./gpg-notes.md)

@@ -4,6 +4,11 @@ date: 2023-02-21
 title: Introduction to Git
 ---
 
+A version control system records changes made to a file or set of files,
+making it possible to view and recover previous versions as required.
+Git is a popular, free and open source _distributed_ version control
+system.
+
 The majority of git operations are local and do not require network
 access, this allows many different developers to work on the same
 project simultaneously without the availability of a central server. Git
@@ -28,8 +33,6 @@ _staging_ area is managed by git to calculate which files will be
 included in the next commit. This is technically referred to as the
 index.
 
-::: {.TMP .drawer}
-
 ```{.text}
 pwd       staged      .git
  |          |           |
@@ -40,8 +43,6 @@ pwd       staged      .git
  |          | -commit-> |
  |          |           |
 ```
-
-:::
 
 ## Setup
 
