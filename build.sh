@@ -16,11 +16,12 @@ find src -mindepth 2 -type f -name '*.md' -exec $build out/{} {} \;
 find src -mindepth 2 -type f -name '_contents.md' -exec $buildiframe out/{} {} \;
 for f in $(find out -iname '*.md' -type f -print); do mv "$f" ${f%.md}.html; done
 
-find out -mindepth 2 -type f -name 'index.html' -print | xargs -n 1 cp ./redirect.html
 echo "<div id=\"pages\">" > out/_index.html
 find src -type f -name '_contents.md' | xargs -n1 $buildindexsection >> out/_index.html
 echo "</div>" >> out/_index.html
+find out -mindepth 2 -type d -print | xargs -n 1 -I {} cp ./redirect.html {}/index.html
 $buildindex out/index.html out/_index.html
+echo "" | pandoc -s -f html -t html --data-dir="./" --template=templates/error.html -o out/error.html
 
 mv out/src/* out/
 sass res/:out/res

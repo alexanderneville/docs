@@ -76,7 +76,7 @@ ax.plot(x, sigmoid(x), label="x")
 ax.legend(loc='lower right')
 ```
 
-![](../res/classification_6_1.png)
+![Sigmoid Function](../res/classification_6_1.png){#fig:sigmoid .nocaption}
 
 ## Cost Function
 
@@ -158,4 +158,4 @@ ax.plot(X[:, 0],
         'green')
 ```
 
-![](../res/classification_10_1.png)
+![Linear Classification](../res/classification_10_1.png){#fig:linearclassification .nocaption}

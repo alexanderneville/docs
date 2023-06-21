@@ -92,3 +92,7 @@ pre:hover .copyButton {
     color: var(--fg-secondary) !important;
   }
 }
+
+.nocaption + figcaption {
+  display: none;
+}

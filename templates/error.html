@@ -25,9 +25,7 @@ $if(math)$
 $math$
 $endif$
 <link rel="icon" href="https://cdn.alexneville.co.uk/res/panda.png" />
-<link href="/res/style.css" rel="stylesheet" />
-<!-- <script src="/res/script.js" defer></script> -->
-<script src="/res/onPageLoad.js" defer></script>
+<link href="/res/index.css" rel="stylesheet" />
 <script src="/res/windowEvents.js" defer></script>
 <script src="/res/buttons.js" defer></script>
 <script src="/res/theme.js" defer></script>
@@ -41,6 +39,14 @@ $endif$
   }
 </script>
 <link rel="stylesheet" href="https://cdn.alexneville.co.uk/nerd-fonts/nerd-fonts.css" />
+<style>
+body{
+  justify-content: space-between;
+}
+main {
+  flex-grow: initial;
+}
+</style>
 </head>
 
 <body>
@@ -50,23 +56,13 @@ ${ header.html() }
 <main class="content-width">
 
 <article>
-$if(title)$
-<header id="document-title">
-<h1 id="title">$title$</h1>
-<div id="metadata">
-$if(subtitle)$
-<p class="subtitle">$subtitle$</p>
-$endif$
-$for(author)$
-<p class="author"><i class="nf nf-oct-person"></i> $author$</p>
-$endfor$
-$if(date)$
-<p class="date"><i class="nf nf-oct-pencil"></i> $date$</p>
-$endif$
+<div class="centre">
+<h1><i class="nf nf-fa-gears"></i> Error 404</h1>
+<div class="link-button">
+<i class="nf nf-md-chevron_double_left"></i> <p>Return Home</p>
+<a href="/"><span></span></a>
 </div>
-</header>
-$endif$
-$body$
+</div>
 </article>
 
 <aside>
@@ -110,15 +106,6 @@ $body$
 </div>
 </div>
 </div>
-<nav id="article-contents">
-<h3>In this Article</h3>
-<ul></ul>
-</nav>
-<nav id="section-contents">
-<h3>In this Section</h3>
-<iframe src="./_contents.html" frameborder="0" scrolling="no" onload="resizeIframe(this); highlightCurrentDocument();" id="section-contents-iframe"></iframe>
-</nav>
-<div id="page-navigation"><a href="/" class="bold-hover"><i class="nf nf-md-chevron_double_left"></i> Back</a><button class="page-start-button bold-hover"><i class="nf nf-md-chevron_double_up"></i> Top</button></div>
 </aside>
 
 </main>

@@ -80,7 +80,7 @@ ax.scatter(z_score_standardise_feature(np.mean(X[:, 0]), np.std(X[:, 0]), X[:, 0
 
 ```
 
-![](../res/unsupervised_5_1.png)
+![Normalisation](../res/unsupervised_5_1.png){#fig:normalisation .nocaption}
 
 ## Minkowski distance
 
@@ -192,10 +192,10 @@ anim = animation.FuncAnimation(fig=fig, func=animate_k_means, frames=9, interval
 anim.save('../animations/k_means.gif')
 ```
 
-![](../res/animations/k_means.gif)
+![Optimal K-means](../res/animations/k_means.gif){#fig:optimalkmeans .nocaption}
 
 K-Means is not optimal. The algorithm may not generate ideal cluster centroids, as
 is the case in the example below. Many strategies for evaluating
 clustering algorithms and finding more optimal solutions exist.
 
-![](../res/animations/sub_optimal_k_means.gif)
+![Sub-optimal K-means](../res/animations/sub_optimal_k_means.gif){#fig:suboptimalkmeans .nocaption}

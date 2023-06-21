@@ -109,7 +109,7 @@ anim = animation.FuncAnimation(fig=fig, func=hill_climb, frames=11, interval=500
 anim.save('../animations/optimal.gif')
 ```
 
-![](../res/animations/optimal.gif)
+![Optimal Hill Climbing](../res/animations/optimal.gif){#fig:optimalhillclimbing .nocaption}
 
 Applied to more complicated problems, hill climbing may not find a
 perfect solution as it can become _trapped_ in a local maxima. It is
@@ -133,7 +133,7 @@ anim = animation.FuncAnimation(fig=fig, func=hill_climb, frames=7, interval=500)
 anim.save('../animations/local_maxima.gif')
 ```
 
-![](../res/animations/local_maxima.gif)
+![Sub-optimal Hill Climbing](../res/animations/local_maxima.gif){#fig:sub-optimalhillclimbing .nocaption}
 
 ```python
 def f(x):
@@ -159,7 +159,7 @@ anim = animation.FuncAnimation(fig=fig, func=hill_climb, frames=7, interval=500)
 anim.save('../animations/plateau.gif')
 ```
 
-![](../res/animations/plateau.gif)
+![Plateau](../res/animations/plateau.gif){#fig:plateau .nocaption}
 
 ## Simulated Annealing
 
@@ -249,4 +249,4 @@ anim = animation.FuncAnimation(fig=fig,
 anim.save('../animations/simulated_annealing.gif')
 ```
 
-![](../res/animations/simulated_annealing.gif)
+![Simulated Annealing](../res/animations/simulated_annealing.gif){#fig:simulated_annealing .nocaption}

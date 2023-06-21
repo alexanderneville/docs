@@ -41,6 +41,7 @@
         right: 0;
         background-color: var(--bg-main);
         border: 1px solid var(--bg-emphasis);
+        border-radius: 0.5rem;
         // padding: 0.5rem;
         i {
           font-size: 1rem;
@@ -49,7 +50,26 @@
           padding: 0.5rem;
           padding-inline: 1rem;
         }
+        div:nth-child(1) {
+          border-top-right-radius: 0.5rem !important;
+          border-top-left-radius: 0.5rem;
+          button {
+            border-top-right-radius: 0.5rem;
+            border-top-left-radius: 0.5rem;
+          }
+        }
+        div:nth-last-child(1) {
+          border-bottom-right-radius: 0.5rem;
+          border-bottom-left-radius: 0.5rem;
+          button {
+            border-bottom-right-radius: 0.5rem;
+            border-bottom-left-radius: 0.5rem;
+          }
+        }
         @media (hover: hover) {
+          button:hover {
+            background-color: none;
+          }
           div:hover {
             background-color: var(--bg-secondary);
           }
