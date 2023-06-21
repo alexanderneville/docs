@@ -1,4 +1,8 @@
-function hideMainMenuDropDown(event) {
+function hideMainMenuDropDownResize(event) {
+  _toggleDropdownMainMenu();
+}
+
+function hideMainMenuDropDownCLick(event) {
   if (
     !document
       .querySelector("#menu-dropdown-container")
@@ -8,7 +12,11 @@ function hideMainMenuDropDown(event) {
   }
 }
 
-function hideThemeMenuDropDown(event) {
+function hideThemeMenuDropDownResize(event) {
+  toggleThemeMenu();
+}
+
+function hideThemeMenuDropDownClick(event) {
   if (
     !document
       .querySelector("#theme-dropdown-container")
@@ -24,6 +32,7 @@ function closeCompactMenu(event) {
 }
 
 function _toggleCompactMainMenu() {
+  console.log("toggle compact menu")
   let menuIcon = document
     .getElementById("menu-button")
     .querySelector("i");
@@ -35,7 +44,7 @@ function _toggleCompactMainMenu() {
         link.addEventListener("click", closeCompactMenu);
       });
     positionInArticle = window.scrollY;
-    window.scrollTo({top: 0, behavior:'instant'});
+    window.scrollTo({top: 0, behavior: "instant"});
     // document.getElementById("page-footer").style.display = "none";
     window.removeEventListener("scroll", highlightCurrentSection);
     window.removeEventListener("scroll", scrollFunction);
@@ -44,10 +53,12 @@ function _toggleCompactMainMenu() {
       .forEach((button) => (button.style.display = "none"));
     document.querySelector("article").style.display = "none";
     menu.style.display = "block";
-    resizeIframe(document.querySelector("iframe"));
+    try {
+      resizeIframe(document.querySelector("iframe"));
+    } catch {}
     menuIcon.classList = "nf nf-md-close";
     menuIcon.style.color = "var(--fg-secondary)";
-    window.scrollTo({top: 0, behavior:'instant'});
+    window.scrollTo({top: 0, behavior: "instant"});
   } else {
     document
       .querySelectorAll("aside #article-contents a")
@@ -81,9 +92,11 @@ function _toggleDropdownMainMenu() {
     // menuIcon.classList = "nf nf-md-close";
     menuIcon.style.color = "var(--fg-secondary)";
     menu.style.display = "block";
-    window.addEventListener("click", hideMainMenuDropDown);
+    window.addEventListener("click", hideMainMenuDropDownCLick);
+    window.addEventListener("resize", hideMainMenuDropDownResize, {once: true});
   } else {
-    window.removeEventListener("click", hideMainMenuDropDown);
+    window.removeEventListener("click", hideMainMenuDropDownCLick);
+    window.removeEventListener("resize", hideMainMenuDropDownResize);
     menu.removeAttribute("style");
     // menuIcon.classList = "nf nf-md-menu";
     menuIcon.removeAttribute("style");
@@ -92,14 +105,9 @@ function _toggleDropdownMainMenu() {
 
 function toggleMainMenu() {
   if (
-    window
-      .getComputedStyle(document.querySelector("main"))
-      .getPropertyValue("grid-template-areas") === '"content"'
+    !document.getElementById("theme-switch-button").checkVisibility()
   ) {
     _toggleCompactMainMenu();
-    // if (document.querySelector("aside").style.display === "block") {
-    //   // window.scrollTo({top:0, behaviour:'instant'});
-    // }
   } else {
     _toggleDropdownMainMenu();
   }
@@ -115,9 +123,11 @@ function _toggleThemeMenu() {
   if (menu.style.display !== "block") {
     menuIcon.style.color = "var(--fg-secondary)";
     menu.style.display = "block";
-    window.addEventListener("click", hideThemeMenuDropDown);
+    window.addEventListener("click", hideThemeMenuDropDownClick);
+    window.addEventListener("resize", hideThemeMenuDropDownResize);
   } else {
-    window.removeEventListener("click", hideThemeMenuDropDown);
+    window.removeEventListener("click", hideThemeMenuDropDownClick);
+    window.removeEventListener("resize", hideThemeMenuDropDownResize);
     menu.removeAttribute("style");
     menuIcon.removeAttribute("style");
   }

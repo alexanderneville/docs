@@ -72,11 +72,7 @@ window.addEventListener("scroll", scrollFunction);
 
 let resizedIframe = false;
 
-if (
-  window
-    .getComputedStyle(document.querySelector("main"))
-    .getPropertyValue("grid-template-areas") !== '"content"'
-) {
+if (document.getElementById("theme-switch-button").checkVisibility()) {
   resizedIframe = true;
 }
 
@@ -84,13 +80,13 @@ window.addEventListener(
   "resize",
   function (event) {
     if (
-      window
-        .getComputedStyle(document.querySelector("main"))
-        .getPropertyValue("grid-template-areas") !== '"content"'
+      document.getElementById("theme-switch-button").checkVisibility()
     ) {
       if (resizedIframe === false) {
-        resizeIframe(document.querySelector("iframe"));
-        resizedIframe = true;
+        try {
+          resizeIframe(document.querySelector("iframe"));
+          resizedIframe = true;
+        } catch {}
       }
       if (document.querySelector("article").style.display === "none") {
         _toggleCompactMainMenu();
