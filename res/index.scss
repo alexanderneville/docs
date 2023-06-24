@@ -5,13 +5,13 @@
 @use "page-footer";
 @use "classes";
 
-// .content-width {
+.content-width {
 //   width: calc(100% - 2em);
 //   padding-inline: 1rem;
-//   max-width: 80ch !important;
+  max-width: 80ch !important;
 //   overflow-x: clip;
 //   margin-inline: auto;
-// }
+}
 
 html {
   scroll-behavior: smooth;
