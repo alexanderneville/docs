@@ -93,6 +93,14 @@ pre:hover .copyButton {
   }
 }
 
+.bold-hover:active {
+  font-weight: bold !important;
+}
+
+.accent-hover:active {
+  color: var(--fg-secondary) !important;
+}
+
 .nocaption + figcaption {
   display: none;
 }

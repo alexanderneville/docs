@@ -6,11 +6,11 @@
 @use "classes";
 
 .content-width {
-//   width: calc(100% - 2em);
-//   padding-inline: 1rem;
+  //   width: calc(100% - 2em);
+  //   padding-inline: 1rem;
   max-width: 80ch !important;
-//   overflow-x: clip;
-//   margin-inline: auto;
+  //   overflow-x: clip;
+  //   margin-inline: auto;
 }
 
 html {
@@ -53,10 +53,10 @@ aside {
     @media (hover: hover) {
       .link-button:hover {
         background-color: var(--bg-emphasis);
-        // p {
-        //   text-decoration: none;
-        // }
       }
+    }
+    .link-button:active {
+      background-color: var(--bg-emphasis);
     }
     margin-bottom: 1.5rem;
   }
@@ -123,6 +123,11 @@ article {
     padding: 0;
     list-style-type: none;
   }
+  // @media (hover: hover) {
+  //   a:hover {
+  //     text-decoration: underline;
+  //   }
+  // }
 }
 
 #license-notice {
@@ -142,6 +147,9 @@ article {
     .link-button:hover {
       background-color: var(--bg-emphasis);
     }
+  }
+  .link-button:active {
+    background-color: var(--bg-emphasis);
   }
   .link-button {
     padding: 0.5rem;

@@ -26,6 +26,9 @@ aside {
         // }
       }
     }
+    .link-button:active {
+      background-color: var(--bg-emphasis);
+    }
     margin-bottom: 1.5rem;
   }
   h3 {
@@ -70,7 +73,7 @@ aside {
       margin-bottom: 0.5rem;
       li {
         // padding: 0.5rem;
-      padding: 0;
+        padding: 0;
       }
       li.active {
         font-weight: bold;
