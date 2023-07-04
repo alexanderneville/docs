@@ -39,11 +39,12 @@ chmod u+x script.sh
 ## Variables
 
 Shell variables may contain characters, strings of characters or
-numbers. Variables are created when a value is assigned to a name.
-Variable names may contain letters and the `_` symbol. Single `=` is
-used for assignment. Variable names and values may not be space
-seperated during assignment. Quotes are required to preserve whitespace
-in strings.
+numbers. Shell has no concept of data types, all variables are really
+strings, but some may be treated as numbers by external programs.
+Variables are created when a value is assigned to a name. Variable names
+may contain letters and the `_` symbol. Single `=` is used for
+assignment. Variable names and values may not be space seperated during
+assignment. Quotes are required to preserve whitespace in strings.
 
 ```sh
 letters=hello
@@ -53,7 +54,7 @@ echo $words
 echo "$words"
 ```
 
-To seperate a variable name from string contents, `${}` syntax is used.
+To separate a variable name from string contents, `${}` syntax is used.
 
 ```sh
 firstWord="Hello"
@@ -62,11 +63,12 @@ echo "$greeting"
 ```
 
 The output of a command can be included in a string with _command
-substituion_. `$()` is the prefered syntax, though double back-ticks
+substitution_. `$()` is the preferred syntax, though double back-ticks
 have the same effect.
 
 ```sh
 echo "uptime: $(uptime)"
+echo "uptime: `uptime`"
 ```
 
 Variables are not declared before assignment or use. Attempting to use
@@ -82,7 +84,8 @@ variable="updated value"
 echo "variable value: $variable" # updated value
 ```
 
-Executing the script in an interactive shell will result in this output.
+Executing the script in an interactive shell will result in the
+following output.
 
 ```
 $ ./script.sh
@@ -91,8 +94,8 @@ variable value: updated value
 ```
 
 The value of `variable` in the script's output remains empty in the case
-that `variable` is declared in the interactive shell before the
-script is executed.
+that `variable` is declared in the interactive shell before the script
+is executed.
 
 ```
 $ variable="initial value"
@@ -106,9 +109,9 @@ variable value: updated value
 ```
 
 When the script is executed, a new shell is created according to the
-processor directive. The value of `variable` is not set in this new
+interpreter directive. The value of `variable` is not set in this new
 environment. To make the script inherit the value of a variable in the
-parent process, the variable must be *exported*.
+parent process, the variable must be _exported_.
 
 ```
 $ variable="initial value"
@@ -121,9 +124,9 @@ initial value
 ```
 
 Assignments to `variable` within the script are not reflected in the
-parent process after the script terminates. If this behaviour is
-desired the script should be *sourced* within the interactive shell.
-`source` or `.` is the way this is acheived.
+parent process after the script terminates. If this behaviour is desired
+the script should be _sourced_ within the interactive shell. The
+`source` or `.` built-ins are the way this is achieved.
 
 ```
 $ variable="initial value"
@@ -134,18 +137,37 @@ $ echo "$variable"
 updated value
 ```
 
-## Arguments
-
-- `$#` is the number of arguments passed to the script.
-- `$@` is a space delimeted string of all the aruments passed to the
-  script
-- `$0` is the name of the script
+In shell, some variables are set automatically and should not be
+assigned to.
 
 ```sh
 #!/bin/sh
+echo "$#"
 echo "$0"
 echo "$@"
 ```
+In this script, the special variables are:
+
+- `$#` is the number of arguments passed to the script.
+- `$@` is a space delimited string of all the arguments passed to the
+  script
+- `$0` is the name of the script as it was called.
+- `$1` to `$9` are are the first 9 optional parameters.
+
+Evaluated in an interactive shell, this script outputs the following:
+
+```
+$ ./script.sh hello my name is alex
+5
+./script.sh
+hello my name is alex
+```
+
+Some other special variables:
+
+- `$$` is the PID of the current shell.
+- `$!` is the PID of the last run background process.
+- `$?` is the exit code of the last executed command.
 
 ## Arrays
 
@@ -182,3 +204,31 @@ echo ${#string} # 13
 echo ${string:0:5} # Hello
 echo ${string:5} # , world!
 ```
+
+## Loops
+
+```sh
+#!/bin/sh
+for i in 1 2 3 4 5
+do
+  echo "$i"
+done
+```
+
+```sh
+#!/bin/sh
+for i in "Hello," world
+do
+  echo "$i"
+done
+```
+
+```sh
+#!/bin/sh
+while :
+do
+  echo "hello"
+done
+```
+
+## Test
