@@ -87,7 +87,7 @@ echo "variable value: $variable" # updated value
 Executing the script in an interactive shell will result in the
 following output.
 
-```
+``` {.language-plaintext}
 $ ./script.sh
 variable value:
 variable value: updated value
@@ -97,7 +97,7 @@ The value of `variable` in the script's output remains empty in the case
 that `variable` is declared in the interactive shell before the script
 is executed.
 
-```
+``` {.language-plaintext}
 $ variable="initial value"
 $ echo "variable"
 variable
@@ -113,7 +113,7 @@ interpreter directive. The value of `variable` is not set in this new
 environment. To make the script inherit the value of a variable in the
 parent process, the variable must be _exported_.
 
-```
+``` {.language-plaintext}
 $ variable="initial value"
 $ export variable
 $ ./script.sh
@@ -128,7 +128,7 @@ parent process after the script terminates. If this behaviour is desired
 the script should be _sourced_ within the interactive shell. The
 `source` or `.` built-ins are the way this is achieved.
 
-```
+``` {.language-plaintext}
 $ variable="initial value"
 $ . ./script.sh
 variable value: initial value
@@ -156,7 +156,7 @@ In this script, the special variables are:
 
 Evaluated in an interactive shell, this script outputs the following:
 
-```
+``` {.language-plaintext}
 $ ./script.sh hello my name is alex
 5
 ./script.sh
